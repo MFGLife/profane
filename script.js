@@ -1,23 +1,77 @@
-/**
-The following pen is a comic page with the following features:
 
-* Fully responsive. Switching to mobile sizes will stack the comic vertically
-* Screen reader accessible with descriptive alt text of each panel
-* CC Mode that will provide the reader with a large copy of the text they can read in a sans-serif font.
+"use strict";
+(function () {
+	window.onload = () => {
+		const obj = document.querySelector("#gallery");
+		const time = 10000;
+		function animStart() {
+			if (obj.classList.contains("active") == false) {
+				obj.classList.add("active");
+				setTimeout(() => {
+					animEnd();
+				}, time);
+			}
+		}
+		function animEnd() {
+			obj.classList.remove("active");
+			obj.offsetWidth;
+		}
+		document.addEventListener("scroll", function () {
+			// scroll or scrollend
+			animStart();
+		});
+		window.addEventListener("resize", animStart);
+		animStart();
+	};
+})();
 
 
-Update: I now have this working oon my website, along with the ability to adjust closesd caption settings!
 
-Check it out at https://tavern-wenches.com/settings/#settings
+function energyAuditSend(){
+	window.parent.postMessage({ section: 'energyAuditActive()' }, 'https://luminafields.com');
+}
 
-**/
 
-const ccBtn = document.querySelector('.comic_cc');
-const comic = document.querySelector('.comic')
+function energyAuditActive(){
+  document.getElementById("energyAudit").style.display = "block";
+  document.getElementById("splash").style.display = "none";
+  document.getElementById("settingsMain").style.display = "none";
+  document.getElementById("schedule").style.display = "none";
+  navAudit.classList.add("active");
+  navHome.classList.remove("active");
+  navSchedule.classList.remove("active");
+  navSettings.classList.remove("active");
+}
 
-let ccBtnOn = false;
+function scheduleActive(){
+  document.getElementById("schedule").style.display = "block";
+  document.getElementById("energyAudit").style.display = "none";
+  document.getElementById("splash").style.display = "none";
+  document.getElementById("settingsMain").style.display = "none";
+  navHome.classList.remove("active");
+  navSchedule.classList.add("active");
+  navAudit.classList.remove("active");
+  navSettings.classList.remove("active");
+}
 
-ccBtn.addEventListener("click", (event) => {
-	ccBtnOn ? comic.classList.remove('cc') : comic.classList.add('cc');
-	ccBtnOn = !ccBtnOn
-})
+function splashActive(){
+  document.getElementById("energyAudit").style.display = "none";
+  document.getElementById("splash").style.display = "block";
+  document.getElementById("settingsMain").style.display = "none";
+  document.getElementById("schedule").style.display = "none";
+  navHome.classList.add("active");
+  navAudit.classList.remove("active");
+  navSchedule.classList.remove("active");
+  navSettings.classList.remove("active");
+}
+
+function settingsActive(){
+  document.getElementById("energyAudit").style.display = "none";
+  document.getElementById("splash").style.display = "none";
+  document.getElementById("settingsMain").style.display = "block";
+  document.getElementById("schedule").style.display = "none";
+  navSettings.classList.add("active");
+  navHome.classList.remove("active");
+  navAudit.classList.remove("active");
+  navSchedule.classList.remove("active");
+}
