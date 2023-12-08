@@ -1,3 +1,44 @@
+function populateGallery(foldersWithCaptions, imageCountPerFolder) {
+  const gallery = document.getElementById("gallery");
+
+  for (const [folder, caption] of Object.entries(foldersWithCaptions)) {
+    for (let i = 1; i <= imageCountPerFolder; i++) {
+      const figure = document.createElement("figure");
+
+      const img = document.createElement("img");
+      img.src = `pics/${folder}/${folder} (${i}).png`;
+      img.alt = "https://the-profane.com/";
+      img.title = "https://the-profane.com/";
+      img.style.width = '100%'; // Ensures the image takes the full width of the figure
+      img.style.height = 'auto'; // Maintains the aspect ratio of the image
+      img.style.objectFit = 'cover';
+      img.style.objectPosition = 'top';
+      figure.appendChild(img);
+
+      const figcaption = document.createElement("figcaption");
+      figcaption.textContent = caption;
+      figure.appendChild(figcaption);
+
+      gallery.appendChild(figure);
+    }
+  }
+}
+
+
+populateGallery({
+  'collective':'Collective',
+  'faxium':'Faxium',
+  'abzimuth':'Abzimuth',
+	'mercado':'Mercado',
+  'ventura':'Ventura',
+  'occidentica':'Occidentica',
+  'eventus':'Eventus',
+  'ironcoast':'Iron Coast',
+  'trantum':'Trantum'
+  // ... add other folders and captions as necessary
+}, 10); // Modify the image count as needed
+
+
 
 "use strict";
 (function () {
@@ -24,54 +65,3 @@
 		animStart();
 	};
 })();
-
-
-
-function energyAuditSend(){
-	window.parent.postMessage({ section: 'energyAuditActive()' }, 'https://luminafields.com');
-}
-
-
-function energyAuditActive(){
-  document.getElementById("energyAudit").style.display = "block";
-  document.getElementById("splash").style.display = "none";
-  document.getElementById("settingsMain").style.display = "none";
-  document.getElementById("schedule").style.display = "none";
-  navAudit.classList.add("active");
-  navHome.classList.remove("active");
-  navSchedule.classList.remove("active");
-  navSettings.classList.remove("active");
-}
-
-function scheduleActive(){
-  document.getElementById("schedule").style.display = "block";
-  document.getElementById("energyAudit").style.display = "none";
-  document.getElementById("splash").style.display = "none";
-  document.getElementById("settingsMain").style.display = "none";
-  navHome.classList.remove("active");
-  navSchedule.classList.add("active");
-  navAudit.classList.remove("active");
-  navSettings.classList.remove("active");
-}
-
-function splashActive(){
-  document.getElementById("energyAudit").style.display = "none";
-  document.getElementById("splash").style.display = "block";
-  document.getElementById("settingsMain").style.display = "none";
-  document.getElementById("schedule").style.display = "none";
-  navHome.classList.add("active");
-  navAudit.classList.remove("active");
-  navSchedule.classList.remove("active");
-  navSettings.classList.remove("active");
-}
-
-function settingsActive(){
-  document.getElementById("energyAudit").style.display = "none";
-  document.getElementById("splash").style.display = "none";
-  document.getElementById("settingsMain").style.display = "block";
-  document.getElementById("schedule").style.display = "none";
-  navSettings.classList.add("active");
-  navHome.classList.remove("active");
-  navAudit.classList.remove("active");
-  navSchedule.classList.remove("active");
-}
