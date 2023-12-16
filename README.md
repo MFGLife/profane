@@ -1,2 +1,2 @@
-# profane
-Comic
+# Lumina
+Homepage
