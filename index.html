@@ -1,358 +1,128 @@
-
-<html lang="en" >
+<html>
 <head>
-  <meta charset="UTF-8">
-  <title>The Profane</title>
-      <meta http-equiv="X-UA-Compatible" content="IE=edge">
-      <meta name="viewport" content="width=device-width, initial-scale=1">
-      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-      <META NAME="KEYWORDS" CONTENT="Data, Data School, DataSchool, DataSchools, Data Schools, School, Education, AI, Artificial Intelligence, Politics, Democrat, Republican, Conservative, Progressive">
-      <META NAME="ROBOTS" CONTENT="ALL,FOLLOW">
-          <meta name="description" content="Helping humans become more artificial">
-          <meta name="viewport" content="width=device-width, initial-scale=1">
-          <link rel="apple-touch-icon" sizes="180x180" href="pics/logo.jpg">
-              <link rel="icon" type="image/png" href="pics/logo.jpg" sizes="32x32">
-              <link rel="icon" type="image/png" href="pics/logo.jpg" sizes="16x16">
-              <link rel="mask-icon" href="pics/logo.jpg" color="#fff">
-              <link rel="shortcut icon" href="pics/logo.jpg">
-
-              <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
-            <link rel="stylesheet" href="./home.css">
-
-
-            </head>
-            <body>
-
-
-
-              <div class="app-container" style="z-index:999;">
-
-              <div class="app-content">
-                <button class="messages-btn">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-message-circle">
-                    <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z" /></svg>
-                </button>
-
-                <div class="projects-section">
-
-
-
-
-<div id="energyAudit" class="project-boxes" style="display: block; margin: 10px;">
-
-                    <button class="open-modal" onclick = "nextPhoto();birdBomb();randomActionAndColor()">View Profanities</button>
-
-                    <a id="descriptAll"></a>
-                    <br>
-                    <a id="descriptAll2"></a>
-  <iframe id="soulFrame" src="soul/index.html" width="100%" height="300px" style="border: none;"></iframe>
-  <div class="projects-section-line">
-
-    <div id="storyContainer"></div>
-
-
-
-
-</div>
-</div>
-</div>
-
-
-
-            <div class="messages-section">
-              <button class="messages-close">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-x-circle">
-                  <circle cx="12" cy="12" r="10" />
-                  <line x1="15" y1="9" x2="9" y2="15" />
-                  <line x1="9" y1="9" x2="15" y2="15" /></svg>
-              </button>
-              <div class="messages">
-<div class="message-box">
-    <div class="search-wrapper">
-      <a class="mode-switch app-sidebar-link" onclick="document.getElementById('popupIframe').src = '';" title="Switch Theme">
-        <svg class="link-icon" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="24" height="24" viewBox="0 0 24 24">
-          <defs></defs>
-          <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
-        </svg>
-      </a>
-      <input class="search-input" placeholder="Search" type="text" id="passcode" oninput="checkPasscode();">
-
-    </div>
-</div>
-
-<div class="message-box" id="mb1">
-  <section class="closed-book">
-      <header>
-          <h1 id="titleChange2">The Profane</h1>
-          <span>Pop.<font id="population">0</font></span>
-          <span>Avg.<font id="average">0</font></span>
-          <span>Hea.<font id="mainHeadingTotal">0</font></span>
-          <span>EmQ.<font id="mainHeadingAverage">0</font></span>
-          <br>
-          <font id="titleChange">Data</font>
-      </header>
-      <div id="reflectionsContainer"></div>
-
-    </div>
-
-
-
-
-<div class="message-box" style="display: flex; flex-wrap: wrap;">
-
-
-      <div style="flex: 0 0 calc(33% - 20px); margin: 10px;" class="box-progress-wrapper">
-        <p class="box-progress-header">Explorer: <font id="explorer"></font></p>
-        <div class="box-progress-bar">
-          <span class="explorer-progress box-progress" style="width: 0%"></span>
-
-        </div>
-        <p id="explorerbp" class="box-progress-percentage">0%</p>
-      </div>
-
-      <div style="flex: 0 0 calc(33% - 20px); margin: 10px;" class="box-progress-wrapper">
-        <p class="box-progress-header">Voyager: <font id="voyager"></font></p>
-        <div class="box-progress-bar">
-          <span class="voyager-progress box-progress" style="width: 0%"></span>
-
-        </div>
-        <p id="voyagerbp" class="box-progress-percentage">0%</p>
-      </div>
-
-      <div style="flex: 0 0 calc(33% - 20px); margin: 10px;" class="box-progress-wrapper">
-        <p class="box-progress-header">Captain: <font id="captain"></font></p>
-        <div class="box-progress-bar">
-          <span class="captain-progress box-progress" style="width: 0%"></span>
-
-        </div>
-        <p id="captainbp" class="box-progress-percentage">0%</p>
-      </div>
-
-      <div style="flex: 0 0 calc(33% - 20px); margin: 10px;" class="box-progress-wrapper">
-        <p class="box-progress-header">Merchant: <font id="merchant"></font></p>
-        <div class="box-progress-bar">
-          <span class="merchant-progress box-progress" style="width: 0%"></span>
-
-        </div>
-        <p id="merchantbp" class="box-progress-percentage">0%</p>
-      </div>
-
-      <div style="flex: 0 0 calc(33% - 20px); margin: 10px;" class="box-progress-wrapper">
-        <p class="box-progress-header">Shipwright: <font id="shipwright"></font></p>
-        <div class="box-progress-bar">
-          <span class="shipwright-progress box-progress" style="width: 0%"></span>
-
-        </div>
-        <p id="shipwrightbp" class="box-progress-percentage">0%</p>
-      </div>
-
-
-      <div style="flex: 0 0 calc(33% - 20px); margin: 10px;" class="box-progress-wrapper">
-        <p class="box-progress-header">Fisherman: <font id="fisherman"></font></p>
-        <div class="box-progress-bar">
-          <span class="fisherman-progress box-progress" style="width: 0%"></span>
-
-        </div>
-        <p id="fishermanbp" class="box-progress-percentage">0%</p>
-      </div>
-
-
-      <div style="flex: 0 0 calc(33% - 20px); margin: 10px;" class="box-progress-wrapper">
-        <p class="box-progress-header">Smuggler: <font id="smuggler"></font></p>
-        <div class="box-progress-bar">
-          <span class="smuggler-progress box-progress" style="width: 0%"></span>
-
-        </div>
-        <p id="smugglerbp" class="box-progress-percentage">0%</p>
-      </div>
-
-
-      <div style="flex: 0 0 calc(33% - 20px); margin: 10px;" class="box-progress-wrapper">
-        <p class="box-progress-header">Arbiter: <font id="arbiter"></font></p>
-        <div class="box-progress-bar">
-          <span class="arbiter-progress box-progress" style="width: 0%"></span>
-
-        </div>
-        <p id="arbiterbp" class="box-progress-percentage">0%</p>
-      </div>
-
-
-      <div style="flex: 0 0 calc(33% - 20px); margin: 10px;" class="box-progress-wrapper">
-        <p class="box-progress-header">Sailor: <font id="sailor"></font></p>
-        <div class="box-progress-bar">
-          <span class="sailor-progress box-progress" style="width: 0%"></span>
-
-        </div>
-        <p id="sailorbp" class="box-progress-percentage">0%</p>
-      </div>
-
-
-
-
-
-
-
-
-
-</div>
-
-
-
-
-
-
-
-
-    <div class="message-box" style="display: flex; flex-wrap: wrap;">
-      <div style="flex: 0 0 calc(33% - 20px); margin: 10px;" class="box-progress-wrapper">
-                 <p class="box-progress-header">Progressive: <font id="progressive"></font></p>
-                 <div class="box-progress-bar">
-                   <span class="progressive-progress box-progress" style="width: 0%; background-color: rgba(42,19,246,1)"></span>
-
-                 </div>
-                 <p id="progressivebp" class="box-progress-percentage">0%</p>
-               </div>
-
-               <div style="flex: 0 0 calc(33% - 20px); margin: 10px;" class="box-progress-wrapper">
-               <p class="box-progress-header">Conservative: <font id="conservative"></font></p>
-               <div class="box-progress-bar">
-    <span class="conservative-progress box-progress" style="width: 0%; background-color: rgba(230,0,0,1)"></span>
-              </div>
-               <p id="conservativebp" class="box-progress-percentage">0%</p>
-             </div>
-
-             <div style="flex: 0 0 calc(33% - 20px); margin: 10px;" class="box-progress-wrapper">
-               <p class="box-progress-header">Socialist: <font id="socialist"></font></p>
-               <div class="box-progress-bar">
-    <span class="socialist-progress box-progress" style="width: 60%; background-color: rgba(236,220,202,1)"></span>
-               </div>
-               <p id="socialistbp" class="box-progress-percentage">0%</p>
-             </div>
-
-             <div style="flex: 0 0 calc(33% - 20px); margin: 10px;" class="box-progress-wrapper">
-                        <p class="box-progress-header">Economist: <font id="economist"></font></p>
-                        <div class="box-progress-bar">
-             <span class="economist-progress box-progress" style="width: 0%; background-color: rgba(212,175,55,1)"></span>
-                        </div>
-                        <p id="economistbp" class="box-progress-percentage">0%</p>
-                      </div>
-
-
-                      <div style="flex: 0 0 calc(33% - 20px); margin: 10px;" class="box-progress-wrapper">
-               <p class="box-progress-header">Idealist: <font id="idealist"></font></p>
-               <div class="box-progress-bar">
-    <span class="idealist-progress box-progress" style="width: 0%; background-color: rgba(0,184,0,1)"></span>
-               </div>
-               <p id="idealistbp" class="box-progress-percentage">0%</p>
-             </div>
-
-
-             <div style="flex: 0 0 calc(33% - 20px); margin: 10px;" class="box-progress-wrapper">
-                        <p class="box-progress-header">Realist: <font id="realist"></font></p>
-                        <div class="box-progress-bar">
-             <span class="realist-progress box-progress" style="width: 60%; background-color: rgba(115,115,115,1)"></span>
-                        </div>
-                        <p id="realistbp" class="box-progress-percentage">40%</p>
-                      </div>
-
-                      <div style="flex: 0 0 calc(33% - 20px); margin: 10px;" class="box-progress-wrapper">
-                                <p class="box-progress-header">Globalist: <font id="globalist"></font></p>
-                                <div class="box-progress-bar">
-                     <span class="globalist-progress box-progress" style="width: 0%; background-color: rgba(137,67,35,1)"></span>
-                                </div>
-                                <p id="globalistbp" class="box-progress-percentage">0%</p>
-                              </div>
-
-
-                              <div style="flex: 0 0 calc(33% - 20px); margin: 10px;" class="box-progress-wrapper">
-              <p class="box-progress-header">Nationalist: <font id="nationalist"></font></p>
-              <div class="box-progress-bar">
-    <span class="nationalist-progress box-progress" style="width: 0%; background-color: rgba(47,204,181,1)"></span>
-              </div>
-              <p id="nationalistbp" class="box-progress-percentage">0%</p>
-            </div>
-
-            <div style="flex: 0 0 calc(33% - 20px); margin: 10px;" class="box-progress-wrapper">
-                       <p class="box-progress-header">Populist: <font id="populist"></font></p>
-                       <div class="box-progress-bar">
-            <span class="populist-progress box-progress" style="width: 0%; background-color: rgba(135,93,92,1)"></span>
-                       </div>
-                       <p id="populistbp" class="box-progress-percentage">0%</p>
-                     </div>
-
-    </div>
-
-
-<div class="message-box">
-              <!-- Upload Button -->
-               <input type="file" id="fileInput" accept=".txt" style="display: none;" onchange="loadFile(event)">
-               <button class="open-modal" onclick="document.getElementById('fileInput').click()">Upload File</button>
-               <!-- Export Button -->
-               <button class="open-modal" id="exportButton" onclick="exportToFile()">Export Edits</button>
-  </div>
-</div>
-<div class="message-box">
-  <!-- Editable Text Container -->
-<div id="textContainer" contenteditable="true" style="margin-top: 10px; border: none; padding: 20px; min-height: 100px; max-height: 80vh; overflow-y: auto;">
-<!-- Uploaded text will appear here -->
-</div>
-</div>
-
-<div class="message-box" style="display: flex; flex-wrap: wrap;">
-            <div style="flex: 0 0 calc(20% - 20px); margin: 10px;  font-size: 1.8em;" class="days-left" >
-              <a id="copyDogSymbol">🐕</a>
-            </div>
-            <div style="flex: 0 0 calc(20% - 20px); margin: 10px;  font-size: 1.8em;" class="days-left" >
-              <a id="copyexplorerSymbol">🐬</a>
-            </div>
-            <div style="flex: 0 0 calc(20% - 20px); margin: 10px;  font-size: 1.8em;" class="days-left" >
-              <a id="copyarbiterSymbol">🐈</a>
-            </div>
-            <div style="flex: 0 0 calc(20% - 20px); margin: 10px;  font-size: 1.8em;" class="days-left" >
-              <a id="copymerchantSymbol">🦉</a>
-            </div>
-            <div style="flex: 0 0 calc(20% - 20px); margin: 10px;  font-size: 1.8em;" class="days-left" >
-              <a id="copysmugglerSymbol">🦘</a>
-            </div>
-            <div style="flex: 0 0 calc(20% - 20px); margin: 10px;  font-size: 1.8em;" class="days-left" >
-              <a id="copysailorSymbol">🦜</a>
-            </div>
-            <div style="flex: 0 0 calc(20% - 20px); margin: 10px;  font-size: 1.8em;" class="days-left" >
-              <a id="copyvoyagerSymbol">🐢</a>
-            </div>
-            <div style="flex: 0 0 calc(20% - 20px); margin: 10px;  font-size: 1.8em;" class="days-left" >
-              <a id="copyshipwrightSymbol">🦔</a>
-            </div>
-            <div style="flex: 0 0 calc(20% - 20px); margin: 10px;  font-size: 1.8em;" class="days-left" >
-              <a id="copycaptainSymbol">🐙</a>
-            </div>
-            <div style="flex: 0 0 calc(20% - 20px); margin: 10px;  font-size: 1.8em;" class="days-left" >
-              <a id="copyfishermanSymbol">🐧</a>
-            </div>
-</div>
-
-
-
-
-
-
-            </div>
-            </div>
-            </div>
-            <!-- partial -->
-              <script  src="home.js"></script>
-              <script  src="upload.js"></script>
-              <script src="populations.js"></script>
-  <script  src="story.js"></script>
-  <script  src="collection.js"></script>
-
-
-
-
-
-
-
-
-
-            </body>
-            </html>
+	<title>Viewer3D</title>
+	<meta name="viewport" content="width=device-width, user-scalable=no">
+	<link rel='stylesheet' type='text/css' href='viewer.css'/>
+	<link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet">
+	<script src="https://kit.fontawesome.com/daa834e337.js" crossorigin="anonymous"></script>
+	<style>
+	
+	body {
+		padding: 0;
+		margin: 0;
+		font-family: 'Open Sans', 'Oswald', Arial;
+		user-select: none;
+		background: #f5f5f5;
+	}
+	
+	</style>
+</head>
+<body>
+	<div class='wrapper'>
+	    <div class='header'>
+	        <div class='header-left'> 
+	            <div class='header-item' id='toggleModelBrowser'>
+	                <div class='header-icon'><i class='fa fa-sitemap'></i></div>
+	                <div class='header-title'>Model Browser</div>
+	            </div>
+	            <input type='file' id='fileInput' style='display: none;' accept='.glb'>
+	            <label for='fileInput' class='header-item' id='browseModelBtn'>
+	                <div class='header-icon'><i class='fa fa-folder'></i></div>
+	                <div class='header-title'>Browse .GLB File</div>
+	            </label>
+	        </div>
+	        <div class='header-right'>
+	            <div class='header-item' id='downloadScreen'>
+	                <div class='header-icon'><i class='fa fa-camera'></i></div>
+	                <div class='header-title'>Screenshot</div>
+	            </div>
+	            <div class='header-item' id='toggleShare'>
+	                <div class='header-icon'><i class='fa fa-share-alt'></i></div>
+	                <div class='header-title'>Share</div>
+	            </div>
+	        </div>
+	    </div>
+	    <div class='viewer-wrapper'>
+	        <div id='viewerCanvasWrapper'></div>
+	        <div class='slider-container' id='explodeSliderWrapper'  style='display: none;'>
+	            <div class='explode-content'>
+	                <input type='range' min='0' max='10' step='0.01' value='1' class='slider' id='explodeSlider'>
+	                <label class="cb-container">Explode Face (may cause lags!)
+	                    <input type="checkbox" id="explodeFace">
+	                    <span class="checkmark"></span>
+	                </label>
+	            </div>
+	        </div>
+	        <div class='left-sidebar' id='modelBrowser' style='display: none;'>
+	            <div class='sidebar-content' id='modelBrowserContent'>
+	                <div class='graph-item-wrapper'>
+	                    <div class='graph-item'>
+	                        <div class='graph-left'>
+	                            <div class='graph-folder'>
+	                                <i class='fa fa-folder'></i>
+	                            </div>
+	                            <div class='graph-name'>Test Scene</div>
+	                        </div>
+	                        <div class='graph-right'>
+	                            <div class='graph-visible'>
+	                                <i class='fa fa-eye'></i>
+	                            </div>
+	                        </div>
+	                    </div>
+	                </div>
+	            </div>
+	        </div>
+	        <div class='right-container'>
+	            <div id='backToHome'><i class='fa fa-home'></i></div>
+	            <div id='orientCubeWrapper'></div>
+	        </div>
+	        <div class='share-sidebar' id='shareSidebar' style='display: none;'>
+	            <h1 class='sidebar-title'>Some content here!</h1>
+	        </div>
+	        <div class='loader' id='loader'>
+	            <div class='loader-text' id='loaderInfo'>Loading...</div>
+	            <div class='loader-spinner'></div>
+	        </div>
+	    </div>
+	    <div class='footer'>
+	        <div class='footer-item' id='resetBtn'>
+	            <div class='footer-icon'><i class='fa fa-home'></i></div>
+	            <div class='footer-title'>Home</div>
+	        </div>
+	        <div class='footer-item' id='toggleMeasure'>
+	            <div class='footer-icon'><i class='	fas fa-ruler'></i></div>
+	            <div class='footer-title'>Measure</div>
+	        </div>
+	        <div class='footer-item item-selected' id='toggleOrbit'>
+	            <div class='footer-icon'><i class="fa fa-street-view"></i></div>
+	            <div class='footer-title'>Orbit</div>
+	        </div>
+	        <div class='footer-item' id='togglePan'>
+	            <div class='footer-icon'><i class='fa fa-arrows'></i></div>
+	            <div class='footer-title'>Pan</div>
+	        </div>
+	        <div class='footer-item' id='toggleZoom'>
+	            <div class='footer-icon'><i class='fa fa-search-plus'></i></div>
+	            <div class='footer-title'>Zoom</div>
+	        </div>
+	        <div class='footer-item' id='toggleExplode'>
+	            <div class='footer-icon'><i class='fa fa-cube'></i></div>
+	            <div class='footer-title'>Explode</div>
+	        </div>
+	    </div>
+	</div>
+
+	<script src='vendor/three.min.js'></script>
+	<script src='vendor/OrbitControls.js'></script>
+	<script src='vendor/GLTFLoader.js'></script>
+	<script src='viewer.js'></script>
+	<script>
+	
+	window.onload = () => {
+		let v = Viewer();
+		v.loadModel('models/pistol.glb');
+	}
+
+	</script>
+</body>
+</html>
