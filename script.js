@@ -1,150 +1,215 @@
-import * as THREE from 'https://threejs.org/build/three.module.js';
-import { ARButton } from 'https://threejs.org/examples/jsm/webxr/ARButton.js';
+// Markers can be found at https://github.com/iondrimba/augmented-reality
 
-var container;
-var camera, scene, renderer;
-var controller;
+class App {
+  init() {
+    this.icosahedron = this.getIcosahedron(0xff005c);
+    this.velocity = .08;
+    this.angle = 0;
 
-var reticle;
+    this.patterns = [{
+      id: 'hiro',
+      mesh: this.getHole() },
+    {
+      id: 'letterA',
+      mesh: this.getTourus() },
 
-var hitTestSource = null;
-var hitTestSourceRequested = false;
+    {
+      id: 'letterB',
+      mesh: this.getIcosahedron() },
 
-init();
-animate();
+    {
+      id: 'letterC',
+      mesh: this.getSphere() }];
 
-function init() {
 
-  container = document.createElement('div');
-  document.body.appendChild(container);
+    this.createScene();
+    this.createCamera();
+    this.addAmbientLight();
+    this.addSpotLight();
+    this.addRectLight();
 
-  scene = new THREE.Scene();
+    this.setupARToolkitContext();
+    this.setupARToolkitSource();
+    this.mapMarkersWithMeshes();
 
-  camera = new THREE.PerspectiveCamera(70, window.innerWidth / window.innerHeight, 0.01, 20);
-
-  var light = new THREE.HemisphereLight(0xffffff, 0xbbbbff, 1);
-  light.position.set(0.5, 1, 0.25);
-  scene.add(light);
-
-  //
-
-  renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
-  renderer.setPixelRatio(window.devicePixelRatio);
-  renderer.setSize(window.innerWidth, window.innerHeight);
-  renderer.xr.enabled = true;
-  container.appendChild(renderer.domElement);
-
-  //
-
-  document.body.appendChild(ARButton.createButton(renderer, { requiredFeatures: ['hit-test'] }));
-
-  // Create a cube geometry (instead of cylinder)
-  var geometry = new THREE.BoxGeometry(0.2, 0.2, 0.2);
-
-  function onSelect() {
-
-    if (reticle.visible) {
-
-      var material = new THREE.MeshPhongMaterial({ color: 0xffffff * Math.random() });
-      var mesh = new THREE.Mesh(geometry, material);
-
-      // Position the cube based on coordinates (modify as needed)
-      mesh.position.set(0.5, 1, -1);
-
-      scene.add(mesh);
-
-    }
-
+    this.animate();
   }
 
-  controller = renderer.xr.getController(0);
-  controller.addEventListener('select', onSelect);
-  scene.add(controller);
+  createScene() {
+    this.scene = new THREE.Scene();
 
-  reticle = new THREE.Mesh(
-    new THREE.RingBufferGeometry(0.15, 0.2, 32).rotateX(-Math.PI / 2),
-    new THREE.MeshBasicMaterial()
-  );
-  reticle.matrixAutoUpdate = false;
-  reticle.visible = false;
-  scene.add(reticle);
+    this.renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+    this.renderer.setClearColor(0x000000, 0);
+    this.renderer.setSize(640, 480);
 
-  //
+    this.renderer.shadowMap.enabled = true;
+    this.renderer.shadowMap.type = THREE.PCFSoftShadowMap;
 
-  window.addEventListener('resize', onWindowResize, false);
+    document.body.appendChild(this.renderer.domElement);
+  }
 
-}
+  createCamera() {
+    const width = window.innerWidth;
+    const height = window.innerHeight;
+
+    this.camera = new THREE.OrthographicCamera(width / -2, width / 2, height / 2, height / -2, 1, 1000);
+
+    this.scene.add(this.camera);
+  }
+
+  addRectLight() {
+    const rectLight = new THREE.RectAreaLight('#0077ff', 1, 2000, 2000);
+
+    rectLight.position.set(5, 50, 0);
+    rectLight.lookAt(0, 0, 0);
+
+    this.scene.add(rectLight);
+  }
+
+  addSpotLight() {
+    const spotLight = new THREE.SpotLight(0xffffff);
+
+    spotLight.position.set(0, 50, 0);
+    spotLight.castShadow = true;
+
+    this.scene.add(spotLight);
+  }
+
+  addAmbientLight() {
+    this.scene.add(new THREE.AmbientLight(0xffffff));
+  }
+
+  setupARToolkitContext() {
+    this.arToolkitContext = new THREEx.ArToolkitContext({
+      cameraParametersUrl: 'https://iondrimba.github.io/augmented-reality/public/data/camera_para.dat',
+      detectionMode: 'mono' });
 
 
+    this.arToolkitContext.init(() => {
+      this.camera.projectionMatrix.copy(this.arToolkitContext.getProjectionMatrix());
+    });
+  }
 
-			function onWindowResize() {
+  setupARToolkitSource() {
+    this.arToolkitSource = new THREEx.ArToolkitSource({
+      sourceType: 'webcam' });
 
-				camera.aspect = window.innerWidth / window.innerHeight;
-				camera.updateProjectionMatrix();
 
-				renderer.setSize( window.innerWidth, window.innerHeight );
+    this.arToolkitSource.init(() => {
+      this.onResize();
+    });
+  }
 
-			}
+  getTourus() {
+    const mesh = new THREE.Mesh(new THREE.TorusBufferGeometry(10, 3, 16, 100), new THREE.MeshPhysicalMaterial({
+      color: 0xff00ff,
+      metalness: .58,
+      emissive: '#000000',
+      roughness: .18 }));
 
-			//
 
-			function animate() {
+    mesh.scale.set(.1, .1, .1);
+    mesh.position.set(0, 2, 0);
 
-				renderer.setAnimationLoop( render );
+    return mesh;
+  }
 
-			}
+  getIcosahedron(color = 0x00ff00) {
+    const mesh = new THREE.Mesh(new THREE.IcosahedronGeometry(1, 0), new THREE.MeshPhysicalMaterial({
+      color,
+      metalness: .58,
+      emissive: '#000000',
+      roughness: .18 }));
 
-			function render( timestamp, frame ) {
 
-				if ( frame ) {
+    mesh.position.set(0, 2, 0);
 
-					var referenceSpace = renderer.xr.getReferenceSpace();
-					var session = renderer.xr.getSession();
+    return mesh;
+  }
 
-					if ( hitTestSourceRequested === false ) {
+  getSphere() {
+    const mesh = new THREE.Mesh(new THREE.SphereGeometry(1, 32, 32), new THREE.MeshPhysicalMaterial({
+      color: 0x0986f5,
+      metalness: .58,
+      emissive: '#000000',
+      roughness: .18 }));
 
-						session.requestReferenceSpace( 'viewer' ).then( function ( referenceSpace ) {
 
-							session.requestHitTestSource( { space: referenceSpace } ).then( function ( source ) {
+    mesh.position.set(0, 2, 0);
 
-								hitTestSource = source;
+    return mesh;
+  }
 
-							} );
+  getHole() {
+    const group = new THREE.Group();
+    const cube = new THREE.Mesh(new THREE.BoxGeometry(2, 2, 2), new THREE.MeshPhysicalMaterial({ color: 0xffffff, side: THREE.BackSide, transparent: true }));
+    cube.position.y = -1;
 
-						} );
+    group.add(cube);
 
-						session.addEventListener( 'end', function () {
+    const geometry = new THREE.PlaneGeometry(18, 18, 9, 9);
+    geometry.faces.splice(80, 2);
+    geometry.faceVertexUvs[0].splice(80, 2);
 
-							hitTestSourceRequested = false;
-							hitTestSource = null;
+    const mesh = new THREE.Mesh(geometry, new THREE.MeshBasicMaterial({ colorWrite: false }));
+    mesh.rotation.x = -Math.PI / 2;
 
-						} );
+    group.add(mesh);
 
-						hitTestSourceRequested = true;
+    this.icosahedron = this.getIcosahedron(0xff005c);
+    this.icosahedron.position.y = -.5;
+    this.icosahedron.scale.set(.5, .5, .5);
 
-					}
+    group.add(this.icosahedron);
 
-					if ( hitTestSource ) {
+    return group;
+  }
 
-						var hitTestResults = frame.getHitTestResults( hitTestSource );
+  mapMarkersWithMeshes() {
+    this.patterns.map(pattern => {
+      const markerRoot = new THREE.Group();
 
-						if ( hitTestResults.length ) {
+      this.scene.add(markerRoot);
 
-							var hit = hitTestResults[ 0 ];
+      new THREEx.ArMarkerControls(this.arToolkitContext, markerRoot, {
+        type: 'pattern', patternUrl: `https://iondrimba.github.io/augmented-reality/public/data/${pattern.id}.patt` });
 
-							reticle.visible = true;
-							reticle.matrix.fromArray( hit.getPose( referenceSpace ).transform.matrix );
 
-						} else {
+      markerRoot.add(pattern.mesh);
+    });
+  }
 
-							reticle.visible = false;
+  onResize() {
+    this.arToolkitSource.onResizeElement();
+    this.arToolkitSource.copyElementSizeTo(this.renderer.domElement);
 
-						}
+    if (this.arToolkitContext.arController) {
+      this.arToolkitSource.copyElementSizeTo(this.arToolkitContext.arController.canvas);
+    }
+  }
 
-					}
+  animate() {
+    this.renderer.render(this.scene, this.camera);
 
-				}
+    this.patterns[1].mesh.rotation.y += .05;
+    this.patterns[2].mesh.rotation.y += .05;
 
-				renderer.render( scene, camera );
+    this.patterns[1].mesh.rotation.x -= .08;
+    this.patterns[2].mesh.rotation.x -= .08;
 
-			}
+    this.icosahedron.rotation.y += .05;
+    this.icosahedron.rotation.x -= .08;
+
+    this.patterns[3].mesh.position.x = Math.sin(this.angle);
+
+    if (this.arToolkitSource && this.arToolkitSource.ready) {
+      this.arToolkitContext.update(this.arToolkitSource.domElement);
+    }
+
+    this.angle += this.velocity;
+
+    requestAnimationFrame(this.animate.bind(this));
+  }}
+
+
+new App().init();
