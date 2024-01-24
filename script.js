@@ -1,78 +1,81 @@
 import * as THREE from 'https://threejs.org/build/three.module.js';
-			import { ARButton } from 'https://threejs.org/examples/jsm/webxr/ARButton.js';
+import { ARButton } from 'https://threejs.org/examples/jsm/webxr/ARButton.js';
 
-			var container;
-			var camera, scene, renderer;
-			var controller;
+var container;
+var camera, scene, renderer;
+var controller;
 
-			var reticle;
+var reticle;
 
-			var hitTestSource = null;
-			var hitTestSourceRequested = false;
+var hitTestSource = null;
+var hitTestSourceRequested = false;
 
-			init();
-			animate();
+init();
+animate();
 
-			function init() {
+function init() {
 
-				container = document.createElement( 'div' );
-				document.body.appendChild( container );
+  container = document.createElement('div');
+  document.body.appendChild(container);
 
-				scene = new THREE.Scene();
+  scene = new THREE.Scene();
 
-				camera = new THREE.PerspectiveCamera( 70, window.innerWidth / window.innerHeight, 0.01, 20 );
+  camera = new THREE.PerspectiveCamera(70, window.innerWidth / window.innerHeight, 0.01, 20);
 
-				var light = new THREE.HemisphereLight( 0xffffff, 0xbbbbff, 1 );
-				light.position.set( 0.5, 1, 0.25 );
-				scene.add( light );
+  var light = new THREE.HemisphereLight(0xffffff, 0xbbbbff, 1);
+  light.position.set(0.5, 1, 0.25);
+  scene.add(light);
 
-				//
+  //
 
-				renderer = new THREE.WebGLRenderer( { antialias: true, alpha: true } );
-				renderer.setPixelRatio( window.devicePixelRatio );
-				renderer.setSize( window.innerWidth, window.innerHeight );
-				renderer.xr.enabled = true;
-				container.appendChild( renderer.domElement );
+  renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+  renderer.setPixelRatio(window.devicePixelRatio);
+  renderer.setSize(window.innerWidth, window.innerHeight);
+  renderer.xr.enabled = true;
+  container.appendChild(renderer.domElement);
 
-				//
+  //
 
-				document.body.appendChild( ARButton.createButton( renderer, { requiredFeatures: [ 'hit-test' ] } ) );
+  document.body.appendChild(ARButton.createButton(renderer, { requiredFeatures: ['hit-test'] }));
 
-				//
+  // Create a cube geometry (instead of cylinder)
+  var geometry = new THREE.BoxGeometry(0.2, 0.2, 0.2);
 
-				var geometry = new THREE.CylinderBufferGeometry( 0.1, 0.1, 0.2, 32 ).translate( 0, 0.1, 0 );
+  function onSelect() {
 
-				function onSelect() {
+    if (reticle.visible) {
 
-					if ( reticle.visible ) {
+      var material = new THREE.MeshPhongMaterial({ color: 0xffffff * Math.random() });
+      var mesh = new THREE.Mesh(geometry, material);
 
-						var material = new THREE.MeshPhongMaterial( { color: 0xffffff * Math.random() } );
-						var mesh = new THREE.Mesh( geometry, material );
-						mesh.position.setFromMatrixPosition( reticle.matrix );
-						mesh.scale.y = Math.random() * 2 + 1;
-						scene.add( mesh );
+      // Position the cube based on coordinates (modify as needed)
+      mesh.position.set(0.5, 1, -1);
 
-					}
+      scene.add(mesh);
 
-				}
+    }
 
-				controller = renderer.xr.getController( 0 );
-				controller.addEventListener( 'select', onSelect );
-				scene.add( controller );
+  }
 
-				reticle = new THREE.Mesh(
-					new THREE.RingBufferGeometry( 0.15, 0.2, 32 ).rotateX( - Math.PI / 2 ),
-					new THREE.MeshBasicMaterial()
-				);
-				reticle.matrixAutoUpdate = false;
-				reticle.visible = false;
-				scene.add( reticle );
+  controller = renderer.xr.getController(0);
+  controller.addEventListener('select', onSelect);
+  scene.add(controller);
 
-				//
+  reticle = new THREE.Mesh(
+    new THREE.RingBufferGeometry(0.15, 0.2, 32).rotateX(-Math.PI / 2),
+    new THREE.MeshBasicMaterial()
+  );
+  reticle.matrixAutoUpdate = false;
+  reticle.visible = false;
+  scene.add(reticle);
 
-				window.addEventListener( 'resize', onWindowResize, false );
+  //
 
-			}
+  window.addEventListener('resize', onWindowResize, false);
+
+}
+
+
 
 			function onWindowResize() {
 
