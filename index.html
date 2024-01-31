@@ -1,58 +1,358 @@
-<!DOCTYPE html>
-<html lang="en">
 
+<html lang="en" >
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
-  <meta name="theme-color" content="#f14a4a">
-  <meta name="application-name" content="Playing with Augmented Reality (Ar.js)">
-  <meta name="description" content="Playing with Augmented Reality (AR.js)">
-  <meta name="keywords" content="Threejs, Javascript, WebGl, Augmented Reality, Micheal Salmon">
-  <meta name="subject" content="Playing with Augmented Reality (Ar.js)">
-  <meta name="copyright" content="Micheal Salmon">
-  <meta name="robots" content="index,follow">
-  <meta name="topic" content="">
-  <meta name="summary" content="Playing with Augmented Reality (Ar.js)">
-  <meta name="author" content="Micheal Salmon">
-  <meta name="url" content="https://the-profane.com">
-  <meta name="pagename" content="Playing with Augmented Reality (Ar.js)">
-  <meta name="category" content="">
-  <meta name="coverage" content="Worldwide">
-  <meta name="distribution" content="Global">
-  <meta name="rating" content="General">
-  <meta name="subtitle" content="Playing with Augmented Reality (Ar.js)">
-  <meta name="target" content="all">
-  <meta http-equiv="cleartype" content="on">
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:site" content="Playing with Augmented Reality (Ar.js)">
-  <meta name="twitter:creator" content="Micheal Salmon">
-  <meta name="twitter:title" content="Playing with Augmented Reality (Ar.js)">
-  <meta name="twitter:description" content="Playing with Augmented Reality (Ar.js)">
-  <meta name="twitter:image:src" content="https://raw.githubusercontent.com/iondrimba/images/master/augmented-reality.PNG">
-  <meta property="og:url" content="https://the-profane.com">
-  <meta property="og:type" content="website">
-  <meta property="og:title" content="Playing with Augmented Reality (Ar.js) -Playing with  Augmented Reality (AR.js)">
-  <meta property="og:image" content="https://raw.githubusercontent.com/iondrimba/images/master/augmented-reality.PNG">
-  <meta property="og:description" content="Playing with Augmented Reality (AR.js)">
-  <meta property="og:site_name" content="Playing with Augmented Reality (Ar.js)">
-  <meta property="article:author" content="https://iondrimbafilho.me/">
-  <meta property="article:publisher" content="https://iondrimbafilho.me/">
-  <meta itemprop="name" content="Playing with Augmented Reality (Ar.js)">
-  <meta itemprop="description" content="Playing with Augmented Reality (AR.js)">
-  <meta itemprop="image" content="https://raw.githubusercontent.com/iondrimba/images/master/augmented-reality.PNG">
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="mobile-web-app-capable" content="yes">
   <title>The Profane</title>
-  <link href="https://fonts.googleapis.com/css?family=Ropa+Sans" rel="stylesheet">
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/103/three.min.js"></script>
-  <script src="https://Threejs.org/examples/js/controls/OrbitControls.js"></script>
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <META NAME="KEYWORDS" CONTENT="Data, Data School, DataSchool, DataSchools, Data Schools, School, Education, AI, Artificial Intelligence, Politics, Democrat, Republican, Conservative, Progressive">
+      <META NAME="ROBOTS" CONTENT="ALL,FOLLOW">
+          <meta name="description" content="Helping humans become more artificial">
+          <meta name="viewport" content="width=device-width, initial-scale=1">
+          <link rel="apple-touch-icon" sizes="180x180" href="pics/logo.jpg">
+              <link rel="icon" type="image/png" href="pics/logo.jpg" sizes="32x32">
+              <link rel="icon" type="image/png" href="pics/logo.jpg" sizes="16x16">
+              <link rel="mask-icon" href="pics/logo.jpg" color="#fff">
+              <link rel="shortcut icon" href="pics/logo.jpg">
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.20.3/TweenMax.min.js"></script>
-  <script src="./scripts/ar.js"></script>
-<link href="app.6ae0fa47581c2d4e095b.css" rel="stylesheet"></head>
+              <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+            <link rel="stylesheet" href="./home.css">
 
-<body>
-  <div class="loader"></div>
-<script type="text/javascript" src="app.6ae0fa47581c2d4e095b.js"></script></body>
 
-</html>
+            </head>
+            <body>
+
+
+
+              <div class="app-container" style="z-index:999;">
+
+              <div class="app-content">
+                <button class="messages-btn">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-message-circle">
+                    <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z" /></svg>
+                </button>
+
+                <div class="projects-section">
+
+
+
+
+<div id="energyAudit" class="project-boxes" style="display: block; margin: 10px;">
+
+                    <button class="open-modal" onclick = "nextPhoto();birdBomb();randomActionAndColor()">View Profanities</button>
+
+                    <a id="descriptAll"></a>
+                    <br>
+                    <a id="descriptAll2"></a>
+  <iframe id="soulFrame" src="soul/index.html" width="100%" height="300px" style="border: none;"></iframe>
+  <div class="projects-section-line">
+
+    <div id="storyContainer"></div>
+
+
+
+
+</div>
+</div>
+</div>
+
+
+
+            <div class="messages-section">
+              <button class="messages-close">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-x-circle">
+                  <circle cx="12" cy="12" r="10" />
+                  <line x1="15" y1="9" x2="9" y2="15" />
+                  <line x1="9" y1="9" x2="15" y2="15" /></svg>
+              </button>
+              <div class="messages">
+<div class="message-box">
+    <div class="search-wrapper">
+      <a class="mode-switch app-sidebar-link" onclick="document.getElementById('popupIframe').src = '';" title="Switch Theme">
+        <svg class="link-icon" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="24" height="24" viewBox="0 0 24 24">
+          <defs></defs>
+          <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+        </svg>
+      </a>
+      <input class="search-input" placeholder="Search" type="text" id="passcode" oninput="checkPasscode();">
+
+    </div>
+</div>
+
+<div class="message-box" id="mb1">
+  <section class="closed-book">
+      <header>
+          <h1 id="titleChange2">The Profane</h1>
+          <span>Pop.<font id="population">0</font></span>
+          <span>Avg.<font id="average">0</font></span>
+          <span>Hea.<font id="mainHeadingTotal">0</font></span>
+          <span>EmQ.<font id="mainHeadingAverage">0</font></span>
+          <br>
+          <font id="titleChange">Data</font>
+      </header>
+      <div id="reflectionsContainer"></div>
+
+    </div>
+
+
+
+
+<div class="message-box" style="display: flex; flex-wrap: wrap;">
+
+
+      <div style="flex: 0 0 calc(33% - 20px); margin: 10px;" class="box-progress-wrapper">
+        <p class="box-progress-header">Explorer: <font id="explorer"></font></p>
+        <div class="box-progress-bar">
+          <span class="explorer-progress box-progress" style="width: 0%"></span>
+
+        </div>
+        <p id="explorerbp" class="box-progress-percentage">0%</p>
+      </div>
+
+      <div style="flex: 0 0 calc(33% - 20px); margin: 10px;" class="box-progress-wrapper">
+        <p class="box-progress-header">Voyager: <font id="voyager"></font></p>
+        <div class="box-progress-bar">
+          <span class="voyager-progress box-progress" style="width: 0%"></span>
+
+        </div>
+        <p id="voyagerbp" class="box-progress-percentage">0%</p>
+      </div>
+
+      <div style="flex: 0 0 calc(33% - 20px); margin: 10px;" class="box-progress-wrapper">
+        <p class="box-progress-header">Captain: <font id="captain"></font></p>
+        <div class="box-progress-bar">
+          <span class="captain-progress box-progress" style="width: 0%"></span>
+
+        </div>
+        <p id="captainbp" class="box-progress-percentage">0%</p>
+      </div>
+
+      <div style="flex: 0 0 calc(33% - 20px); margin: 10px;" class="box-progress-wrapper">
+        <p class="box-progress-header">Merchant: <font id="merchant"></font></p>
+        <div class="box-progress-bar">
+          <span class="merchant-progress box-progress" style="width: 0%"></span>
+
+        </div>
+        <p id="merchantbp" class="box-progress-percentage">0%</p>
+      </div>
+
+      <div style="flex: 0 0 calc(33% - 20px); margin: 10px;" class="box-progress-wrapper">
+        <p class="box-progress-header">Shipwright: <font id="shipwright"></font></p>
+        <div class="box-progress-bar">
+          <span class="shipwright-progress box-progress" style="width: 0%"></span>
+
+        </div>
+        <p id="shipwrightbp" class="box-progress-percentage">0%</p>
+      </div>
+
+
+      <div style="flex: 0 0 calc(33% - 20px); margin: 10px;" class="box-progress-wrapper">
+        <p class="box-progress-header">Fisherman: <font id="fisherman"></font></p>
+        <div class="box-progress-bar">
+          <span class="fisherman-progress box-progress" style="width: 0%"></span>
+
+        </div>
+        <p id="fishermanbp" class="box-progress-percentage">0%</p>
+      </div>
+
+
+      <div style="flex: 0 0 calc(33% - 20px); margin: 10px;" class="box-progress-wrapper">
+        <p class="box-progress-header">Smuggler: <font id="smuggler"></font></p>
+        <div class="box-progress-bar">
+          <span class="smuggler-progress box-progress" style="width: 0%"></span>
+
+        </div>
+        <p id="smugglerbp" class="box-progress-percentage">0%</p>
+      </div>
+
+
+      <div style="flex: 0 0 calc(33% - 20px); margin: 10px;" class="box-progress-wrapper">
+        <p class="box-progress-header">Arbiter: <font id="arbiter"></font></p>
+        <div class="box-progress-bar">
+          <span class="arbiter-progress box-progress" style="width: 0%"></span>
+
+        </div>
+        <p id="arbiterbp" class="box-progress-percentage">0%</p>
+      </div>
+
+
+      <div style="flex: 0 0 calc(33% - 20px); margin: 10px;" class="box-progress-wrapper">
+        <p class="box-progress-header">Sailor: <font id="sailor"></font></p>
+        <div class="box-progress-bar">
+          <span class="sailor-progress box-progress" style="width: 0%"></span>
+
+        </div>
+        <p id="sailorbp" class="box-progress-percentage">0%</p>
+      </div>
+
+
+
+
+
+
+
+
+
+</div>
+
+
+
+
+
+
+
+
+    <div class="message-box" style="display: flex; flex-wrap: wrap;">
+      <div style="flex: 0 0 calc(33% - 20px); margin: 10px;" class="box-progress-wrapper">
+                 <p class="box-progress-header">Progressive: <font id="progressive"></font></p>
+                 <div class="box-progress-bar">
+                   <span class="progressive-progress box-progress" style="width: 0%; background-color: rgba(42,19,246,1)"></span>
+
+                 </div>
+                 <p id="progressivebp" class="box-progress-percentage">0%</p>
+               </div>
+
+               <div style="flex: 0 0 calc(33% - 20px); margin: 10px;" class="box-progress-wrapper">
+               <p class="box-progress-header">Conservative: <font id="conservative"></font></p>
+               <div class="box-progress-bar">
+    <span class="conservative-progress box-progress" style="width: 0%; background-color: rgba(230,0,0,1)"></span>
+              </div>
+               <p id="conservativebp" class="box-progress-percentage">0%</p>
+             </div>
+
+             <div style="flex: 0 0 calc(33% - 20px); margin: 10px;" class="box-progress-wrapper">
+               <p class="box-progress-header">Socialist: <font id="socialist"></font></p>
+               <div class="box-progress-bar">
+    <span class="socialist-progress box-progress" style="width: 60%; background-color: rgba(236,220,202,1)"></span>
+               </div>
+               <p id="socialistbp" class="box-progress-percentage">0%</p>
+             </div>
+
+             <div style="flex: 0 0 calc(33% - 20px); margin: 10px;" class="box-progress-wrapper">
+                        <p class="box-progress-header">Economist: <font id="economist"></font></p>
+                        <div class="box-progress-bar">
+             <span class="economist-progress box-progress" style="width: 0%; background-color: rgba(212,175,55,1)"></span>
+                        </div>
+                        <p id="economistbp" class="box-progress-percentage">0%</p>
+                      </div>
+
+
+                      <div style="flex: 0 0 calc(33% - 20px); margin: 10px;" class="box-progress-wrapper">
+               <p class="box-progress-header">Idealist: <font id="idealist"></font></p>
+               <div class="box-progress-bar">
+    <span class="idealist-progress box-progress" style="width: 0%; background-color: rgba(0,184,0,1)"></span>
+               </div>
+               <p id="idealistbp" class="box-progress-percentage">0%</p>
+             </div>
+
+
+             <div style="flex: 0 0 calc(33% - 20px); margin: 10px;" class="box-progress-wrapper">
+                        <p class="box-progress-header">Realist: <font id="realist"></font></p>
+                        <div class="box-progress-bar">
+             <span class="realist-progress box-progress" style="width: 60%; background-color: rgba(115,115,115,1)"></span>
+                        </div>
+                        <p id="realistbp" class="box-progress-percentage">40%</p>
+                      </div>
+
+                      <div style="flex: 0 0 calc(33% - 20px); margin: 10px;" class="box-progress-wrapper">
+                                <p class="box-progress-header">Globalist: <font id="globalist"></font></p>
+                                <div class="box-progress-bar">
+                     <span class="globalist-progress box-progress" style="width: 0%; background-color: rgba(137,67,35,1)"></span>
+                                </div>
+                                <p id="globalistbp" class="box-progress-percentage">0%</p>
+                              </div>
+
+
+                              <div style="flex: 0 0 calc(33% - 20px); margin: 10px;" class="box-progress-wrapper">
+              <p class="box-progress-header">Nationalist: <font id="nationalist"></font></p>
+              <div class="box-progress-bar">
+    <span class="nationalist-progress box-progress" style="width: 0%; background-color: rgba(47,204,181,1)"></span>
+              </div>
+              <p id="nationalistbp" class="box-progress-percentage">0%</p>
+            </div>
+
+            <div style="flex: 0 0 calc(33% - 20px); margin: 10px;" class="box-progress-wrapper">
+                       <p class="box-progress-header">Populist: <font id="populist"></font></p>
+                       <div class="box-progress-bar">
+            <span class="populist-progress box-progress" style="width: 0%; background-color: rgba(135,93,92,1)"></span>
+                       </div>
+                       <p id="populistbp" class="box-progress-percentage">0%</p>
+                     </div>
+
+    </div>
+
+
+<div class="message-box">
+              <!-- Upload Button -->
+               <input type="file" id="fileInput" accept=".txt" style="display: none;" onchange="loadFile(event)">
+               <button class="open-modal" onclick="document.getElementById('fileInput').click()">Upload File</button>
+               <!-- Export Button -->
+               <button class="open-modal" id="exportButton" onclick="exportToFile()">Export Edits</button>
+  </div>
+</div>
+<div class="message-box">
+  <!-- Editable Text Container -->
+<div id="textContainer" contenteditable="true" style="margin-top: 10px; border: none; padding: 20px; min-height: 100px; max-height: 80vh; overflow-y: auto;">
+<!-- Uploaded text will appear here -->
+</div>
+</div>
+
+<div class="message-box" style="display: flex; flex-wrap: wrap;">
+            <div style="flex: 0 0 calc(20% - 20px); margin: 10px;  font-size: 1.8em;" class="days-left" >
+              <a id="copyDogSymbol">🐕</a>
+            </div>
+            <div style="flex: 0 0 calc(20% - 20px); margin: 10px;  font-size: 1.8em;" class="days-left" >
+              <a id="copyexplorerSymbol">🐬</a>
+            </div>
+            <div style="flex: 0 0 calc(20% - 20px); margin: 10px;  font-size: 1.8em;" class="days-left" >
+              <a id="copyarbiterSymbol">🐈</a>
+            </div>
+            <div style="flex: 0 0 calc(20% - 20px); margin: 10px;  font-size: 1.8em;" class="days-left" >
+              <a id="copymerchantSymbol">🦉</a>
+            </div>
+            <div style="flex: 0 0 calc(20% - 20px); margin: 10px;  font-size: 1.8em;" class="days-left" >
+              <a id="copysmugglerSymbol">🦘</a>
+            </div>
+            <div style="flex: 0 0 calc(20% - 20px); margin: 10px;  font-size: 1.8em;" class="days-left" >
+              <a id="copysailorSymbol">🦜</a>
+            </div>
+            <div style="flex: 0 0 calc(20% - 20px); margin: 10px;  font-size: 1.8em;" class="days-left" >
+              <a id="copyvoyagerSymbol">🐢</a>
+            </div>
+            <div style="flex: 0 0 calc(20% - 20px); margin: 10px;  font-size: 1.8em;" class="days-left" >
+              <a id="copyshipwrightSymbol">🦔</a>
+            </div>
+            <div style="flex: 0 0 calc(20% - 20px); margin: 10px;  font-size: 1.8em;" class="days-left" >
+              <a id="copycaptainSymbol">🐙</a>
+            </div>
+            <div style="flex: 0 0 calc(20% - 20px); margin: 10px;  font-size: 1.8em;" class="days-left" >
+              <a id="copyfishermanSymbol">🐧</a>
+            </div>
+</div>
+
+
+
+
+
+
+            </div>
+            </div>
+            </div>
+            <!-- partial -->
+              <script  src="home.js"></script>
+              <script  src="upload.js"></script>
+              <script src="populations.js"></script>
+  <script  src="story.js"></script>
+  <script  src="collection.js"></script>
+
+
+
+
+
+
+
+
+
+            </body>
+            </html>
