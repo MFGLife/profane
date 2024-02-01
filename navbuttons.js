@@ -1,7 +1,7 @@
 
 document.addEventListener('DOMContentLoaded', function () {
   setTimeout(function() {
-    splashActive();
+    secretActive();
     document.getElementById("load1").style.color = "lightgreen";
     document.getElementById("load1").innerHTML = "Online";
   }, 2900); // 5000 milliseconds = 5 seconds
@@ -64,6 +64,19 @@ function splashActive(){
   document.getElementById("settingsMain").style.display = "none";
   document.getElementById("schedule").style.display = "none";
   document.getElementById("loader1").style.display = "none";
+  navHome.classList.add("active");
+  navAudit.classList.remove("active");
+  navSchedule.classList.remove("active");
+  navSettings.classList.remove("active");
+}
+
+function secretActive(){
+  document.getElementById("energyAudit").style.display = "none";
+  document.getElementById("splash").style.display = "none";
+  document.getElementById("settingsMain").style.display = "none";
+  document.getElementById("schedule").style.display = "none";
+  document.getElementById("loader1").style.display = "none";
+  document.getElementById("secretDiv").style.display = "block";
   navHome.classList.add("active");
   navAudit.classList.remove("active");
   navSchedule.classList.remove("active");
