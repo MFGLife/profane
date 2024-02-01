@@ -13,7 +13,7 @@ function clearStorage() {
     sessionStorage.clear();
 }
 
-populations = {
+let populations = {
   progressive: 100,
   socialist: 100,
   idealist: 100,
@@ -25,7 +25,7 @@ populations = {
   populist: 100
 };
 
-mainHeading = {
+let mainHeading = {
   explorer: 1,
   voyager: 0,
   captain: 0,

@@ -369,15 +369,7 @@ let conversationData = [];
 
 const thinkingElem = document.createElement('p');
 
-chatWindow.appendChild(thinkingElem);
 setTimeout(function() {
-  thinkingElem.classList.add('thinking');
-  thinkingElem.innerHTML = 'Loading...';
-}, 2100);
-setTimeout(function() {
-    // Remove the "thinking" element
-    chatWindow.removeChild(thinkingElem);
-
     chatWindow.innerHTML += '<p>Profane: Hello, I\'m your AI assistant... use the field below to chat or type commands such as: <font style="color: lightblue;">cmd [all]</font> to view a complete list.</p>';
     scrollToBottom();
 }, 4300);
@@ -576,10 +568,24 @@ function sendMessage() {
         }
 
         updateJSONDisplay();
+        loadData();
     }, 1000);
 }
 
 
+function loadData() {
+        const data = {
+            userData: {
+                id: userId,
+                state: state,
+                mainHeading: mainHeading,
+                populations: populations,
+                completedProjects: userCompletedProjects
+            }
+        };
+
+        updateUserData(data.userData);
+}
 
 
 
@@ -641,9 +647,6 @@ function updateUserData(userData) {
     mainHeading = userData.mainHeading;
     populations = userData.populations;
     userCompletedProjects = userData.completedProjects;
-    const chatWindow = document.getElementById('chatWindow');
-        chatWindow.innerHTML += '<font style="color:lightgreen;">' + userId + ' is logged in.</font><br>';
-        scrollToBottom();
 }
 
 function importBaseDataSet(event) {
@@ -661,6 +664,9 @@ function importBaseDataSet(event) {
                 conversationData = data.conversationData;
                 updateUserData(data.userData);
                 updateJSONDisplay();
+                const chatWindow = document.getElementById('chatWindow');
+        chatWindow.innerHTML += '<font style="color:lightgreen;">' + userId + ' is logged in.</font><br>';
+        scrollToBottom();
             } else {
                 alert('Invalid data format.');
             }
