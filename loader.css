@@ -128,3 +128,17 @@
 .last {
   margin-right: 0;
 }
+
+.newspaper-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.newspaper-article {
+  flex: 0 1 calc(48% - 20px); /* Two articles per row with 20px margin */
+  margin-bottom: 20px;
+  padding: 20px;
+  border: 1px solid #ddd;
+  box-sizing: border-box;
+}

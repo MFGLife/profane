@@ -316,7 +316,7 @@ function updateDis(){
 function downloadStufs() {
 
     // URL of the base.json file
-    const fileURL = 'https://www.luminafields.com/models/base.json';
+    const fileURL = 'https://www.the-profane.com/models/base.json';
 
     // Fetch the content of the file
     fetch(fileURL)
