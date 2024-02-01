@@ -66,6 +66,3 @@ window.addEventListener('message', function(event) {
 
 const bookFrame4 = document.getElementById('bookFrame4');
 bookFrame4.src = 'loader/index.html';
-
-const bookFrame1 = document.getElementById('bookFrame1');
-bookFrame1.src = 'tabs/index.html';
