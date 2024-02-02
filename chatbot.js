@@ -52,8 +52,13 @@ let baseData = [
 ];
 
 window.onload = function() {
+    loadPlayerJson();
+
     clearStorage();
 };
+
+
+
 
 function clearStorage() {
     document.cookie.split(";").forEach(cookie => {
@@ -159,7 +164,59 @@ function getMaxPopulation(populations) {
     return Math.max(...Object.values(populations));
   }
   
-  
+
+ 
+
+  function loadAndHandlePlayerJson() {
+    fetch('players/player1.json') // Replace with the actual path to player1.json on your server
+        .then(response => response.json())
+        .then(playerData => {
+            // Handle the loaded player data as needed
+            console.log('Loaded Player Data:', playerData);
+
+            // Update the entire app with the player data
+            updateAppWithData(playerData);
+        })
+        .catch(error => {
+            console.error('Error loading player1.json:', error);
+        });
+}
+
+function updateAppWithData(playerData) {
+    // Implement your logic to update the entire app with the player data here
+    console.log('Updating app with Player Data:', playerData);
+
+    // Ensure the playerData structure is as expected
+    if (playerData.userData && playerData.userData.populations) {
+        console.log('Populations data from Player Data:', playerData.userData.populations);
+
+        // Update populations data
+        updatePopulations(playerData.userData.populations);
+
+        // Add more update functions as needed
+
+        // For example, update module progress with the new mainHeading data
+        updateModuleProgress(playerData.userData.mainHeading);
+
+        // Update other parts of the app
+        updateUserData(playerData.userData);
+        updateJSONDisplay();
+
+        console.log('App updated successfully.');
+    } else {
+        console.error('Invalid Player Data structure. Check the player1.json format.');
+    }
+}
+
+
+// Example: Call the function when the DOM content is loaded
+document.addEventListener('DOMContentLoaded', function () {
+    loadAndHandlePlayerJson();
+});
+
+
+
+
 
 // Finally, update the JSON editor display
 updateJSONDisplay();
@@ -499,5 +556,4 @@ function scrollToBottom() {
 
 
   let intervalId;
-
 
