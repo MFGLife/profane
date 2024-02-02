@@ -206,7 +206,17 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 
-
+function getDeviceType() {
+    if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)){
+        return "mobile";
+    } else if (navigator.userAgent.indexOf('Mac OS X') !== -1) {
+        return "Apple";
+    } else if (navigator.appVersion.indexOf("Win") !== -1) {
+        return "Windows";
+    } else {
+        return "default";
+    }
+  }
 
 
 // Finally, update the JSON editor display
@@ -232,29 +242,7 @@ function updateJSONDisplay() {
 // Create a "thinking" element
 const thinkingElem = document.createElement('p');
 
-// Initial message from Profane
-setTimeout(function() {
 
-    
-var time = new Date().getHours();
-var greeting, joke;
-
-if (time < 12) {
-    greeting = "Good morning";
-} else if (time < 18) {
-    greeting = "Good afternoon";
-} else {
-    greeting = "Good evening";
-}
-
-
-// Retrieve all available cookies
-var allCookies = document.cookie;
-
-    const initialMessage = '<p>Profane: ' + greeting + "! " + allCookies + '.</p>';
-    chatWindow.innerHTML += initialMessage;
-    scrollToBottom();
-}, 2300);
 
 // Function to export data as JSON
 function exportData() {
@@ -423,23 +411,10 @@ function sendMessage() {
 
         const timestamp = new Date().toISOString();
 
-        if (!isRedundant(message, response)) {
-            conversationData.push([message, response, timestamp]);
-        }
-
         updateJSONDisplay();
     }, 1000);
 }
 
-
-
-
-
-
-
-function isRedundant(question, answer) {
-    return conversationData.some(entry => entry[0] === question && entry[1] === answer);
-}
 
 function getResponse(message) {
     let response = searchInData(message, baseData);
@@ -544,17 +519,9 @@ function importBaseDataSet(event) {
     reader.readAsText(files[0]);
 }
 
-
-
-
-
 function scrollToBottom() {
     const chatWindow = document.getElementById('chatWindow');
     chatWindow.scrollTop = chatWindow.scrollHeight;
 }
 
-
-
-
   let intervalId;
-
