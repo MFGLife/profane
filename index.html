@@ -561,35 +561,6 @@
               
                  
 
-<script>
-  
-    document.addEventListener('DOMContentLoaded', function() {
-        // Automatically load player1.json on page load
-        loadPlayerJson();
-    });
-
-    function loadPlayerJson() {
-        fetch('players/player1.json') // Replace with the actual path to player1.json on your server
-            .then(response => response.json())
-            .then(playerData => {
-                // Handle the loaded player data as needed
-                handlePlayerData(playerData);
-            })
-            .catch(error => {
-                console.error('Error loading player1.json:', error);
-            });
-    }
-
-    function handlePlayerData(playerData) {
-        // Implement your logic to handle the player data here
-        console.log('Loaded Player Data:', playerData);
-        // For example, update the userData and display
-        updateUserData(playerData.userData);
-        updateJSONDisplay();
-    }
-
-              </script>
-
 
 
 
@@ -678,7 +649,7 @@ Profane Connection status: <font id="load1" style="color:#fdc96f;">Connecting</f
 
               </div>
               <div class="message-box">
-                <a id="navHome" onclick="splashActive();" class="app-sidebar-link">
+                <a id="navHome" onclick="secretActive();" class="app-sidebar-link">
                   <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-home">
                     <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
                     <polyline points="9 22 9 12 15 12 15 22" /></svg>
@@ -725,6 +696,7 @@ Profane Connection status: <font id="load1" style="color:#fdc96f;">Connecting</f
               <script src="hpxml.js"></script>
               <script src="fakeNews.js"></script>
               <script src="basedata.js"></script>
+              <script src="player.js"></script>
 
 
 <script>

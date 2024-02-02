@@ -20,7 +20,6 @@ function checkPasscode() {
 
 function energyAuditActive(){
   document.getElementById("energyAudit").style.display = "block";
-  document.getElementById("splash").style.display = "none";
   document.getElementById("settingsMain").style.display = "none";
   document.getElementById("loader1").style.display = "none";
   document.getElementById("schedule").style.display = "none";
@@ -34,7 +33,6 @@ function energyAuditActive(){
 function scheduleActive(){
   document.getElementById("schedule").style.display = "block";
   document.getElementById("energyAudit").style.display = "none";
-  document.getElementById("splash").style.display = "none";
   document.getElementById("settingsMain").style.display = "none";
   document.getElementById("loader1").style.display = "none";
   document.getElementById("secretDiv").style.display = "none";
@@ -44,22 +42,9 @@ function scheduleActive(){
   navSettings.classList.remove("active");
 }
 
-function splashActive(){
-  document.getElementById("energyAudit").style.display = "none";
-  document.getElementById("splash").style.display = "block";
-  document.getElementById("settingsMain").style.display = "none";
-  document.getElementById("schedule").style.display = "none";
-  document.getElementById("loader1").style.display = "none";
-  document.getElementById("secretDiv").style.display = "none";
-  navHome.classList.add("active");
-  navAudit.classList.remove("active");
-  navSchedule.classList.remove("active");
-  navSettings.classList.remove("active");
-}
 
 function secretActive(){
-  document.getElementById("energyAudit").style.display = "none";
-  document.getElementById("splash").style.display = "none";
+    document.getElementById("energyAudit").style.display = "none";
   document.getElementById("settingsMain").style.display = "none";
   document.getElementById("schedule").style.display = "none";
   document.getElementById("loader1").style.display = "none";
@@ -72,7 +57,6 @@ function secretActive(){
 
 function settingsActive(){
   document.getElementById("energyAudit").style.display = "none";
-  document.getElementById("splash").style.display = "none";
   document.getElementById("settingsMain").style.display = "block";
   document.getElementById("schedule").style.display = "none";
   document.getElementById("loader1").style.display = "none";

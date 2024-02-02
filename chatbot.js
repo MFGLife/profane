@@ -188,20 +188,11 @@ function updateAppWithData(playerData) {
 
     // Ensure the playerData structure is as expected
     if (playerData.userData && playerData.userData.populations) {
-        console.log('Populations data from Player Data:', playerData.userData.populations);
-
         // Update populations data
         updatePopulations(playerData.userData.populations);
-
-        // Add more update functions as needed
-
-        // For example, update module progress with the new mainHeading data
         updateModuleProgress(playerData.userData.mainHeading);
-
-        // Update other parts of the app
         updateUserData(playerData.userData);
         updateJSONDisplay();
-
         console.log('App updated successfully.');
     } else {
         console.error('Invalid Player Data structure. Check the player1.json format.');
@@ -243,10 +234,27 @@ const thinkingElem = document.createElement('p');
 
 // Initial message from Profane
 setTimeout(function() {
-    const initialMessage = '<p>Profane: Hello, I\'m your AI assistant... use the field below to chat or type commands such as: <font style="color: lightblue;">cmd [all]</font> to view a complete list.</p>';
+
+    
+var time = new Date().getHours();
+var greeting, joke;
+
+if (time < 12) {
+    greeting = "Good morning";
+} else if (time < 18) {
+    greeting = "Good afternoon";
+} else {
+    greeting = "Good evening";
+}
+
+
+// Retrieve all available cookies
+var allCookies = document.cookie;
+
+    const initialMessage = '<p>Profane: ' + greeting + "! " + allCookies + '.</p>';
     chatWindow.innerHTML += initialMessage;
     scrollToBottom();
-}, 4300);
+}, 2300);
 
 // Function to export data as JSON
 function exportData() {
@@ -469,19 +477,12 @@ function isValidDataFormat(data) {
 
 // Function to update user data
 function updateUserData(userData) {
-    console.log("Updating user data:", userData);
     userId = userData.id;
     state = userData.state;
     mainHeading = userData.mainHeading;
     populations = userData.populations;
     userCompletedProjects = userData.completedProjects;
-
     updateJSONDisplay();
-
-    const chatWindow = document.getElementById('chatWindow');
-    chatWindow.innerHTML += '<font style="color:lightgreen;">' + userId + ' is logged in.</font><br>';
-    scrollToBottom();
-    console.log("User data after update:", userData);
 }
 
 
