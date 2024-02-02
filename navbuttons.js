@@ -25,9 +25,6 @@ function checkPasscode() {
   if(code === "1234") {
     scheduleActive();
   }
-  if(code === "587112349") {
-    parent.postMessage({ action: 'changeSrc', newSrc: 'nations/book.html' }, '*');
-  }
 }
 
 
@@ -516,7 +513,6 @@ function generateRandomStory() {
                         const message = {};
                         message[randomVariable.toLowerCase()] = 1; // Convert the variable name to lowercase to match your example
 
-                        window.parent.postMessage(message, '*');
                     }
 
 

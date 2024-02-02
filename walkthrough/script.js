@@ -21,15 +21,6 @@ window.addEventListener('message', function(event) {
         document.getElementById('state2').innerText = state2;
         document.getElementById('userID2').innerText = userID2;
         document.getElementById('conversationData2').innerText = formattedData;
-        // Send a message back to the parent to stop the loop
-        window.parent.postMessage({ action: 'stopLoop' }, '*');
     }
 }, false);
-
-function exportSave() {
-    window.parent.postMessage({ action: 'exportData' }, '*');
-}
-
-  window.parent.postMessage({ action: 'updateJSONDisplay' }, '*');
-
 
