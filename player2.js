@@ -1,36 +1,33 @@
 let checkLogin = false;
 let inventory;
 document.getElementById("backstory").innerHTML = `
-  <h2>Ash Gramb</h2>
-  <p>Ingredient Botanist<br>
-    An employee with a deep understanding of the therapeutic botanicals used in making distilled water products, responsible for sourcing and selecting the finest plant varieties for the distillery's products
-    <br>
-    <b>Backstory:</b> Ash Grambs, the Ingredient Botanist, developed a deep passion for botanicals at a young age while exploring the forests with their botanist parents. Their fascination with the therapeutic properties of plants led them to pursue a career in botany and eventually join Bramble Twist Botanicals. Ash is known for their exceptional ability to identify and source the finest botanicals, which has been crucial to the distillery's success.
+  <h2>Jordan Finch</h2>
+  <p>Job Title: Mechanical Maestro<br>
+    A skilled engineer employee who oversees the maintenance and operation of the distillery's mechanical systems, ensuring the precision and efficiency of the distillation process.
     <br><br>
-    <b>Personality: </b><br>
-    <b>Passionate:</b> Driven by a deep love for plants and their properties.<br>
-    <b>Meticulous: </b>Takes great care in sourcing and selecting the finest botanicals.<br>
-    <b>Independent: </b>Prefers to work alone but collaborates effectively when needed.<br>
-    <b>Reserved: </b>Keeps their emotions hidden, making them hard to read.<br>
-    <b>Protective: </b>Feels fiercely loyal to the quality of the products and might resort to drastic measures to maintain it.<br><br>
-    <b>Day-to-Day Glimpse:</b> Ash spends their days meticulously inspecting and cataloging the various botanicals used in the distillation process. They often venture into the surrounding areas to hand-forage specific plants, ensuring that only the highest quality ingredients are used in the production of the distilled waters.
+    <b>Backstory:</b> Jordan Finch, discovered their passion for engineering at a young age while tinkering with mechanical toys in their father's workshop. Their innate talent and dedication to precision engineering led them to become a respected figure in the distillery industry. Jordan joined Bramble Twist Botanicals, where their expertise in maintaining and optimizing the distillery's mechanical systems has been instrumental in ensuring the quality of the distilled waters.
     <br><br>
-    <b>Relationships:</b> Ash has a romantic but unofficial relationship with Alex, the Sensory Specialist, bonding over their shared appreciation for the subtle nuances of botanicals and distilled waters. They also share a productive coworking relationship with Remy Hawthorne, the Master Blender, collaborating on specimen acquisition to achieve specific blends.
+    <b>Personality:</b> Jordan Finch walks the distillery floor with the measured tread of a conductor, their gaze locked on the symphony of gears and pistons that hum to life under their meticulous touch. Dedication to machinery runs deep in their veins, inherited from countless hours spent dissecting mechanisms in their childhood workshop. Every whir, every click, speaks a language only they truly understand. Logic and analysis fuel their actions, leaving little room for emotional displays. A stoic persona shields their inner world, revealing only focused determination. While headstrong in their convictions, particularly when it comes to the sacred nature of the distillery's machinery, Jordan harbors a surprising capacity for collaboration, their respect for expertise transcending personal preferences. A flicker of competitiveness burns beneath the surface, fueled by a desire to see the machines operate at their absolute peak. This competitive spirit can manifest as friction with those perceived as less invested in the technical aspects, like Alex. However, Jordan's ultimate loyalty lies with the smooth operation of the distillery, and they harbor a quiet respect for Remy, recognizing their shared commitment to perfection, albeit through different avenues. Should whispers of sabotage arise, remember the quiet hum of the machinery – it may mask a hidden agenda driven by a fierce dedication to control, recognition, and the unwavering belief that the heart of Bramble Twist Botanicals beats within the intricate clockwork Jordan so diligently maintains.
     <br><br>
-    <b>Motivation to Poison a Batch:</b> Ash's motivation to poison a batch could stem from a desire to sabotage the distillery due to feeling unappreciated or overlooked in their role. This could be fueled by a perceived lack of recognition for the importance of their work in the distillation process.
+    <b>Day-to-Day Glimpse:</b> Jordan's days are filled with overseeing the maintenance and operation of the distillery's intricate mechanical systems. They meticulously fine-tune the machinery, ensuring that the distillation process runs with the utmost precision and efficiency. Their workshop is a haven of gears, levers, and delicate instruments, where they spend hours perfecting the mechanical heart of the distillery.
     <br><br>
-    <b>Secret Connection Hint:</b> A subtle hint to Ash's secret connection could be the presence of a rare, locally foraged botanical in the poisoned batch, linking it to a specific area that holds personal significance to Ash
+    <b>Relationships:</b> Jordan shares a close platonic friendship with Remy Hawthorne, often engaging in lively discussions about the interplay between mechanical precision and the art of blending. They also harbor a minor animosity towards Alex Huff stemming from Jordan’s dedication to the smooth running of the machinery versus Alex’s desire to eliminate the detection of machinery used in the final product.
+    <br><br>
+    <b>Motivation to Poison a Batch:</b> Jordan's potential motivation to poison a batch could be linked to a desire for recognition and control. Feeling that their expertise in mechanical engineering is undervalued, they might see sabotage as a way to assert their importance and gain leverage within the company.
+    <br><br>
+    <b>Secret Connection Hint:</b> A subtle hint to Jordan's secret connection could be a unique tool or emblem hidden in their workshop, bearing a symbol associated with a clandestine organization or past affiliation that holds significance to their motivations.
   </p>
 `;
 
+
   
     document.addEventListener('DOMContentLoaded', function() {
-        // Automatically load player1.json on page load
+        // Automatically load player2.json on page load
         loadPlayerJson();
     });
 
     function loadPlayerJson() {
-        fetch('players/player1.json') // Replace with the actual path to player1.json on your server
+        fetch('players/player2.json') // Replace with the actual path to player2.json on your server
             .then(response => response.json())
             .then(playerData => {
                 // Handle the loaded player data as needed
@@ -107,7 +104,7 @@ setTimeout(function() {
             }
             })
             .catch(error => {
-                console.error('Error loading player1.json:', error);
+                console.error('Error loading player2.json:', error);
             });
     }
 
