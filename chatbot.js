@@ -165,22 +165,6 @@ function getMaxPopulation(populations) {
   }
   
 
- 
-
-  function loadAndHandlePlayerJson() {
-    fetch('players/player1.json') // Replace with the actual path to player1.json on your server
-        .then(response => response.json())
-        .then(playerData => {
-            // Handle the loaded player data as needed
-            console.log('Loaded Player Data:', playerData);
-
-            // Update the entire app with the player data
-            updateAppWithData(playerData);
-        })
-        .catch(error => {
-            console.error('Error loading player1.json:', error);
-        });
-}
 
 function updateAppWithData(playerData) {
     // Implement your logic to update the entire app with the player data here
@@ -200,10 +184,7 @@ function updateAppWithData(playerData) {
 }
 
 
-// Example: Call the function when the DOM content is loaded
-document.addEventListener('DOMContentLoaded', function () {
-    loadAndHandlePlayerJson();
-});
+
 
 
 function getDeviceType() {

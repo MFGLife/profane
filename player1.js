@@ -29,16 +29,20 @@ document.getElementById("backstory").innerHTML = `
         loadPlayerJson();
     });
 
+
     function loadPlayerJson() {
         fetch('players/player1.json') // Replace with the actual path to player1.json on your server
             .then(response => response.json())
             .then(playerData => {
                 // Handle the loaded player data as needed
                 handlePlayerData(playerData);
+                updateAppWithData(playerData);
+
             checkLogin = true;
             if (checkLogin === true){
                 const chatWindow = document.getElementById('chatWindow');
                 chatWindow.innerHTML += '<font style="color:lightgreen;">' + userId + ' is logged in.</font><br>';
+
 
 // Initial message from Profane
 setTimeout(function() {

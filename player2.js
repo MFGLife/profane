@@ -19,23 +19,26 @@ document.getElementById("backstory").innerHTML = `
   </p>
 `;
 
-
   
     document.addEventListener('DOMContentLoaded', function() {
-        // Automatically load player2.json on page load
+        // Automatically load player1.json on page load
         loadPlayerJson();
     });
 
+
     function loadPlayerJson() {
-        fetch('players/player2.json') // Replace with the actual path to player2.json on your server
+        fetch('players/player2.json') // Replace with the actual path to player1.json on your server
             .then(response => response.json())
             .then(playerData => {
                 // Handle the loaded player data as needed
                 handlePlayerData(playerData);
+                updateAppWithData(playerData);
+
             checkLogin = true;
             if (checkLogin === true){
                 const chatWindow = document.getElementById('chatWindow');
                 chatWindow.innerHTML += '<font style="color:lightgreen;">' + userId + ' is logged in.</font><br>';
+
 
 // Initial message from Profane
 setTimeout(function() {
@@ -104,7 +107,7 @@ setTimeout(function() {
             }
             })
             .catch(error => {
-                console.error('Error loading player2.json:', error);
+                console.error('Error loading player1.json:', error);
             });
     }
 
