@@ -65,6 +65,52 @@ function clearStorage() {
 }
 
 
+function updateModuleProgress(updatedExperience) {
+    const modules = [
+        "explorer",
+        "voyager",
+        "captain",
+        "merchant",
+        "shipwright",
+        "fisherman",
+        "smuggler",
+        "arbiter",
+        "sailor"
+    ];
+
+    modules.forEach((module) => {
+        const progressBar = document.querySelector(`.${module}-progress`);
+        const percentage = (updatedExperience[module] / getMaxExperience(updatedExperience)) * 100;
+
+        // Update progress bar width
+        progressBar.style.width = `${Math.round(percentage)}%`;
+
+        // Set background color based on percentage
+        progressBar.style.backgroundColor = getProgressBarColor(percentage);
+
+        // Update the corresponding percentage text
+        const percentageText = document.getElementById(`${module}bp`);
+        percentageText.textContent = `${Math.round(percentage)}%`;
+
+        // Update the font element with the current experience value
+        const experienceFont = document.getElementById(module);
+        experienceFont.textContent = updatedExperience[module];
+    });
+}
+
+function getProgressBarColor(percentage) {
+    if (percentage < 50) return 'red';
+    if (percentage < 75) return 'yellow';
+    return 'green';
+}
+
+// Function to get the maximum experience value
+function getMaxExperience(experience) {
+    return Math.max(...Object.values(experience));
+}
+
+
+updateModuleProgress(userData.mainHeading);
 
 
 function updatePopulations(updatedPopulations) {
@@ -403,7 +449,7 @@ function importBaseDataSet(event) {
                     Object.assign(userData, {
                         completedProjects: userData.completedProjects
                     });
-
+                
                     // Update specific properties of the combinedData.userData without reassigning the whole object
                     Object.assign(combinedData.userData, {
                         id: userData.id,
@@ -411,15 +457,18 @@ function importBaseDataSet(event) {
                         mainHeading: userData.mainHeading,
                         completedProjects: userData.completedProjects
                     });
-
+                
                     // Assuming your actual data has a property named 'actualPopulations'
                     // Update the condition and assignment based on your JSON structure
                     if (userData.actualPopulations) {
                         Object.assign(userData.populations, userData.actualPopulations);
                     }
-
+                
                     // Update populations data and progress bars after assigning actual values
                     updatePopulations(userData.populations);
+                
+                    // Update module progress with the new mainHeading data
+                    updateModuleProgress(userData.mainHeading);
                 } else {
                     alert('Missing required userData properties.');
                 }
