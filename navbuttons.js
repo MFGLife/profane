@@ -4,20 +4,9 @@ document.addEventListener('DOMContentLoaded', function () {
     secretActive();
     document.getElementById("load1").style.color = "lightgreen";
     document.getElementById("load1").innerHTML = "Online";
-  }, 2900); // 5000 milliseconds = 5 seconds
+  }, 900); // 5000 milliseconds = 5 seconds
 });
 
-window.addEventListener('message', function(event) {
-  // Optional: Check the origin of the message for security
-  // if (event.origin !== 'http://expected.origin.com') return;
-
-  const data = event.data;
-
-  if (data.section) {
-    // Using eval() to execute the function
-    eval(data.section);
-  }
-});
 
 
 function checkPasscode() {

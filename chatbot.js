@@ -1,15 +1,48 @@
+// Initialize user data with default values
+let userData = {
+    id: "Guest2",
+    state: "00001",
+    mainHeading: {
+        explorer: 1,
+        voyager: 0,
+        captain: 0,
+        merchant: 0,
+        shipwright: 0,
+        fisherman: 0,
+        smuggler: 0,
+        arbiter: 0,
+        sailor: 0
+    },
+    populations: {
+        progressive: 100,
+        socialist: 100,
+        idealist: 100,
+        globalist: 100,
+        conservative: 100,
+        economist: 1000,
+        realist: 1000,
+        nationalist: 100,
+        populist: 100
+    },
+    completedProjects: [],
+    userCompletedProjects: [],
+    conversationData: []
+};
 
-
-// User data
-let userId = "Guest";
-let state = "00001";
-let populations = {};
-let mainHeading = {};
-let completedProjects = [];
-let userCompletedProjects = [];
-let conversationData = [];
-
+// JSON editor element
 let jsonEditor = document.getElementById('jsonEditor');
+
+// Combine user data into a single object
+let combinedData = {
+    conversationData: userData.conversationData,
+    userData: {
+        id: userData.id,
+        state: userData.state,
+        mainHeading: userData.mainHeading,
+        populations: userData.populations,
+        completedProjects: userData.userCompletedProjects
+    }
+};
 
 // Initialize base data
 let baseData = [
@@ -18,27 +51,89 @@ let baseData = [
     ["how old is the earth", "The Earth is approximately 4.54 billion years old.", ""]
 ];
 
-// Combine user data into a single object
-let userData = {
-    id: "Guest",
-    state: "00001",
-    mainHeading: {},
-    populations: {},
-    completedProjects: [],
-    userCompletedProjects: [],
-    conversationData: []
+window.onload = function() {
+    clearStorage();
 };
 
-let combinedData = {
-    conversationData: conversationData,
-    userData: {
-        id: userId,
-        state: state,
-        mainHeading: mainHeading,
-        populations: populations,
-        completedProjects: userCompletedProjects
+function clearStorage() {
+    document.cookie.split(";").forEach(cookie => {
+        const name = cookie.split("=")[0];
+        document.cookie = `${name}=;expires=Thu, 01 Jan 1970 00:00:00 GMT;path=/`;
+    });
+    localStorage.clear();
+    sessionStorage.clear();
+}
+
+
+
+
+function updatePopulations(updatedPopulations) {
+    for (let populationType in updatedPopulations) {
+        const progressBar = document.querySelector(`.${populationType}-progress`);
+        const percentage = (updatedPopulations[populationType] / getMaxPopulation(updatedPopulations)) * 100;
+
+        // Update progress bar width
+        progressBar.style.width = `${Math.round(percentage)}%`;
+
+        // Set background color based on percentage
+        progressBar.style.backgroundColor = getProgressBarColor(percentage);
+
+        // Update the corresponding percentage text
+        const percentageText = document.getElementById(`${populationType}bp`);
+        percentageText.textContent = `${Math.round(percentage)}%`;
+
+        // Update the font element with the current population value
+        const populationFont = document.getElementById(populationType);
+        populationFont.textContent = updatedPopulations[populationType];
     }
-};
+}
+
+
+
+function getProgressBarColor(percentage) {
+    if (percentage < 50) return 'red';
+    if (percentage < 75) return 'yellow';
+    return 'green';
+}
+
+function updatePercentages(avg, dataObj) {
+    for (let key in dataObj) {
+        const percentage = (dataObj[key] / avg) * 100;
+        const progressBar = document.querySelector(`.${key}-progress`);
+        progressBar.style.width = `${Math.round(percentage)}%`;
+
+        // Set background color directly
+        progressBar.style.backgroundColor = getProgressBarColor(percentage);
+    }
+}
+
+
+// Function to get the maximum population value
+function getMaxPopulation(populations) {
+    return Math.max(...Object.values(populations));
+  }
+  
+  
+
+// Finally, update the JSON editor display
+updateJSONDisplay();
+
+// Function to update the JSON editor display
+function updateJSONDisplay() {
+    console.log("updateJSONDisplay called");
+    combinedData = {
+        conversationData: userData.conversationData,
+        userData: {
+            id: userData.id,
+            state: userData.state,
+            mainHeading: userData.mainHeading,
+            populations: userData.populations,
+            completedProjects: userData.userCompletedProjects
+        }
+    };
+    console.log(combinedData);
+    jsonEditor.value = JSON.stringify(combinedData, null, 2);
+}
 
 // Create a "thinking" element
 const thinkingElem = document.createElement('p');
@@ -249,21 +344,9 @@ function searchInData(message, data) {
 }
 
 function updateJSONDisplay() {
-    console.log("updateJSONDisplay called"); // Add this line
-     jsonEditor = document.getElementById('jsonEditor');
-     combinedData = {
-        conversationData: conversationData,
-        userData: {
-            id: userId,
-            state: state,
-            mainHeading: mainHeading,
-            populations: populations,
-            completedProjects: userCompletedProjects
-        }
-    };
-    console.log(combinedData); // Add this line
     jsonEditor.value = JSON.stringify(combinedData, null, 2);
 }
+
 
 
 function isValidDataFormat(data) {
@@ -284,12 +367,21 @@ function isValidDataFormat(data) {
 // Function to update user data
 function updateUserData(userData) {
     console.log("Updating user data:", userData);
-    Object.assign(this, userData);
+    userId = userData.id;
+    state = userData.state;
+    mainHeading = userData.mainHeading;
+    populations = userData.populations;
+    userCompletedProjects = userData.completedProjects;
+
+    updateJSONDisplay();
+
     const chatWindow = document.getElementById('chatWindow');
-    chatWindow.innerHTML += '<font style="color:lightgreen;">' + this.id + ' is logged in.</font><br>';
+    chatWindow.innerHTML += '<font style="color:lightgreen;">' + userId + ' is logged in.</font><br>';
     scrollToBottom();
-    console.log("User data after update:", this);
+    console.log("User data after update:", userData);
 }
+
+
 
 function importBaseDataSet(event) {
     const files = event.target.files;
@@ -298,7 +390,7 @@ function importBaseDataSet(event) {
     }
 
     const reader = new FileReader();
-    reader.onload = function(event) {
+    reader.onload = function (event) {
         try {
             const importedData = JSON.parse(event.target.result);
             console.log("Imported data:", importedData);
@@ -307,7 +399,27 @@ function importBaseDataSet(event) {
                 let { conversationData, userData } = importedData;
 
                 if (userData && userData.id && userData.state && userData.mainHeading && userData.populations && userData.completedProjects) {
-                    updateUserData(userData);
+                    // Update existing userData properties instead of redefining the whole object
+                    Object.assign(userData, {
+                        completedProjects: userData.completedProjects
+                    });
+
+                    // Update specific properties of the combinedData.userData without reassigning the whole object
+                    Object.assign(combinedData.userData, {
+                        id: userData.id,
+                        state: userData.state,
+                        mainHeading: userData.mainHeading,
+                        completedProjects: userData.completedProjects
+                    });
+
+                    // Assuming your actual data has a property named 'actualPopulations'
+                    // Update the condition and assignment based on your JSON structure
+                    if (userData.actualPopulations) {
+                        Object.assign(userData.populations, userData.actualPopulations);
+                    }
+
+                    // Update populations data and progress bars after assigning actual values
+                    updatePopulations(userData.populations);
                 } else {
                     alert('Missing required userData properties.');
                 }
@@ -329,7 +441,6 @@ function importBaseDataSet(event) {
 
 
 
-
 function scrollToBottom() {
     const chatWindow = document.getElementById('chatWindow');
     chatWindow.scrollTop = chatWindow.scrollHeight;
@@ -340,17 +451,4 @@ function scrollToBottom() {
 
   let intervalId;
 
-
-  function startLoop() {
-      intervalId = setInterval(function() {
-        userId = userData.id;
-    state = userData.state;
-    mainHeading = userData.mainHeading;
-    populations = userData.populations;
-    userCompletedProjects = userData.completedProjects;
-      }, 1000); // 1 second
-  }
-
-  // Start the loop initially
-  startLoop();
 
