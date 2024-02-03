@@ -1,28 +1,25 @@
 let checkLogin = false;
 let inventory;
 document.getElementById("backstory").innerHTML = `
-<h1>Alex Huff</h1>
+<h1>Dakota Calligaris</h1>
+    
+    <h2>Sanitization Supervisor</h2>
+    <p>An employee who is fixated on maintaining impeccable cleanliness within the distillery. They are responsible for overseeing the sanitization of all equipment used in the distillation process, ensuring that every component is kept in a pristine condition.</p>
 
-<h2>Sensory Specialist</h2>
-<p>An employee with an exceptional sense of smell and taste, crucial for identifying the subtle nuances in the distilled waters, and responsible for quality control and sensory evaluation of each recipe.</p>
+    <h2>Backstory</h2>
+    <p>Dakota Calligaris, the Sanitization Supervisor, developed a keen interest in maintaining cleanliness and hygiene from an early age. Their commitment to ensuring impeccable cleanliness within the distillery led them to become an essential figure at Bramble Twist Botanicals. Dakota's expertise in overseeing the sanitization of all equipment used in the distillation process has been vital in upholding the highest standards of hygiene at the distillery.</p>
 
-<h2>Backstory</h2>
-<p>Alex discovered their exceptional sense of smell and taste at a young age, which sparked a deep fascination with the sensory characteristics of various substances. This led them to pursue a career in sensory evaluation and quality control, eventually joining Bramble Twist Botanicals as a crucial member of the team responsible for identifying the subtle nuances in the distilled waters.</p>
+    <h2>Personality</h2>
+    <p>In the sterile symphony of Bramble Twist, Dakota Calligaris moves with the measured tread of a guardian, every step echoing their unwavering vigilance over the pristine domain of cleanliness. Hygiene runs in their veins, a meticulous dance of protocols and procedures is their daily ritual. Each sanitized surface, each gleaming instrument, sings a silent hymn to their methodical nature, a testament to their unwavering belief that order forms the foundation of quality. Yet, beneath the calm exterior lies a simmering well of competitiveness. Whispers of rivals and threats to their role can spark a fierce determination to prove their indispensability. Any disruption to their established methods - be it a colleague's suggestion or a modernization effort Dakota deems unsubstantiated - can trigger inflexibility, their voice rising in defense of the well-worn path. This rigidity can create friction, particularly with Avery, whose focus on water purity clashes with Dakota's emphasis on equipment cleanliness. However, this same tenacity fosters a strong alliance with Taylor, their shared dedication to quality forming a bridge across departmental divides. Remember, Dakota is a paradox - a meticulous guardian of order, fueled by an undercurrent of competitiveness, their actions driven by an unwavering belief that true quality lies in the relentless pursuit of pristine sanitation. As you navigate the intricate world of Bramble Twist Botanicals, remember that the gleaming surfaces hold their secrets, and none may be deeper than the vigilant spirit of Dakota Calligaris.</p>
 
-<h2>Personality</h2>
-<p>Alex Huff navigates the world through a kaleidoscope of scents and flavors, their senses attuned to the subtlest whispers of each aroma and nuance. Discernment dances in their eyes, a testament to countless hours spent dissecting the essence of every ingredient. Where others see simplicity, Alex sees a symphony of complexity, their mind a canvas forever painted with the vibrant hues of taste and smell. This passion fuels their creativity, pushing them to experiment, to innovate, to unearth hidden depths within each distilled water. Yet, beneath the surface lies a wellspring of intuition, a quiet knowing that guides their actions. The atmosphere hums with unspoken truths, and Alex absorbs them all, their sensitivity weaving a tapestry of understanding that others might miss. This passion can flare into protectiveness, turning Alex into a fierce guardian of the sensory experience. They might act rashly, even rebelliously, when they perceive a threat to the delicate balance of flavor or the distillery's reputation. A hint of animosity lingers towards Jordan, their championing of sensory art clashing with what Alex sees as the cold pragmatism of machinery. However, a deeper connection blooms with Ash, a shared language spoken through the poetry of taste and scent. Remember, Alex is a whirlwind of senses and intuition, their actions driven by a love for the ephemeral beauty of flavor and an unwavering determination to protect its essence, even if it means defying expectations and challenging the status quo.</p>
+    <h2>Day-to-Day Glimpse</h2>
+    <p>Dakota's days are dedicated to meticulously supervising the sanitization of all equipment used in the distillation process. They ensure that every component is kept in a pristine condition, adhering to strict cleanliness protocols and industry standards. Dakota also leads training sessions to educate employees on proper sanitization procedures.</p>
 
-<h2>Day-to-Day Glimpse</h2>
-<p>Alex's days are filled with conducting sensory evaluations of the distilled waters, meticulously identifying and cataloging their unique characteristics. They are known for their ability to discern even the most delicate aromas and flavors, ensuring that each batch meets the distillery's stringent quality standards.</p>
+    <h2>Relationships</h2>
+    <p>Dakota has a strained relationship with Avery, the Water Purification Expert, due to their constant conflicting opinions on the best practices for ensuring the purity of the water and equipment in the distillery. This strained relationship often leads to tense interactions, as they both strive to uphold their respective standards for cleanliness. Dakota is friendly with Taylor Banks, the Quality Assurance Chemist, where they often support each other’s concepts professionally to guarantee the quality of Bramble Twist’s products.</p>
 
-<h2>Relationships</h2>
-<p>Alex shares a romantic but unofficial relationship with Ash, the Ingredient Botanist, bonding over their shared appreciation for the subtle nuances of botanicals and distilled waters. Alex has a minor animosity towards Jordan Finch, the Mechanical Maestro due to professional conflict. Alex constantly feels they have to defend the delicate nature of sensory appreciation against what they feel is the brutish necessity of machinery.</p>
-
-<h2>Motivation to Poison a Batch</h2>
-<p>Alex's potential motivation to poison a batch could be linked to a desire to protect the distillery's reputation. If they perceive that a substandard batch might tarnish the company's image, they might consider sabotage as a drastic measure to prevent the release of an inferior product.</p>
-
-<h2>Secret Connection Hint</h2>
-<p>A subtle hint to Alex's secret connection could be a unique sensory evaluation technique or tool that they possess, hinting at a past affiliation or training that has influenced their approach to sensory analysis.</p>
+    <h2>Motivation to Poison a Batch</h2>
+    <p>A reason for Dakota to consider poisoning a batch could be linked to a desire for professional advancement. If they feel that their expertise in sanitization is undervalued or if they perceive a threat to the cleanliness standards, they might contemplate sabotage as a drastic measure to prove the importance of their role in maintaining hygiene within the distillery.</p>
 
 `;
 
@@ -34,7 +31,7 @@ document.getElementById("backstory").innerHTML = `
 
 
     function loadPlayerJson() {
-        fetch('players/player3.json') // Replace with the actual path to player1.json on your server
+        fetch('players/player6.json') // Replace with the actual path to player1.json on your server
             .then(response => response.json())
             .then(playerData => {
                 // Handle the loaded player data as needed

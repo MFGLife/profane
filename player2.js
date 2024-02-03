@@ -2,7 +2,7 @@ let checkLogin = false;
 let inventory;
 document.getElementById("backstory").innerHTML = `
   <h2>Jordan Finch</h2>
-  <p>Job Title: Mechanical Maestro<br>
+  <p>Mechanical Maestro<br>
     A skilled engineer employee who oversees the maintenance and operation of the distillery's mechanical systems, ensuring the precision and efficiency of the distillation process.
     <br><br>
     <b>Backstory:</b> Jordan Finch, discovered their passion for engineering at a young age while tinkering with mechanical toys in their father's workshop. Their innate talent and dedication to precision engineering led them to become a respected figure in the distillery industry. Jordan joined Bramble Twist Botanicals, where their expertise in maintaining and optimizing the distillery's mechanical systems has been instrumental in ensuring the quality of the distilled waters.

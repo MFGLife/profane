@@ -1,28 +1,25 @@
 let checkLogin = false;
 let inventory;
 document.getElementById("backstory").innerHTML = `
-<h1>Alex Huff</h1>
+<h1>Remy Hawthorne</h1>
+    
+    <h2>Master Blender</h2>
+    <p>An employee skilled in the art of blending, responsible for harmonizing different distillates to create complex and balanced products that reflect the distillery's signature style.</p>
 
-<h2>Sensory Specialist</h2>
-<p>An employee with an exceptional sense of smell and taste, crucial for identifying the subtle nuances in the distilled waters, and responsible for quality control and sensory evaluation of each recipe.</p>
+    <h2>Backstory</h2>
+    <p>Remy Hawthorne, the Master Blender, discovered their passion for the art of blending a bit later in life. Remy had a very different job title before they started with Bramble Twist Botanicals. Always having been intrigued by unique combinations, they mixed and sold their own products from home for years before being found by Krista Friday at a farmer’s market. Remy joined Bramble Twist Botanicals, where their enthusiasm in creating complex and balanced products combined with a fresh perspective has been instrumental in defining the distillery's signature style.</p>
 
-<h2>Backstory</h2>
-<p>Alex discovered their exceptional sense of smell and taste at a young age, which sparked a deep fascination with the sensory characteristics of various substances. This led them to pursue a career in sensory evaluation and quality control, eventually joining Bramble Twist Botanicals as a crucial member of the team responsible for identifying the subtle nuances in the distilled waters.</p>
+    <h2>Personality</h2>
+    <p>Remy Hawthorne glides through the distillery like a whisper of smoke, leaving a trail of intrigue wherever they go. Their charisma draws others in, captivated by the spark of creation dancing in their eyes. This creativity fuels their passion for blending, an art they approach with the heart of an artist and the mind of a strategist. Each ingredient, a vibrant note in the symphony they orchestrate, their intuition guiding them towards harmonious combinations that surprise and delight. Yet, beneath the surface of artistic flair lies a wellspring of enigma. Their past, like a recipe with missing ingredients, remains shrouded in mystery, fueling whispers and speculation. This enigmatic nature fosters adaptability, allowing them to chameleon-like adjust their approach to suit any situation, any collaborator. Be it the lively discussions with Jordan about the mechanics of flavor, or the seamless partnership with Ash, translating botanical dreams into aromatic realities, Remy thrives on connection. However, a hidden agenda simmers beneath the surface. Could the instructions they follow come from an unseen hand, their true motivations veiled behind a curtain of charm and creativity? Remember, Remy is a kaleidoscope of contradictions – an open book with pages deliberately left blank, their actions driven by a potent blend of intuition, artistry, and a secret loyalty that may not lie with Bramble Twist. As you navigate the intricate world of the distillery, remember the aroma of each blend holds a story, and none may be more captivating than the enigmatic essence of Remy Hawthorne.</p>
 
-<h2>Personality</h2>
-<p>Alex Huff navigates the world through a kaleidoscope of scents and flavors, their senses attuned to the subtlest whispers of each aroma and nuance. Discernment dances in their eyes, a testament to countless hours spent dissecting the essence of every ingredient. Where others see simplicity, Alex sees a symphony of complexity, their mind a canvas forever painted with the vibrant hues of taste and smell. This passion fuels their creativity, pushing them to experiment, to innovate, to unearth hidden depths within each distilled water. Yet, beneath the surface lies a wellspring of intuition, a quiet knowing that guides their actions. The atmosphere hums with unspoken truths, and Alex absorbs them all, their sensitivity weaving a tapestry of understanding that others might miss. This passion can flare into protectiveness, turning Alex into a fierce guardian of the sensory experience. They might act rashly, even rebelliously, when they perceive a threat to the delicate balance of flavor or the distillery's reputation. A hint of animosity lingers towards Jordan, their championing of sensory art clashing with what Alex sees as the cold pragmatism of machinery. However, a deeper connection blooms with Ash, a shared language spoken through the poetry of taste and scent. Remember, Alex is a whirlwind of senses and intuition, their actions driven by a love for the ephemeral beauty of flavor and an unwavering determination to protect its essence, even if it means defying expectations and challenging the status quo.</p>
+    <h2>Day-to-Day Glimpse</h2>
+    <p>Remy's days are filled with the meticulous process of blending different distillates to create products that reflect the distillery's signature style. They spend hours experimenting with various combinations, striving to achieve a harmonious balance of flavors and aromas in each blend.</p>
 
-<h2>Day-to-Day Glimpse</h2>
-<p>Alex's days are filled with conducting sensory evaluations of the distilled waters, meticulously identifying and cataloging their unique characteristics. They are known for their ability to discern even the most delicate aromas and flavors, ensuring that each batch meets the distillery's stringent quality standards.</p>
+    <h2>Relationships</h2>
+    <p>Remy shares a close platonic friendship with Jordan Finch, often engaging in lively discussions about the interplay between mechanical precision and the art of blending. They also have a pleasant collaborative relationship with the Ash Gramb, the Ingredient Botanist, partnering easily to ensure the botanical variety achieves the blend visions Remy dreams up.</p>
 
-<h2>Relationships</h2>
-<p>Alex shares a romantic but unofficial relationship with Ash, the Ingredient Botanist, bonding over their shared appreciation for the subtle nuances of botanicals and distilled waters. Alex has a minor animosity towards Jordan Finch, the Mechanical Maestro due to professional conflict. Alex constantly feels they have to defend the delicate nature of sensory appreciation against what they feel is the brutish necessity of machinery.</p>
-
-<h2>Motivation to Poison a Batch</h2>
-<p>Alex's potential motivation to poison a batch could be linked to a desire to protect the distillery's reputation. If they perceive that a substandard batch might tarnish the company's image, they might consider sabotage as a drastic measure to prevent the release of an inferior product.</p>
-
-<h2>Secret Connection Hint</h2>
-<p>A subtle hint to Alex's secret connection could be a unique sensory evaluation technique or tool that they possess, hinting at a past affiliation or training that has influenced their approach to sensory analysis.</p>
+    <h2>Motivation to Poison a Batch</h2>
+    <p>Remy may not be who they have led their coworkers to think they are. They could have a motivation to poison a batch that would come as instructions from an outside force.</p>
 
 `;
 
@@ -34,7 +31,7 @@ document.getElementById("backstory").innerHTML = `
 
 
     function loadPlayerJson() {
-        fetch('players/player3.json') // Replace with the actual path to player1.json on your server
+        fetch('players/player8.json') // Replace with the actual path to player1.json on your server
             .then(response => response.json())
             .then(playerData => {
                 // Handle the loaded player data as needed

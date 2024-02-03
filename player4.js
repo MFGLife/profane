@@ -1,28 +1,20 @@
 let checkLogin = false;
 let inventory;
 document.getElementById("backstory").innerHTML = `
-<h1>Alex Huff</h1>
-
-<h2>Sensory Specialist</h2>
-<p>An employee with an exceptional sense of smell and taste, crucial for identifying the subtle nuances in the distilled waters, and responsible for quality control and sensory evaluation of each recipe.</p>
-
-<h2>Backstory</h2>
-<p>Alex discovered their exceptional sense of smell and taste at a young age, which sparked a deep fascination with the sensory characteristics of various substances. This led them to pursue a career in sensory evaluation and quality control, eventually joining Bramble Twist Botanicals as a crucial member of the team responsible for identifying the subtle nuances in the distilled waters.</p>
-
-<h2>Personality</h2>
-<p>Alex Huff navigates the world through a kaleidoscope of scents and flavors, their senses attuned to the subtlest whispers of each aroma and nuance. Discernment dances in their eyes, a testament to countless hours spent dissecting the essence of every ingredient. Where others see simplicity, Alex sees a symphony of complexity, their mind a canvas forever painted with the vibrant hues of taste and smell. This passion fuels their creativity, pushing them to experiment, to innovate, to unearth hidden depths within each distilled water. Yet, beneath the surface lies a wellspring of intuition, a quiet knowing that guides their actions. The atmosphere hums with unspoken truths, and Alex absorbs them all, their sensitivity weaving a tapestry of understanding that others might miss. This passion can flare into protectiveness, turning Alex into a fierce guardian of the sensory experience. They might act rashly, even rebelliously, when they perceive a threat to the delicate balance of flavor or the distillery's reputation. A hint of animosity lingers towards Jordan, their championing of sensory art clashing with what Alex sees as the cold pragmatism of machinery. However, a deeper connection blooms with Ash, a shared language spoken through the poetry of taste and scent. Remember, Alex is a whirlwind of senses and intuition, their actions driven by a love for the ephemeral beauty of flavor and an unwavering determination to protect its essence, even if it means defying expectations and challenging the status quo.</p>
-
-<h2>Day-to-Day Glimpse</h2>
-<p>Alex's days are filled with conducting sensory evaluations of the distilled waters, meticulously identifying and cataloging their unique characteristics. They are known for their ability to discern even the most delicate aromas and flavors, ensuring that each batch meets the distillery's stringent quality standards.</p>
-
-<h2>Relationships</h2>
-<p>Alex shares a romantic but unofficial relationship with Ash, the Ingredient Botanist, bonding over their shared appreciation for the subtle nuances of botanicals and distilled waters. Alex has a minor animosity towards Jordan Finch, the Mechanical Maestro due to professional conflict. Alex constantly feels they have to defend the delicate nature of sensory appreciation against what they feel is the brutish necessity of machinery.</p>
-
-<h2>Motivation to Poison a Batch</h2>
-<p>Alex's potential motivation to poison a batch could be linked to a desire to protect the distillery's reputation. If they perceive that a substandard batch might tarnish the company's image, they might consider sabotage as a drastic measure to prevent the release of an inferior product.</p>
-
-<h2>Secret Connection Hint</h2>
-<p>A subtle hint to Alex's secret connection could be a unique sensory evaluation technique or tool that they possess, hinting at a past affiliation or training that has influenced their approach to sensory analysis.</p>
+<h2>Avery Warner</h2>
+<p> Water Purification Expert: An employee focused on the purification of water used in the distillation process, ensuring that only the purest water is employed to create the highest quality products.</p>
+<h3>Backstory:</h3>
+<p>Avery, the Water Purification Expert, developed a passion for water science and purification techniques early in their career. Their commitment to ensuring the distillery's water purity led them to become an indispensable member of the Bramble Twist Botanicals team. Avery's expertise in water purification has been vital in maintaining the highest standards for the water used in the distillation process.</p>
+<h3>Personality:</h3>
+<p>Avery Warner navigates the distillery with the measured tread of a scientist, their every step guided by an unwavering devotion to the purity of water. Methodical precision runs through their veins, evident in the meticulous attention they pay to protocols and procedures. Each valve turn, each filter change, is a carefully orchestrated dance, a ritual ensuring only the most pristine water graces the Bramble Twist distillation process. This dedication fuels their tenacity, an unyielding spirit that refuses to settle for anything less than perfection. When faced with opposition, particularly from Dakota Calligaris, whose contrasting methods spark frequent clashes, Avery stands firm, their principles etched in every fiber of their being. Yet, beneath the surface of unwavering resolve lies a wellspring of resourcefulness. Faced with unforeseen challenges, Avery taps into a hidden reservoir of ingenuity, devising innovative solutions that push the boundaries of water purification. However, a veil of secrecy shrouds their methods, hinting at past experiences that have instilled a guarded nature. Whispers of hidden research papers and obscure patents add to the enigma, fueling speculation about the true depths of Avery's expertise and the motivations that might drive them to consider sabotage. Remember, Avery is a paradox - a meticulous guardian of purity cloaked in secrecy, their actions driven by unwavering principles, a thirst for innovation, and the lingering echoes of a past shrouded in mystery. As you navigate the intricate world of Bramble Twist Botanicals, remember the water that flows through its veins holds secrets, and none may be deeper than those held by Avery Warner.</p>
+<h3>Day-to-Day Glimpse:</h3>
+<p>Avery's days are dedicated to overseeing the purification of water used in the distillation process. They meticulously monitor and optimize the water purification systems, ensuring that only the purest water is employed to create the highest quality distilled products.</p>
+<h3>Relationships:</h3>
+<p>Avery and Dakota Calligaris have a deep dislike for one another due to their constant conflicting opinions on the best practices for ensuring the purity of the water and equipment in the distillery. Their disagreements often lead to tense interactions, as they both strive to uphold their respective standards for water and equipment cleanliness. Despite working towards a common goal, their differing approaches have created a palpable animosity between them. Avery gets along well with Sklar Banks as they often share insights and work collaboratively together regarding water purification and its history.</p>
+<h3>Motivation to Poison a Batch:</h3>
+<p>A reason for Avery to consider poisoning a batch could be linked to their personal vendetta against Dakota Calligaris. Avery feels they have faced unjust mistreatment by Bramble Twist Botanicals for choosing to listen to Dakota over them. They have contemplated sabotage as a means of seeking retribution. This motivation could stem from a perceived lack of support or recognition for their expertise in water purification, leading to feelings of resentment and a desire to retaliate against the distillery and Dakota.</p>
+<h3>Secret Connection Hint:</h3>
+<p>A subtle hint to Avery's secret connection could be a hidden research paper or patent related to an innovative water purification technique that holds significance to their motivations and expertise.</p>
 
 `;
 
@@ -34,7 +26,7 @@ document.getElementById("backstory").innerHTML = `
 
 
     function loadPlayerJson() {
-        fetch('players/player3.json') // Replace with the actual path to player1.json on your server
+        fetch('players/player4.json') // Replace with the actual path to player1.json on your server
             .then(response => response.json())
             .then(playerData => {
                 // Handle the loaded player data as needed

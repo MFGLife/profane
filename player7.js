@@ -1,28 +1,25 @@
 let checkLogin = false;
 let inventory;
 document.getElementById("backstory").innerHTML = `
-<h1>Alex Huff</h1>
-
-<h2>Sensory Specialist</h2>
-<p>An employee with an exceptional sense of smell and taste, crucial for identifying the subtle nuances in the distilled waters, and responsible for quality control and sensory evaluation of each recipe.</p>
+<h1>Taylor Banks</h1>
+    
+<h2>Quality Assurance Chemist</h2>
+<p>An employee with a background in chemistry, dedicated to ensuring the safety and consistency of the distilled rose water products through rigorous quality testing and analysis.</p>
 
 <h2>Backstory</h2>
-<p>Alex discovered their exceptional sense of smell and taste at a young age, which sparked a deep fascination with the sensory characteristics of various substances. This led them to pursue a career in sensory evaluation and quality control, eventually joining Bramble Twist Botanicals as a crucial member of the team responsible for identifying the subtle nuances in the distilled waters.</p>
+<p>Taylor Banks, the Quality Assurance Chemist, developed a passion for chemistry and quality control early in their career. Their dedication to ensuring the safety and consistency of distilled water products through rigorous testing and analysis led them to become an indispensable member of the Bramble Twist Botanicals team. Taylor's expertise in quality assurance has been vital in upholding the highest standards for the distillery's products.</p>
 
 <h2>Personality</h2>
-<p>Alex Huff navigates the world through a kaleidoscope of scents and flavors, their senses attuned to the subtlest whispers of each aroma and nuance. Discernment dances in their eyes, a testament to countless hours spent dissecting the essence of every ingredient. Where others see simplicity, Alex sees a symphony of complexity, their mind a canvas forever painted with the vibrant hues of taste and smell. This passion fuels their creativity, pushing them to experiment, to innovate, to unearth hidden depths within each distilled water. Yet, beneath the surface lies a wellspring of intuition, a quiet knowing that guides their actions. The atmosphere hums with unspoken truths, and Alex absorbs them all, their sensitivity weaving a tapestry of understanding that others might miss. This passion can flare into protectiveness, turning Alex into a fierce guardian of the sensory experience. They might act rashly, even rebelliously, when they perceive a threat to the delicate balance of flavor or the distillery's reputation. A hint of animosity lingers towards Jordan, their championing of sensory art clashing with what Alex sees as the cold pragmatism of machinery. However, a deeper connection blooms with Ash, a shared language spoken through the poetry of taste and scent. Remember, Alex is a whirlwind of senses and intuition, their actions driven by a love for the ephemeral beauty of flavor and an unwavering determination to protect its essence, even if it means defying expectations and challenging the status quo.</p>
+<p>Beneath the polished surface of the Bramble Twist lab, Taylor Banks simmers with ambition, their eyes gleaming with the glint of a scientist hungry to make their mark. Every experiment, every analysis, fuels their relentless pursuit of excellence, each discovery a stepping stone on their ladder of professional ascension. Unlike some, intuition holds little sway for Taylor; theirs is a world of gathered data and calculated decisions. Logic is their weapon, evidence their shield, and ambition their driving force. This precision can at times manifest as inflexibility, especially when clashing with Dakota's more pragmatic approach to sanitization. However, their shared commitment to quality fosters a professional respect, bordering on a strategic alliance. Their relationship with Skylar, their aunt/uncle and mentor, is different – a warm undercurrent of familial bond flows beneath their shared passion for the science behind the craft. Yet, Taylor's ambition yearns for more than simply following in Skylar's footsteps. They have their own path to forge, their own discoveries to make. Remember, Taylor is a force to be reckoned with – a calculated strategist fueled by ambition, their actions driven by a thirst for knowledge, recognition, and a desire to etch their name onto the tapestry of Bramble Twist's scientific legacy. As you navigate the intricate world of the distillery, remember the lab holds its secrets, and none may be more intriguing than the ambitions simmering within the mind of Taylor Banks.</p>
 
 <h2>Day-to-Day Glimpse</h2>
-<p>Alex's days are filled with conducting sensory evaluations of the distilled waters, meticulously identifying and cataloging their unique characteristics. They are known for their ability to discern even the most delicate aromas and flavors, ensuring that each batch meets the distillery's stringent quality standards.</p>
+<p>Taylor's days are filled with conducting rigorous quality testing and analysis of the distilled products. They meticulously examine each batch to ensure safety and consistency, adhering to stringent quality control protocols and industry standards.</p>
 
 <h2>Relationships</h2>
-<p>Alex shares a romantic but unofficial relationship with Ash, the Ingredient Botanist, bonding over their shared appreciation for the subtle nuances of botanicals and distilled waters. Alex has a minor animosity towards Jordan Finch, the Mechanical Maestro due to professional conflict. Alex constantly feels they have to defend the delicate nature of sensory appreciation against what they feel is the brutish necessity of machinery.</p>
+<p>Taylor is the niece or nephew of Skylar Banks, the Distillation Historian, fostering a strong familial bond with them. They share a mentor-mentee relationship with Skylar, who has passed down their deep understanding of distillation history and techniques which is what inspired Taylor to get into chemistry; they wanted to really understand the science behind their aunt/uncle’s passion. Taylor also has a professionally pleasant relationship with Dakota Calligaris. With sanitization being foundational to chemistry, they share ideologies and strategies for guaranteeing Bramble Twist’s superior quality product.</p>
 
 <h2>Motivation to Poison a Batch</h2>
-<p>Alex's potential motivation to poison a batch could be linked to a desire to protect the distillery's reputation. If they perceive that a substandard batch might tarnish the company's image, they might consider sabotage as a drastic measure to prevent the release of an inferior product.</p>
-
-<h2>Secret Connection Hint</h2>
-<p>A subtle hint to Alex's secret connection could be a unique sensory evaluation technique or tool that they possess, hinting at a past affiliation or training that has influenced their approach to sensory analysis.</p>
+<p>Taylor's potential motivation to poison a batch could be linked to a desire to further their own reputation and standing at Bramble Twist. They are the one who discovered the poisoned product and it would be easy to seem a hero both to Bramble Twist and Skylar if they were to prevent the poisoning.</p>
 
 `;
 
@@ -34,7 +31,7 @@ document.getElementById("backstory").innerHTML = `
 
 
     function loadPlayerJson() {
-        fetch('players/player3.json') // Replace with the actual path to player1.json on your server
+        fetch('players/player7.json') // Replace with the actual path to player1.json on your server
             .then(response => response.json())
             .then(playerData => {
                 // Handle the loaded player data as needed

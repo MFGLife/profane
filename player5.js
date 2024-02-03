@@ -1,28 +1,28 @@
 let checkLogin = false;
 let inventory;
 document.getElementById("backstory").innerHTML = `
-<h1>Alex Huff</h1>
-
-<h2>Sensory Specialist</h2>
-<p>An employee with an exceptional sense of smell and taste, crucial for identifying the subtle nuances in the distilled waters, and responsible for quality control and sensory evaluation of each recipe.</p>
+<h1>Skylar Banks</h1>
+    
+<h2>Distillation Historian</h2>
+<p>An employee with a passion for the history of distillation, responsible for preserving traditional techniques and knowledge, and integrating them into the modern distillery practices.</p>
 
 <h2>Backstory</h2>
-<p>Alex discovered their exceptional sense of smell and taste at a young age, which sparked a deep fascination with the sensory characteristics of various substances. This led them to pursue a career in sensory evaluation and quality control, eventually joining Bramble Twist Botanicals as a crucial member of the team responsible for identifying the subtle nuances in the distilled waters.</p>
+<p>Skylar Banks, the Distillation Historian, developed a profound passion for the history of distillation from a young age. Their fascination with traditional techniques and knowledge led them to become a revered consultant in the distillery industry. Skylar's expertise in preserving and integrating historical distillation practices has been instrumental in upholding the legacy of the craft at Bramble Twist Botanicals.</p>
 
 <h2>Personality</h2>
-<p>Alex Huff navigates the world through a kaleidoscope of scents and flavors, their senses attuned to the subtlest whispers of each aroma and nuance. Discernment dances in their eyes, a testament to countless hours spent dissecting the essence of every ingredient. Where others see simplicity, Alex sees a symphony of complexity, their mind a canvas forever painted with the vibrant hues of taste and smell. This passion fuels their creativity, pushing them to experiment, to innovate, to unearth hidden depths within each distilled water. Yet, beneath the surface lies a wellspring of intuition, a quiet knowing that guides their actions. The atmosphere hums with unspoken truths, and Alex absorbs them all, their sensitivity weaving a tapestry of understanding that others might miss. This passion can flare into protectiveness, turning Alex into a fierce guardian of the sensory experience. They might act rashly, even rebelliously, when they perceive a threat to the delicate balance of flavor or the distillery's reputation. A hint of animosity lingers towards Jordan, their championing of sensory art clashing with what Alex sees as the cold pragmatism of machinery. However, a deeper connection blooms with Ash, a shared language spoken through the poetry of taste and scent. Remember, Alex is a whirlwind of senses and intuition, their actions driven by a love for the ephemeral beauty of flavor and an unwavering determination to protect its essence, even if it means defying expectations and challenging the status quo.</p>
+<p>Skylar Banks walks the halls of Bramble Twist with a reverence reserved for hallowed libraries, each step echoing their profound respect for the whispers of history etched within the art of distillation. Their eyes sparkle with an infectious enthusiasm, ignited by the stories trapped in ancient texts and the wisdom held within dusty artifacts. A visionary spirit dances within them, constantly seeking bridges between the past's legacy and the present's potential. This vision fuels their mentorly nature, offering a patient, guiding hand or their knowledge flowing freely like aged spirits passed down through generations. Yet, beneath the surface of enthusiasm lies a deep commitment to tradition. Modernization's siren song often falls on deaf ears, for Skylar fears the erosion of quality and authenticity in the pursuit of efficiency. At times, they might romanticize the past, their nostalgia fueling resistance to change, creating occasional clashes with those focused solely on the bottom line. Remember, Skylar is a walking tapestry woven from passion, vision, and tradition. Their actions dance between preserving the past's wisdom and embracing the present's potential, forever seeking the perfect blend that honors the legacy of distillation while forging a path towards a brighter future. As you navigate the intricate world of Bramble Twist Botanicals, remember the spirits of the past flow through Skylar Banks, and their unwavering dedication to tradition may hold the key to unlocking not only the distillery's history, but its very essence</p>
 
 <h2>Day-to-Day Glimpse</h2>
-<p>Alex's days are filled with conducting sensory evaluations of the distilled waters, meticulously identifying and cataloging their unique characteristics. They are known for their ability to discern even the most delicate aromas and flavors, ensuring that each batch meets the distillery's stringent quality standards.</p>
+<p>Skylar spends their days meticulously researching and implementing the rich history of distillation. They are often found poring over ancient texts and artifacts, seeking to preserve and integrate traditional techniques into the modern distillery practices. Skylar also leads educational sessions, sharing their wealth of knowledge with colleagues and enthusiasts alike.</p>
 
 <h2>Relationships</h2>
-<p>Alex shares a romantic but unofficial relationship with Ash, the Ingredient Botanist, bonding over their shared appreciation for the subtle nuances of botanicals and distilled waters. Alex has a minor animosity towards Jordan Finch, the Mechanical Maestro due to professional conflict. Alex constantly feels they have to defend the delicate nature of sensory appreciation against what they feel is the brutish necessity of machinery.</p>
+<p>Skylar is the aunt or uncle of the Quality Assurance Chemist, fostering a strong familial bond with them. They share a mentor-mentee relationship with the Quality Assurance Chemist, passing down their deep understanding of distillation history and techniques.</p>
 
 <h2>Motivation to Poison a Batch</h2>
-<p>Alex's potential motivation to poison a batch could be linked to a desire to protect the distillery's reputation. If they perceive that a substandard batch might tarnish the company's image, they might consider sabotage as a drastic measure to prevent the release of an inferior product.</p>
+<p>Skylar's potential motivation to poison a batch could be linked to a desire to protect the integrity of traditional distillation practices. If they perceive that the distillery's modernization efforts are compromising the authenticity of the products, they might consider sabotage as a drastic measure to uphold the legacy of the craft.</p>
 
 <h2>Secret Connection Hint</h2>
-<p>A subtle hint to Alex's secret connection could be a unique sensory evaluation technique or tool that they possess, hinting at a past affiliation or training that has influenced their approach to sensory analysis.</p>
+<p>A subtle hint to Skylar's secret connection could be an ancient distillation artifact or manuscript hidden in their office, hinting at a significant historical link that has influenced their motivations and dedication to preserving traditional techniques.</p>
 
 `;
 
@@ -34,7 +34,7 @@ document.getElementById("backstory").innerHTML = `
 
 
     function loadPlayerJson() {
-        fetch('players/player3.json') // Replace with the actual path to player1.json on your server
+        fetch('players/player5.json') // Replace with the actual path to player1.json on your server
             .then(response => response.json())
             .then(playerData => {
                 // Handle the loaded player data as needed
