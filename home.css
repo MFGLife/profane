@@ -5,6 +5,12 @@
 }
 
 
+#app {
+  width: 100vw;
+  height: 100vh;
+}
+
+
 /* For Webkit browsers like Chrome, Safari */
 ::-webkit-scrollbar {
     display: none;
