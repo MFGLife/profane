@@ -17,7 +17,7 @@ body {
 }
 .header__initials {
   display: inline-block;
-  font-size: 85vh;
+  font-size: 65vh;
   line-height: 1em;
   color: #fdc96f;
   background: url("code.gif");
