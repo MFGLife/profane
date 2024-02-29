@@ -20,7 +20,7 @@ let checkLogin = false;
                 chatWindow.innerHTML += '<font style="color:lightgreen;">' + userId + ' is logged in.</font><br>';
 
 
-// Initial message from Profane
+// Initial message from Ofmicheal
 setTimeout(function() {
 
     
@@ -79,7 +79,7 @@ setTimeout(function() {
       var randomMessage = messages[deviceType] || messages["default"];
       var message = randomMessage[Math.floor(Math.random() * randomMessage.length)];
     
-        const initialMessage = '<p>Profane: ' + greeting + ' ' + userId + '. ' + message + '</p>';
+        const initialMessage = '<p>Ofmicheal: ' + greeting + ' ' + userId + '. ' + message + '</p>';
         chatWindow.innerHTML += initialMessage;
         scrollToBottom();
     }, 2300);
@@ -229,7 +229,6 @@ function init() {
   loader.load('https://luminafields.com/micheal.glb', function (gltf) {
     model = gltf.scene;
     scene.add(model);
-    model.position.x = -.3;
     model.position.y = -1.2;
     model.position.z = 2.2;
 
@@ -250,7 +249,6 @@ function init() {
   renderer.setPixelRatio(window.devicePixelRatio);
   document.getElementById("app").appendChild(renderer.domElement);
 
-  controls = new THREE.OrbitControls(camera, renderer.domElement);
 
   gsap.ticker.add(render);
 

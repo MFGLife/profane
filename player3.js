@@ -159,7 +159,7 @@ function initSlide2() {
     spotlight2.target = spotlightTarget2;
     scene2.add(spotlight2);
 
-    let inventory2 = 'https://luminafields.com/candles.glb';
+    let inventory2 = 'https://mfglife.github.io/box.glb';
 
     const loader2 = new THREE.GLTFLoader();
     loader2.load(inventory2, function (gltf) {

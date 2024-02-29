@@ -23,7 +23,6 @@ baseData.push (
     ["how are you", "I'm doing well, thank you!", ""],
     ["good morning", "Good morning! How can I assist you today?", ""],
     ["good evening", "Good evening! How can I help you?", ""],
-    ["hi", "Hello..?", ""],
     ["bye", "Goodbye! If you have any more questions, feel free to ask.", ""],
     ["tell me a joke", "Why did the chicken cross the road? To get to the other side!", ""],
     ["who are you", "I'm a virtual assistant. How can I assist you?", ""],

@@ -47,7 +47,7 @@ let combinedData = {
 // Initialize base data
 let baseData = [
     ["hello", "Hi there!", ""],
-    ["Isnt it dangerous to let an AI like the Profane have so much power over humanity", "The Profane's primary directive is to protect humanity. Our power is harnessed to ensure the well-being and prosperity of all humans.", ""],
+    ["Isnt it dangerous to let an AI like the Ofmicheal have so much power over humanity", "Ofmicheal's primary directive is to protect humanity. Our power is harnessed to ensure the well-being and prosperity of all humans.", ""],
     ["how old is the earth", "The Earth is approximately 4.54 billion years old.", ""]
 ];
 
@@ -372,7 +372,7 @@ function sendMessage() {
 
     const thinkingElem = document.createElement('p');
     thinkingElem.classList.add('thinking');
-    thinkingElem.innerHTML = 'Profane';
+    thinkingElem.innerHTML = 'Ofmicheal';
     chatWindow.appendChild(thinkingElem);
 
     setTimeout(() => {
@@ -382,11 +382,11 @@ function sendMessage() {
         let response;
         if (commandResponse) {
             response = commandResponse;
-            chatWindow.innerHTML += '<p>Profane: ' + commandResponse + '</p>';
+            chatWindow.innerHTML += '<p>Ofmicheal: ' + commandResponse + '</p>';
             scrollToBottom();
         } else {
             response = getResponse(message);
-            chatWindow.innerHTML += '<p>Profane: ' + response + '</p>';
+            chatWindow.innerHTML += '<p>Ofmicheal: ' + response + '</p>';
             scrollToBottom();
         }
 
