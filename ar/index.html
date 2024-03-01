@@ -185,7 +185,7 @@
       }
 
       #example-scanning-overlay img {
-	opacity: 0.6;
+	opacity: 0;
 	width: 90%;
 	align-self: center;
       }
@@ -207,27 +207,27 @@
     <div class="example-container">
       <div id="example-scanning-overlay" class="hidden">
 	<div class="inner">
-	  <img src="./pics/card.png"/>
+	  <img src="./pics/card.jpg"/>
 	  <div class="scanline"></div>
 	</div>
       </div>
 
       <a-scene mindar-image="imageTargetSrc: ./targets.mind; showStats: false; uiScanning: #example-scanning-overlay;" embedded color-space="sRGB" renderer="colorManagement: true, physicallyCorrectLights" vr-mode-ui="enabled: false" device-orientation-permission-ui="enabled: false">
         <a-assets>
-          <img id="card" src="./pics/card.png" />
+          <img id="card" src="./pics/card.jpg" />
           <img id="icon-web" src="./pics/web.png" />
           <img id="icon-location" src="./pics/location.png" />
           <img id="icon-profile" src="./pics/profile.png" />
           <img id="icon-phone" src="./pics/phone.png" />
           <img id="icon-email" src="./pics/email.png" />
-          <img id="icon-play" src="./pics/card.png" />
+          <img id="icon-play" src="./pics/card.jpg" />
           <img id="icon-left" src="./pics/left.png" />
           <img id="icon-right" src="./pics/right.png" />
-          <img id="paintandquest-preview" src="./pics/card.png" />
+          <img id="paintandquest-preview" src="./pics/card.jpg" />
           <video controls muted id="paintandquest-video-mp4" autoplay="false" loop="true" src="./paintandquest.mp4"></video>
           <video controls muted id="paintandquest-video-webm" autoplay="false" loop="true" src="./paintandquest.webm"></video>
           <img id="coffeemachine-preview" src="./pics/puz4.jpg" />
-          <img id="peak-preview" src="./pics/card.png" />
+          <img id="peak-preview" src="./pics/card.jpg" />
           
         </a-assets>
 

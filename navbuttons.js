@@ -19,6 +19,8 @@ function checkPasscode() {
   if(code === "Skylar Banks") {window.location.href = "player5.html";}
   if(code === "Dakota Calligaris") {window.location.href = "player6.html";}
   if(code === "Taylor Banks") {window.location.href = "player7.html";}
+  if(code === "AR Version 1.1") {window.location.href = "./ar/index.html";}
+  if(code === "AR Version 2.1b") {window.location.href = "./ar2/index.html";}
   if(code === "Remy Hawthorne") {window.location.href = "player8.html";}
 
 }
