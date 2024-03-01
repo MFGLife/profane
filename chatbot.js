@@ -29,6 +29,17 @@ let userData = {
     conversationData: []
 };
 
+// Global variable to store the user ID
+let userId = "Guest2";
+
+// Function to track user ID globally
+function trackUserId(newUserId) {
+    userId = newUserId; // Update userId variable
+    userData.id = newUserId; // Update userData.id
+}
+
+
+
 // JSON editor element
 let jsonEditor = document.getElementById('jsonEditor');
 
@@ -176,7 +187,6 @@ function updateAppWithData(playerData) {
         updatePopulations(playerData.userData.populations);
         updateModuleProgress(playerData.userData.mainHeading);
         updateUserData(playerData.userData);
-        updateJSONDisplay();
         console.log('App updated successfully.');
     } else {
         console.error('Invalid Player Data structure. Check the player1.json format.');
@@ -200,25 +210,7 @@ function getDeviceType() {
   }
 
 
-// Finally, update the JSON editor display
-updateJSONDisplay();
 
-// Function to update the JSON editor display
-function updateJSONDisplay() {
-    console.log("updateJSONDisplay called");
-    combinedData = {
-        conversationData: userData.conversationData,
-        userData: {
-            id: userData.id,
-            state: userData.state,
-            mainHeading: userData.mainHeading,
-            populations: userData.populations,
-            completedProjects: userData.userCompletedProjects
-        }
-    };
-    console.log(combinedData);
-    jsonEditor.value = JSON.stringify(combinedData, null, 2);
-}
 
 // Create a "thinking" element
 const thinkingElem = document.createElement('p');
@@ -227,15 +219,27 @@ const thinkingElem = document.createElement('p');
 
 // Function to export data as JSON
 function exportData() {
-    updateJSONDisplay();
-    const dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(jsonEditor.value);
+    // Get the JSON data from the jsonEditor value
+    const jsonData = jsonEditor.value;
+
+    // Create a data URI for the JSON data
+    const dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(jsonData);
+
+    // Create a download anchor element
     const downloadAnchorNode = document.createElement('a');
     downloadAnchorNode.setAttribute("href", dataStr);
-    downloadAnchorNode.setAttribute("download", "exportedData.json");
+    downloadAnchorNode.setAttribute("download", "playerData.json");
+
+    // Append the anchor element to the document body and trigger the download
     document.body.appendChild(downloadAnchorNode);
     downloadAnchorNode.click();
+
+    // Clean up the anchor element
     downloadAnchorNode.remove();
 }
+
+
+
 
 
 function levenshtein(a, b) {
@@ -367,7 +371,7 @@ function sendMessage() {
     inputElem.value = '';
 
     const chatWindow = document.getElementById('chatWindow');
-    chatWindow.innerHTML += '<p>' + userId + ': ' + message + '</p>';
+    chatWindow.innerHTML += '<p>' + userData.id + ': ' + message + '</p>'; // Display userData.id in the chat window
     scrollToBottom();
 
     const thinkingElem = document.createElement('p');
@@ -390,11 +394,18 @@ function sendMessage() {
             scrollToBottom();
         }
 
-        const timestamp = new Date().toISOString();
+        // Update conversationData with the new message
+        userData.conversationData.push([userData.id, message, response]);
 
-        updateJSONDisplay();
+        // Update the JSON editor separately
+        updateJSONEditor();
+
+        const timestamp = new Date().toISOString();
     }, 1000);
 }
+
+
+
 
 
 function getResponse(message) {
@@ -410,9 +421,7 @@ function searchInData(message, data) {
     return data.find(entry => entry[0] === closestQuestion)?.[1] || null;
 }
 
-function updateJSONDisplay() {
-    jsonEditor.value = JSON.stringify(combinedData, null, 2);
-}
+
 
 
 
@@ -438,7 +447,6 @@ function updateUserData(userData) {
     mainHeading = userData.mainHeading;
     populations = userData.populations;
     userCompletedProjects = userData.completedProjects;
-    updateJSONDisplay();
 }
 
 
@@ -458,37 +466,38 @@ function importBaseDataSet(event) {
             if (isValidDataFormat(importedData)) {
                 let { conversationData, userData } = importedData;
 
-                if (userData && userData.id && userData.state && userData.mainHeading && userData.populations && userData.completedProjects) {
-                    // Update existing userData properties instead of redefining the whole object
-                    Object.assign(userData, {
-                        completedProjects: userData.completedProjects
-                    });
-                
-                    // Update specific properties of the combinedData.userData without reassigning the whole object
-                    Object.assign(combinedData.userData, {
-                        id: userData.id,
-                        state: userData.state,
-                        mainHeading: userData.mainHeading,
-                        completedProjects: userData.completedProjects
-                    });
-                
-                    // Assuming your actual data has a property named 'actualPopulations'
-                    // Update the condition and assignment based on your JSON structure
-                    if (userData.actualPopulations) {
-                        Object.assign(userData.populations, userData.actualPopulations);
-                    }
-                
-                    // Update populations data and progress bars after assigning actual values
-                    updatePopulations(userData.populations);
-                
-                    // Update module progress with the new mainHeading data
-                    updateModuleProgress(userData.mainHeading);
-                } else {
-                    alert('Missing required userData properties.');
+                // Update global user ID
+                if (userData && userData.id) {
+                    trackUserId(userData.id); // Update the global user ID
                 }
 
-                conversationData = conversationData || [];
-                updateJSONDisplay();
+                // Update existing variables with values from imported data
+                userData = userData || {};
+                userData.conversationData = conversationData || [];
+                userData.completedProjects = userData.completedProjects || [];
+                userData.populations = userData.populations || {};
+                userData.mainHeading = userData.mainHeading || {};
+
+                // Update all variables with values from imported userData
+                state = userData.state || state;
+                mainHeading = userData.mainHeading || mainHeading;
+                populations = userData.populations || populations;
+                userCompletedProjects = userData.completedProjects || userCompletedProjects;
+
+                // Update populations data and progress bars after assigning actual values
+                updatePopulations(populations);
+
+                // Update module progress with the new mainHeading data
+                updateModuleProgress(mainHeading);
+
+                // Update displayed username in the chat window
+                const chatWindow = document.getElementById('chatWindow');
+                chatWindow.innerHTML += '<p>Logged in as: ' + userData.id + '</p>';
+
+                // Update JSON display after modifying the variables
+                updateJSONEditor();
+
+                console.log('Data imported successfully.');
             } else {
                 alert('Invalid data format.');
             }
@@ -500,9 +509,30 @@ function importBaseDataSet(event) {
     reader.readAsText(files[0]);
 }
 
+
+
 function scrollToBottom() {
     const chatWindow = document.getElementById('chatWindow');
     chatWindow.scrollTop = chatWindow.scrollHeight;
 }
 
   let intervalId;
+
+  function updateJSONEditor() {
+    // Construct updatedData with the updated userData
+    const updatedData = {
+        conversationData: userData.conversationData,
+        userData: {
+            id: userId, // Using the globally tracked user ID
+            state: userData.state,
+            mainHeading: userData.mainHeading,
+            populations: userData.populations,
+            completedProjects: userData.userCompletedProjects
+        }
+    };
+
+    // Update JSON editor with the updatedData
+    jsonEditor.value = JSON.stringify(updatedData, null, 2);
+}
+
+

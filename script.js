@@ -1,103 +1,80 @@
 let checkLogin = false;
-  
-    document.addEventListener('DOMContentLoaded', function() {
-        // Automatically load player0.json on page load
-        loadPlayerJson();
-    });
+
+document.addEventListener('DOMContentLoaded', function() {
+    // Automatically load player0.json on page load
+    loadPlayerJson();
+});
 
 
-    function loadPlayerJson() {
-        fetch('players/player0.json') // Replace with the actual path to player1.json on your server
-            .then(response => response.json())
-            .then(playerData => {
-                // Handle the loaded player data as needed
-                handlePlayerData(playerData);
-                updateAppWithData(playerData);
+function loadPlayerJson() {
+    setTimeout(function() {
+        const chatWindow = document.getElementById('chatWindow');
+        const importMessage = '<font style="color:lightgreen;">Please import a file to continue.</font><br>';
+        chatWindow.innerHTML += importMessage;
 
-            checkLogin = true;
-            if (checkLogin === true){
-                const chatWindow = document.getElementById('chatWindow');
-                chatWindow.innerHTML += '<font style="color:lightgreen;">' + userId + ' is logged in.</font><br>';
+        // Initial message from Ofmicheal
+        var time = new Date().getHours();
+        var greeting, joke;
+
+        if (time < 12) {
+            greeting = "Good morning";
+        } else if (time < 18) {
+            greeting = "Good afternoon";
+        } else {
+            greeting = "Good evening";
+        }
+
+        var messages = {
+            "default": [
+                "Welcome to the dark web of our website! Explore, if you dare.",
+                "Enjoy your experience, and remember: not all bugs are unintentional.",
+                "Why did the hacker cross the road? To exploit the vulnerability on the other side.",
+                "How do hackers stay cool? They open Windows.",
+                "I'm writing a book on hacking passwords. It's a real page-turner, especially for IT security.",
+                "Why did the hacker get thrown out of the restaurant? He kept trying to steal the server.",
+                "I told my computer I needed a break. Now it won't stop sending ransom notes.",
+            ],
+            "mobile": [
+                "I've optimized your mobile experience, but remember, even mobile phones can't escape hacks.",
+                "Discover our mobile-friendly features, but beware of the hidden exploits.",
+                "Why did the smartphone break up with its owner? It found a better connection.",
+                "What do you call a phone that hacks other phones? A phreaking smartphone.",
+                "I told my phone to stop eavesdropping on me. Now it just gives me the silent treatment.",
+                "I'm reading a book on mobile security. It's an eye-opener, literally.",
+                "I'm reading a book on the dark side of app development. It's a suspenseful thriller.",
+            ],
+            "Apple": [
+                "Ah, an Apple device! Prepare for a byte of a different kind.",
+                "Did you hear about the Apple device that went rogue? It became a bad apple.",
+                "I told my wife she should embrace her programming mistakes. She gave me a kernel panic.",
+                "Why don't Apple devices make good spies? They can't keep things under iCloud.",
+                "I'm reading a book on hacking Apple IDs. It's password-protected, though.",
+                "I'm reading a book on the secrets of the Apple ecosystem. It's a forbidden fruit.",
+                "I'm reading a book on Apple's privacy policies. It's more fiction than science.",
+            ],
+            "Windows": [
+                "Using Windows? Have you considered encrypting your life?",
+                "Why not make your life easier? Try Linux today, before Windows tries to update again.",
+                "I told my wife she should embrace her coding mistakes. She gave me a blue screen of silence.",
+                "Why did the computer go to therapy? It had too many unresolved issues.",
+                "I'm reading a book on breaking through Windows firewalls. It's a real smash hit.",
+                "I'm reading a book on the secret life of Windows updates. It's a horror story.",
+                "I'm reading a book on hacking with Windows. It's a maze of vulnerabilities.",
+            ]
+        };
 
 
-// Initial message from Ofmicheal
-setTimeout(function() {
+        var deviceType = getDeviceType(); // Replace with actual device detection logic
+        var randomMessage = messages[deviceType] || messages["default"];
+        var message = randomMessage[Math.floor(Math.random() * randomMessage.length)];
 
-    
-    var time = new Date().getHours();
-    var greeting, joke;
-    
-    if (time < 12) {
-        greeting = "Good morning";
-    } else if (time < 18) {
-        greeting = "Good afternoon";
-    } else {
-        greeting = "Good evening";
-    }
-    
-    var messages = {
-        "default": [
-          "Welcome to the dark web of our website! Explore, if you dare.",
-          "Enjoy your experience, and remember: not all bugs are unintentional.",
-          "Why did the hacker cross the road? To exploit the vulnerability on the other side.",
-          "How do hackers stay cool? They open Windows.",
-          "I'm writing a book on hacking passwords. It's a real page-turner, especially for IT security.",
-          "Why did the hacker get thrown out of the restaurant? He kept trying to steal the server.",
-          "I told my computer I needed a break. Now it won't stop sending ransom notes.",
-        ],
-        "mobile": [
-          "I've optimized your mobile experience, but remember, even mobile phones can't escape hacks.",
-          "Discover our mobile-friendly features, but beware of the hidden exploits.",
-          "Why did the smartphone break up with its owner? It found a better connection.",
-          "What do you call a phone that hacks other phones? A phreaking smartphone.",
-          "I told my phone to stop eavesdropping on me. Now it just gives me the silent treatment.",
-          "I'm reading a book on mobile security. It's an eye-opener, literally.",
-          "I'm reading a book on the dark side of app development. It's a suspenseful thriller.",
-        ],
-        "Apple": [
-          "Ah, an Apple device! Prepare for a byte of a different kind.",
-          "Did you hear about the Apple device that went rogue? It became a bad apple.",
-          "I told my wife she should embrace her programming mistakes. She gave me a kernel panic.",
-          "Why don't Apple devices make good spies? They can't keep things under iCloud.",
-          "I'm reading a book on hacking Apple IDs. It's password-protected, though.",
-          "I'm reading a book on the secrets of the Apple ecosystem. It's a forbidden fruit.",
-          "I'm reading a book on Apple's privacy policies. It's more fiction than science.",
-        ],
-        "Windows": [
-          "Using Windows? Have you considered encrypting your life?",
-          "Why not make your life easier? Try Linux today, before Windows tries to update again.",
-          "I told my wife she should embrace her coding mistakes. She gave me a blue screen of silence.",
-          "Why did the computer go to therapy? It had too many unresolved issues.",
-          "I'm reading a book on breaking through Windows firewalls. It's a real smash hit.",
-          "I'm reading a book on the secret life of Windows updates. It's a horror story.",
-          "I'm reading a book on hacking with Windows. It's a maze of vulnerabilities.",
-        ]
-      };
-      
-    
-      var deviceType = getDeviceType(); // Replace with actual device detection logic
-      var randomMessage = messages[deviceType] || messages["default"];
-      var message = randomMessage[Math.floor(Math.random() * randomMessage.length)];
-    
         const initialMessage = '<p>Ofmicheal: ' + greeting + ' ' + userId + '. ' + message + '</p>';
         chatWindow.innerHTML += initialMessage;
         scrollToBottom();
     }, 2300);
+}
 
-            }
-            })
-            .catch(error => {
-                console.error('Error loading player1.json:', error);
-            });
-    }
 
-    function handlePlayerData(playerData) {
-        // Implement your logic to handle the player data here
-        console.log('Loaded Player Data:', playerData);
-        // For example, update the userData and display
-        updateUserData(playerData.userData);
-        updateJSONDisplay();
-    }
 
     let scene, camera, renderer, controls, model, mixer, action, delta;
 let clock = new THREE.Clock();
