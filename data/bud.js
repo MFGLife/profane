@@ -41,6 +41,17 @@ baseData.push (
 ["How do you prevent and manage nutrient deficiencies in marijuana plants?", "Preventing and managing nutrient deficiencies in marijuana plants involves maintaining proper pH levels, monitoring nutrient levels in the growing medium, and adjusting nutrient formulations as needed. Visual cues such as leaf discoloration and stunted growth can also indicate nutrient deficiencies.", ""],
 ["What is the best way to store marijuana seeds for future cultivation?", "To store marijuana seeds for future cultivation, place them in an airtight container such as a glass jar or a sealed plastic bag and store them in a cool, dark, and dry place away from moisture and direct sunlight.", ""],
 ["How do you ensure proper ventilation in indoor marijuana cultivation?", "Proper ventilation in indoor marijuana cultivation can be achieved by using exhaust fans to remove stale air and odors, intake fans to bring in fresh air, and oscillating fans to promote air circulation within the grow space.", ""],
+// Call to action
+["How can I support this project?", "<button class='neumorphic' onclick=\"window.open('https://buy.stripe.com/cN2cP92Y4djMfRu9AL')\">Donate</button>", ""],
+["Do you accept donations?", "<button class='neumorphic' onclick=\"window.open('https://buy.stripe.com/cN2cP92Y4djMfRu9AL')\">Donate</button>", ""],
+["How can I help fund this project?", "<button class='neumorphic' onclick=\"window.open('https://buy.stripe.com/cN2cP92Y4djMfRu9AL')\">Donate</button>", ""],
+["Are there ways to contribute financially to this project?", "<button class='neumorphic' onclick=\"window.open('https://buy.stripe.com/cN2cP92Y4djMfRu9AL')\">Donate</button>", ""],
+["Can I donate to support your cause?", "<button class='neumorphic' onclick=\"window.open('https://buy.stripe.com/cN2cP92Y4djMfRu9AL')\">Donate</button>", ""],
+["Where can I contribute financially to your project?", "<button class='neumorphic' onclick=\"window.open('https://buy.stripe.com/cN2cP92Y4djMfRu9AL')\">Donate</button>", ""],
+["How do I donate to support your work?", "<button class='neumorphic' onclick=\"window.open('https://buy.stripe.com/cN2cP92Y4djMfRu9AL')\">Donate</button>", ""],
+["Are there ways to financially contribute to this project?", "<button class='neumorphic' onclick=\"window.open('https://buy.stripe.com/cN2cP92Y4djMfRu9AL')\">Donate</button>", ""],
+["Can I offer financial assistance to your cause?", "<button class='neumorphic' onclick=\"window.open('https://buy.stripe.com/cN2cP92Y4djMfRu9AL')\">Donate</button>", ""],
+["How can I contribute financially to your organization?", "<button class='neumorphic' onclick=\"window.open('https://buy.stripe.com/cN2cP92Y4djMfRu9AL')\">Donate</button>", ""],
 
 ["", "", ""]
 

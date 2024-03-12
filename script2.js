@@ -12,7 +12,7 @@ appElement.addEventListener('wheel', function(event) {
 function loadPlayerJson() {
     setTimeout(function() {
         const chatWindow = document.getElementById('chatWindow');
-        const importMessage = '<font style="color:lightgreen;">Please upload a dataPack.</font><br>';
+        const importMessage = '<font style="color:lightgreen;">Please upload plant file.</font><br>';
         chatWindow.innerHTML += importMessage;
 
         // Initial message from Bud
@@ -179,7 +179,7 @@ function init() {
   scene = new THREE.Scene();
   scene.fog = new THREE.Fog(0x000000, 0, 16);
   camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 0.1, 1000);
-  camera.position.set(0, 1, 3);
+  camera.position.set(-0.4, 0.5, 1.2);
 
   let ambient = new THREE.AmbientLight(0xffffff, 1);
   scene.add(ambient);
