@@ -1,21 +1,18 @@
 let checkLogin = false;
 
+document.addEventListener('DOMContentLoaded', function() {
+    // Automatically load player0.json on page load
+    loadPlayerJson();
+});
 
-// Select the #app element
-const appElement = document.getElementById('app');
-
-// Disable scrolling within the #app element
-appElement.addEventListener('wheel', function(event) {
-  event.preventDefault();
-}, { passive: false }); // Ensure that preventDefault() is not passive
 
 function loadPlayerJson() {
     setTimeout(function() {
         const chatWindow = document.getElementById('chatWindow');
-        const importMessage = '<font style="color:lightgreen;">Please upload plant file.</font><br>';
+        const importMessage = '<font style="color:lightgreen;">Please import a file to continue.</font><br>';
         chatWindow.innerHTML += importMessage;
 
-        // Initial message from Bud
+        // Initial message from Ofmicheal
         var time = new Date().getHours();
         var greeting, joke;
 
@@ -27,39 +24,51 @@ function loadPlayerJson() {
             greeting = "Good evening";
         }
 
-        var jokes = [
-            "Why did the marijuana plant go to therapy? It had too many high thoughts.",
-            "What do you call a stoned gardener? A pot-plant-er.",
-            "Why don't plants play hide and seek with marijuana plants? Because they always get found in the pot.",
-            "What's a marijuana plant's favorite movie? The Lord of the Rings: The Two Tokes.",
-            "Why did the marijuana plant fail the job interview? It couldn't stop talking about its pot-ential.",
-            "How does a marijuana plant party? It turns up the weed and hits the dance floor.",
-            "What's a marijuana plant's favorite snack? Weedies!",
-            "Why did the marijuana plant always get invited to parties? It was a real hit!",
-        "What's a stoner's favorite type of footwear? High heels!",
-        "Why did the marijuana plant break up with its girlfriend? It just couldn't commit to a pot-ential relationship.",
-        "What do you call a group of stoners stuck on a deserted island? The High-larious Five!",
-        "How do marijuana plants make friends? They just leaf a good impression!",
-        "What's a marijuana plant's favorite game? Weedopoly!",
-        "Why did the marijuana plant get promoted? It was outstanding in its field!",
-        "What's a stoner's favorite board game? Ganja-grams!",
-        "Why did the marijuana plant become a lawyer? It had a high degree of success!",
-        "What do you call a marijuana plant with a law degree? A high-functioning attorney!",
-        "Why was the marijuana plant so good at math? It was always multiplying!",
-        "How did the marijuana plant win the race? It took a shortcut through the pot-hole!",
-        "What do you call a marijuana plant with a broken leg? A pot-cast!",
-        "Why did the marijuana plant go to space? It wanted to be a little higher!",
-        "What's a marijuana plant's favorite subject in school? History, because it's rooted in the past!",
-        "Why did the marijuana plant go to the bar? It heard they had a great pot-stirrer!",
-        "What's a marijuana plant's favorite type of music? Rock 'n' Roll-ups!",
-        "Why did the marijuana plant become a comedian? It had a lot of good pot-laughs!",
-        "What's a marijuana plant's favorite TV show? Breaking Bud!",
-        "Why did the marijuana plant go to the gym? It wanted to get ripped!"
-        ];
+        var messages = {
+            "default": [
+                "Welcome to the dark web of our website! Explore, if you dare.",
+                "Enjoy your experience, and remember: not all bugs are unintentional.",
+                "Why did the hacker cross the road? To exploit the vulnerability on the other side.",
+                "How do hackers stay cool? They open Windows.",
+                "I'm writing a book on hacking passwords. It's a real page-turner, especially for IT security.",
+                "Why did the hacker get thrown out of the restaurant? He kept trying to steal the server.",
+                "I told my computer I needed a break. Now it won't stop sending ransom notes.",
+            ],
+            "mobile": [
+                "I've optimized your mobile experience, but remember, even mobile phones can't escape hacks.",
+                "Discover our mobile-friendly features, but beware of the hidden exploits.",
+                "Why did the smartphone break up with its owner? It found a better connection.",
+                "What do you call a phone that hacks other phones? A phreaking smartphone.",
+                "I told my phone to stop eavesdropping on me. Now it just gives me the silent treatment.",
+                "I'm reading a book on mobile security. It's an eye-opener, literally.",
+                "I'm reading a book on the dark side of app development. It's a suspenseful thriller.",
+            ],
+            "Apple": [
+                "Ah, an Apple device! Prepare for a byte of a different kind.",
+                "Did you hear about the Apple device that went rogue? It became a bad apple.",
+                "I told my wife she should embrace her programming mistakes. She gave me a kernel panic.",
+                "Why don't Apple devices make good spies? They can't keep things under iCloud.",
+                "I'm reading a book on hacking Apple IDs. It's password-protected, though.",
+                "I'm reading a book on the secrets of the Apple ecosystem. It's a forbidden fruit.",
+                "I'm reading a book on Apple's privacy policies. It's more fiction than science.",
+            ],
+            "Windows": [
+                "Using Windows? Have you considered encrypting your life?",
+                "Why not make your life easier? Try Linux today, before Windows tries to update again.",
+                "I told my wife she should embrace her coding mistakes. She gave me a blue screen of silence.",
+                "Why did the computer go to therapy? It had too many unresolved issues.",
+                "I'm reading a book on breaking through Windows firewalls. It's a real smash hit.",
+                "I'm reading a book on the secret life of Windows updates. It's a horror story.",
+                "I'm reading a book on hacking with Windows. It's a maze of vulnerabilities.",
+            ]
+        };
 
-        var randomJoke = jokes[Math.floor(Math.random() * jokes.length)];
 
-        const initialMessage = '<p>Bud: ' + greeting + ' and welcome! ' + randomJoke + '</p>';
+        var deviceType = getDeviceType(); // Replace with actual device detection logic
+        var randomMessage = messages[deviceType] || messages["default"];
+        var message = randomMessage[Math.floor(Math.random() * randomMessage.length)];
+
+        const initialMessage = '<p>Ofmicheal: ' + greeting + ' ' + userId + '. ' + message + '</p>';
         chatWindow.innerHTML += initialMessage;
         scrollToBottom();
     }, 2300);
@@ -67,7 +76,7 @@ function loadPlayerJson() {
 
 
 
-let scene, camera, renderer, controls, model, mixer, action, delta;
+    let scene, camera, renderer, controls, model, mixer, action, delta;
 let clock = new THREE.Clock();
 let animations, currentAnimationIndex = 0;
 let spine, neck;
@@ -100,7 +109,7 @@ document.addEventListener('click', function () {
   action.stop();
 
   // Set the current animation to index 6 (animation 7)
-  currentAnimationIndex = 2;
+  currentAnimationIndex = 6;
   action = mixer.clipAction(animations[currentAnimationIndex]);
 
   // Set the animation to play once and play it
@@ -137,7 +146,8 @@ document.addEventListener('keydown', function (event) {
       // Stop the current animation
       action.stop();
 
-      currentAnimationIndex = 1;
+      // Set the current animation to index 5 (animation 6)
+      currentAnimationIndex = 5;
       action = mixer.clipAction(animations[currentAnimationIndex]);
 
       // Set the animation to play once and play it
@@ -164,6 +174,7 @@ document.addEventListener('keydown', function (event) {
     }
   }
 });
+
   
   document.addEventListener('mousemove', function (event) {
     // Only update targetRotation if head tracking is allowed
@@ -174,12 +185,16 @@ document.addEventListener('keydown', function (event) {
       targetRotation.y = (mouse.x);
     }
   });
+  
+
+
 
 function init() {
   scene = new THREE.Scene();
   scene.fog = new THREE.Fog(0x000000, 0, 16);
   camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 0.1, 1000);
-  camera.position.set(-0.4, 0.5, 1.2);
+  camera.position.set(0, 0, 4);
+  camera.lookAt(0, 0, 0);
 
   let ambient = new THREE.AmbientLight(0xffffff, 1);
   scene.add(ambient);
@@ -188,10 +203,11 @@ function init() {
   scene.add(pointLight);
 
   let loader = new THREE.GLTFLoader();
-  loader.load('https://luminafields.com/bud.glb', function (gltf) {
+  loader.load('https://the-profane.com/micheal.glb', function (gltf) {
     model = gltf.scene;
     scene.add(model);
-    model.position.set(-0.5, 0, 0); // Adjust x-coordinate for positioning
+    model.position.y = -1.2;
+    model.position.z = 2.2;
 
     mixer = new THREE.AnimationMixer(model);
     animations = gltf.animations;
@@ -204,17 +220,13 @@ function init() {
   });
 
   renderer = new THREE.WebGLRenderer({ alpha: true });
-  renderer.setSize(window.innerWidth * 0.9, window.innerHeight * 0.9);
+  renderer.setSize(window.innerWidth, window.innerHeight);
   document.body.appendChild(renderer.domElement);
   renderer.shadowMap.enabled = true;
   renderer.setPixelRatio(window.devicePixelRatio);
   document.getElementById("app").appendChild(renderer.domElement);
+
+
   gsap.ticker.add(render);
+
 }
-
-
-
-// Adjust the display of buttons to be in a row
-document.querySelectorAll('.neumorphic').forEach(button => {
-    button.style.display = 'inline-block';
-});
