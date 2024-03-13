@@ -284,6 +284,8 @@ function importBaseDataSet(event) {
                 userData = userData || {};
                 userData.conversationData = conversationData || [];
                 userData.completedProjects = userData.completedProjects || [];
+                userData.populations = userData.populations || {};
+                userData.mainHeading = userData.mainHeading || {};
 
                 // Update all variables with values from imported userData
                 state = userData.state || state;
@@ -291,6 +293,11 @@ function importBaseDataSet(event) {
                 populations = userData.populations || populations;
                 userCompletedProjects = userData.completedProjects || userCompletedProjects;
 
+                // Update populations data and progress bars after assigning actual values
+                updatePopulations(populations);
+
+                // Update module progress with the new mainHeading data
+                updateModuleProgress(mainHeading);
 
                 // Update displayed username in the chat window
                 const chatWindow = document.getElementById('chatWindow');
@@ -310,6 +317,7 @@ function importBaseDataSet(event) {
     };
     reader.readAsText(files[0]);
 }
+
 
 
 
