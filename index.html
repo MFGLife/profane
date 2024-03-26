@@ -1,414 +1,235 @@
-
 <html lang="en" >
 <head>
   <meta charset="UTF-8">
-  <title>The Profane</title>
+  <title>The-Profane</title>
       <meta http-equiv="X-UA-Compatible" content="IE=edge">
       <meta name="viewport" content="width=device-width, initial-scale=1">
       <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-      <META NAME="KEYWORDS" CONTENT="Data, Data School, DataSchool, DataSchools, Data Schools, School, Education, AI, Artificial Intelligence, Politics, Democrat, Republican, Conservative, Progressive">
+      <META NAME="KEYWORDS" CONTENT="WoodandMortar LLC, WoodandMortar, Wood and Mortar, Bid Consultants, home improvement, home repair, house repair, house improvement, design, home design, designers, kitchen remodel, bathroom remodel, cement, stone, veneer, kitchen, bathroom, veneer stone, Painters, Painting, fireplace, tile, home repair, Contractors, Home, Home Renovations, Wood, wood&mortar, wood & mortar, brick, stucco, Wood and Mortar, WoodandMortar">
       <META NAME="ROBOTS" CONTENT="ALL,FOLLOW">
-          <meta name="description" content="Helping humans become more artificial">
+          <meta name="description" content="Subcontracting Simplified">
           <meta name="viewport" content="width=device-width, initial-scale=1">
-          <link rel="apple-touch-icon" sizes="180x180" href="pics/logo.jpg">
-              <link rel="icon" type="image/png" href="pics/logo.jpg" sizes="32x32">
-              <link rel="icon" type="image/png" href="pics/logo.jpg" sizes="16x16">
-              <link rel="mask-icon" href="pics/logo.jpg" color="#fff">
-              <link rel="shortcut icon" href="pics/logo.jpg">
-              <script src="https://cdn.jsdelivr.net/npm/three@0.115.0/build/three.min.js"></script>
-                <script src="https://cdn.jsdelivr.net/npm/three@0.115.0/examples/js/loaders/GLTFLoader.js"></script>
-                <script src="https://cdn.jsdelivr.net/npm/three@0.115.0/examples/js/controls/OrbitControls.js"></script><link rel="stylesheet" href="./style.css">
-
+          <link rel="apple-touch-icon" sizes="180x180" href="pics/wm.png">
+              <link rel="icon" type="image/png" href="pics/wm.png" sizes="32x32">
+              <link rel="icon" type="image/png" href="pics/wm.png" sizes="16x16">
+              <link rel="mask-icon" href="pics/wm.png" color="#fff">
+              <link rel="shortcut icon" href="pics/wm.png">
+      <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js'></script>
               <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
             <link rel="stylesheet" href="./home.css">
-            <link rel="stylesheet" href="./style.css">
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.1.3/socket.io.js" integrity="sha512-tvP1NMR2oz7uFQ5WrlFLClJ5MUj+cqwdQZDPnkFEgf1gd6z9xXnqEsZcD/qX5j0bkjDl8B1lBejh7tWfdtNb1w==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+
 
 
             </head>
             <body>
-
-
-
-              <div class="app-container" style="z-index:999;">
-
+            <!-- partial:index.partial.html -->
+            <div class="app-container" style="z-index:999;">
+              <div class="app-header">
+                <div class="app-header-left">
+               
+                  <div class="search-wrapper">
+                    <input class="search-input" type="text" placeholder="Search">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="feather feather-search" viewBox="0 0 24 24">
+                      <defs></defs>
+                      <circle cx="11" cy="11" r="8"></circle>
+                      <path d="M21 21l-4.35-4.35"></path>
+                    </svg>
+                  </div>
+                </div>
+                <div class="app-header-right">
+                  <button class="mode-switch" title="Switch Theme">
+                    <svg class="moon" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="24" height="24" viewBox="0 0 24 24">
+                      <defs></defs>
+                      <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+                  </button>
+                  <button class="profile-btn">
+                    <img src="pics/wm.png" />
+                    <span>News AI</span>
+                  </button>
+                </div>
+              </div>
               <div class="app-content">
-                <button class="messages-btn">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-message-circle">
-                    <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z" /></svg>
-                </button>
+                <div class="app-sidebar">
+                  <a id="navHome" onclick="splashActive();" class="app-sidebar-link">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-home">
+                      <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
+                      <polyline points="9 22 9 12 15 12 15 22" /></svg>
+                  </a>
 
+                  <a id="navAudit" onclick="energyAuditActive();" target="_SEJ" rel="noreferrer" class="app-sidebar-link">
+                    <svg class="link-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="feather feather-pie-chart" viewBox="0 0 24 24">
+                      <defs />
+                      <path d="M21.21 15.89A10 10 0 118 2.83M22 12A10 10 0 0012 2v10z" />
+                    </svg>
+                  </a>
+
+                  <a id="navSchedule" onclick="scheduleActive();" target="_SEJ" rel="noreferrer" class="app-sidebar-link">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-calendar">
+                      <rect x="3" y="4" width="18" height="18" rx="2" ry="2" />
+                      <line x1="16" y1="2" x2="16" y2="6" />
+                      <line x1="8" y1="2" x2="8" y2="6" />
+                      <line x1="3" y1="10" x2="21" y2="10" /></svg>
+                  </a>
+
+                  <a id="navSettings" onclick="settingsActive();" class="app-sidebar-link">
+                    <svg class="link-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="feather feather-settings" viewBox="0 0 24 24">
+                      <defs />
+                      <circle cx="12" cy="12" r="3" />
+                      <path d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 010 2.83 2 2 0 01-2.83 0l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 01-2 2 2 2 0 01-2-2v-.09A1.65 1.65 0 009 19.4a1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 01-2.83 0 2 2 0 010-2.83l.06-.06a1.65 1.65 0 00.33-1.82 1.65 1.65 0 00-1.51-1H3a2 2 0 01-2-2 2 2 0 012-2h.09A1.65 1.65 0 004.6 9a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 010-2.83 2 2 0 012.83 0l.06.06a1.65 1.65 0 001.82.33H9a1.65 1.65 0 001-1.51V3a2 2 0 012-2 2 2 0 012 2v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 012.83 0 2 2 0 010 2.83l-.06.06a1.65 1.65 0 00-.33 1.82V9a1.65 1.65 0 001.51 1H21a2 2 0 012 2 2 2 0 01-2 2h-.09a1.65 1.65 0 00-1.51 1z" />
+                    </svg>
+                  </a>
+
+                  <a id="navShopping" onclick="shoppingActive();" class="app-sidebar-link">
+                    <svg class="link-icon" fill="#000000" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+	 width="24" height="24" viewBox="0 0 902.86 902.86"
+	 xml:space="preserve">
+<g>
+	<g>
+		<path d="M671.504,577.829l110.485-432.609H902.86v-68H729.174L703.128,179.2L0,178.697l74.753,399.129h596.751V577.829z
+			 M685.766,247.188l-67.077,262.64H131.199L81.928,246.756L685.766,247.188z"/>
+		<path d="M578.418,825.641c59.961,0,108.743-48.783,108.743-108.744s-48.782-108.742-108.743-108.742H168.717
+			c-59.961,0-108.744,48.781-108.744,108.742s48.782,108.744,108.744,108.744c59.962,0,108.743-48.783,108.743-108.744
+			c0-14.4-2.821-28.152-7.927-40.742h208.069c-5.107,12.59-7.928,26.342-7.928,40.742
+			C469.675,776.858,518.457,825.641,578.418,825.641z M209.46,716.897c0,22.467-18.277,40.744-40.743,40.744
+			c-22.466,0-40.744-18.277-40.744-40.744c0-22.465,18.277-40.742,40.744-40.742C191.183,676.155,209.46,694.432,209.46,716.897z
+			 M619.162,716.897c0,22.467-18.277,40.744-40.743,40.744s-40.743-18.277-40.743-40.744c0-22.465,18.277-40.742,40.743-40.742
+			S619.162,694.432,619.162,716.897z"/>
+	</g>
+</g>
+</svg>
+                  </a>
+
+
+                </div>
                 <div class="projects-section">
+                  <div class="projects-section-header">
+                    <p class="time" id="currentDateTime"></p>
+                  </div>
 
 
 
 
-<div id="energyAudit" class="project-boxes" style="display: block; margin: 10px;">
 
 
-  <div style="position:absolute; top: 20px; left: 20px; height:80px; font-size: .8em; color:white; overflow: scroll; background-color: rgba(0, 0, 0, 0.5);">
-    <p id="QuestOne">Quest 1: [Speak] to Micheal<font style="color:green; display: none;" id="QuestOneTask"> - Completed</font></p>
-    <p id="QuestTwo">Quest 2: [Follow] RED Demon<font style="color:green; display: none;" id="QuestTwoTask"> - Completed</font></p>
-    <p id="QuestThree">Quest 3: [Speak] to Crycella<font style="color:green; display: none;" id="QuestThreeTask"> - Completed</font></p>
-    <p id="QuestFour">Quest 4: Find the Tomb and [Light] the Candle<font style="color:green; display: none;" id="QuestFourTask"> - Completed</font></p>
-    <p id="QuestFive">Quest 5: [Speak] to Micheal<font style="color:green; display: none;" id="QuestFiveTask"> - Completed</font></p>
+
+
+<div id="schedule" class="project-boxes" style="display: none;">
+
+
+  <!--Box01-->
+  <div class="project-box-wrapper">
+    <div class="project-box" style="background-color: #C8EED1;">
+      <div class="project-box-header">
+        <span><h1>#AntiLawn</h1></span>
+        <div class="more-wrapper">
+          <a onclick="settingsActive();"><div class="days-left" style="color: #054950;">
+            ryanlawn
+        </div></a>
     </div>
-
-  <div id="dropdown-container">
-      <div id="drag-handle" style="width: 40px; height: 40px; background-color: red; border-radius: 50%;">
-        <span id="hitPoints" style="color:black; font-weight:900; line-height:40px; margin-left:6px;">100</span>
-</div>
-</div>
-
-
-
-<button id="mainJump" class="open-modal" style="position:absolute; bottom: 10px; left: 10px;">Jump</button>
-<button id="shroomButton" onclick="throwPotion()" class="open-modal" style="position:absolute; bottom: 10px; left: 100px; display: none;">Shroom</button>
-<button id="knifeButton" onclick="throwKnife()" class="open-modal" style="position:absolute; bottom: 50px; left: 10px; display: none;">Yeet</button>
-<button id="superJump" onclick="mainJump2()" class="open-modal" style="position:absolute; bottom: 50px; left: 100px; display: none;">Super Jump</button>
-
-
- <iframe id="backpack" style="display:block; position:absolute; bottom: 50px; left: 10px;" src="controls/inventory.html" width="200" height="200"></iframe>
- <iframe id="candle" style="display:block; position:absolute; bottom: 50px; left: 10px;" src="controls/candle.html" width="200" height="200"></iframe>
- <iframe id="knife" style="display:block; position:absolute; bottom: 50px; left: 10px;" src="controls/knife.html" width="200" height="200"></iframe>
-
- <iframe id="potion" style="display:block; position:absolute; bottom: 50px; left: 10px;" src="controls/potion.html" width="200" height="200"></iframe>
-<div id="potionAmount" style="display:none; position:absolute; bottom: 50px; left: 20px;"><font id="potionAmountNum" style="font-weight:900; font-size: 3em; color: lightblue; z-index: 999999999999;"></font></div>
-
-
-
-
-
-  <div id="app"></div>
-
-
-
-
-
-</div>
-</div>
-</div>
-
-
-
-            <div class="messages-section">
-              <button class="messages-close">
-                <svg xmlns="http://www.w3.org/2000/svg" width="38" height="38" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-x-circle">
-                  <circle cx="12" cy="12" r="10" />
-                  <line x1="15" y1="9" x2="9" y2="15" />
-                  <line x1="9" y1="9" x2="15" y2="15" /></svg>
-              </button>
-              <div class="messages">
-<div class="message-box">
-    <div class="search-wrapper">
-      <a class="mode-switch app-sidebar-link" onclick="document.documentElement.classList.toggle('dark');modeSwitch.classList.toggle('active');" title="Switch Theme">
-        <svg class="link-icon" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="24" height="24" viewBox="0 0 24 24">
-          <defs></defs>
-          <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
-        </svg>
-      </a>
-      <input class="search-input" placeholder="Search" type="text" id="passcode" oninput="checkPasscode();">
-
-    </div>
-</div>
-<div class="message-box">
-  <div>
-    <a id="descriptAll"></a>
-    <br>
-    <a id="descriptAll2"></a></div>
-</div>
-
-<div class="message-box">
- 
-              <!-- Upload Button -->
-               <input type="file" id="fileInput" accept=".txt" style="display: none;" onchange="loadFile(event)">
-               <button class="open-modal" onclick="document.getElementById('fileInput').click()">Load Save</button>
-               <!-- Export Button -->
-               <button class="open-modal" id="exportButton" onclick="exportToFile()">Save</button>
-               <button class="open-modal" onclick = "nextPhoto()">Achievements</button>
-
-               <div id="dragon-boss-animation-selector-container" style="position:absolute; right:10px; top: 20px;">
-
-                 <select id="animation-selector">
-                     <option value="0">Idle</option>
-                     <option value="1">Kick</option>
-                     <option value="2">Open</option>
-                     <option value="3">Pick Up</option>
-                     <option value="4">Punch</option>
-                     <option value="5">Run</option>
-                     <option value="6">Scared</option>
-                     <option value="7">Slash</option>
-                     <option value="8">Talk</option>
-                     <option value="9">Twerk</option>
-                 </select>
-             </div>
   </div>
-
-
-<div class="message-box" id="mb1">
-  <section class="closed-book">
-      <header>
-          <h1 id="titleChange2">LuminaFields</h1>
-          <span>Pop.<font id="population">0</font></span>
-          <span>Avg.<font id="average">0</font></span>
-          <span>Hea.<font id="mainHeadingTotal">0</font></span>
-          <span>EmQ.<font id="mainHeadingAverage">0</font></span>
-          <br>
-          <font id="titleChange">Data</font>
-      </header>
-      <div id="reflectionsContainer">
-<div class="chat-window" id="chatWindow">
-            <a id="greeting"></a>'s fable:<a id="storyContainer"></a>
-              </a>
-                   </div>
-      </div>
-      <button class="open-modal" onclick="scrollToBottom()">Scroll to bottom</button>
+  <div class="project-box-content-header">
+ <iframe src="https://ryanlawn.com/" width="100%" height="300px" style="border: none;"></iframe>
+  </div>
+</div>
+</div>
+<!--Box01-->
+<!--Box02-->
+ <div class="project-box-wrapper">
+    <div class="project-box" style="background-color: #C8EED1;">
+      <div class="project-box-header">
+        <span><h1>#AntiLawn</h1></span>
+        <div class="more-wrapper">
+          <a onclick="settingsActive();"><div class="days-left" style="color: #054950;">
+            horizonlawnkc
+        </div></a>
     </div>
-
-    <div style="display: flex; justify-content: center; align-items: center;" class="message-box">
-      <div>
-          <textarea oninput="checkPasscode();" id="textarea" style="width:400px;height:80px;" placeholder="Enter your text here..."></textarea>
-          <button class="open-modal" onclick="allSend()">Send</button>
-      </div>
+  </div>
+  <div class="project-box-content-header">
+    <iframe src="https://horizonlawnkc.com/" width="100%" height="300px" style="border: none;"></iframe>
+  </div>
 </div>
-
-
-
-<div class="message-box" style="display: flex; flex-wrap: wrap;">
-  <div style="flex: 0 0 calc(30% - 20px); margin: 10px;  font-size: 1.2em;" class="days-left" >HP: <font id="mainhp"></font> </div>
-  <div style="flex: 0 0 calc(30% - 20px); margin: 10px;  font-size: 1.2em;" class="days-left" >MP: <font id="mainmp"></font> </div>
-  <div style="flex: 0 0 calc(30% - 20px); margin: 10px;  font-size: 1.2em;" class="days-left" >ATK: <font id="mainatk"></font> </div>
-  <div style="flex: 0 0 calc(30% - 20px); margin: 10px;  font-size: 1.2em;" class="days-left" >DEF: <font id="maindef"></font> </div>
-  <div style="flex: 0 0 calc(30% - 20px); margin: 10px;  font-size: 1.2em;" class="days-left" >AIR: <font id="mainair"></font> </div>
-  <div style="flex: 0 0 calc(30% - 20px); margin: 10px;  font-size: 1.2em;" class="days-left" >SPD: <font id="mainspd"></font> </div>
 </div>
+<!--Box02-->
 
-
-<div class="message-box" style="display: flex; flex-wrap: wrap;">
-
-
-      <div style="flex: 0 0 calc(33% - 20px); margin: 10px;" class="box-progress-wrapper">
-        <p class="box-progress-header">Explorer: <font id="explorer"></font></p>
-        <div class="box-progress-bar">
-          <span class="explorer-progress box-progress" style="width: 0%"></span>
-
-        </div>
-        <p id="explorerbp" class="box-progress-percentage">0%</p>
-      </div>
-
-      <div style="flex: 0 0 calc(33% - 20px); margin: 10px;" class="box-progress-wrapper">
-        <p class="box-progress-header">Voyager: <font id="voyager"></font></p>
-        <div class="box-progress-bar">
-          <span class="voyager-progress box-progress" style="width: 0%"></span>
-
-        </div>
-        <p id="voyagerbp" class="box-progress-percentage">0%</p>
-      </div>
-
-      <div style="flex: 0 0 calc(33% - 20px); margin: 10px;" class="box-progress-wrapper">
-        <p class="box-progress-header">Captain: <font id="captain"></font></p>
-        <div class="box-progress-bar">
-          <span class="captain-progress box-progress" style="width: 0%"></span>
-
-        </div>
-        <p id="captainbp" class="box-progress-percentage">0%</p>
-      </div>
-
-      <div style="flex: 0 0 calc(33% - 20px); margin: 10px;" class="box-progress-wrapper">
-        <p class="box-progress-header">Merchant: <font id="merchant"></font></p>
-        <div class="box-progress-bar">
-          <span class="merchant-progress box-progress" style="width: 0%"></span>
-
-        </div>
-        <p id="merchantbp" class="box-progress-percentage">0%</p>
-      </div>
-
-      <div style="flex: 0 0 calc(33% - 20px); margin: 10px;" class="box-progress-wrapper">
-        <p class="box-progress-header">Shipwright: <font id="shipwright"></font></p>
-        <div class="box-progress-bar">
-          <span class="shipwright-progress box-progress" style="width: 0%"></span>
-
-        </div>
-        <p id="shipwrightbp" class="box-progress-percentage">0%</p>
-      </div>
-
-
-      <div style="flex: 0 0 calc(33% - 20px); margin: 10px;" class="box-progress-wrapper">
-        <p class="box-progress-header">Fisherman: <font id="fisherman"></font></p>
-        <div class="box-progress-bar">
-          <span class="fisherman-progress box-progress" style="width: 0%"></span>
-
-        </div>
-        <p id="fishermanbp" class="box-progress-percentage">0%</p>
-      </div>
-
-
-      <div style="flex: 0 0 calc(33% - 20px); margin: 10px;" class="box-progress-wrapper">
-        <p class="box-progress-header">Smuggler: <font id="smuggler"></font></p>
-        <div class="box-progress-bar">
-          <span class="smuggler-progress box-progress" style="width: 0%"></span>
-
-        </div>
-        <p id="smugglerbp" class="box-progress-percentage">0%</p>
-      </div>
-
-
-      <div style="flex: 0 0 calc(33% - 20px); margin: 10px;" class="box-progress-wrapper">
-        <p class="box-progress-header">Arbiter: <font id="arbiter"></font></p>
-        <div class="box-progress-bar">
-          <span class="arbiter-progress box-progress" style="width: 0%"></span>
-
-        </div>
-        <p id="arbiterbp" class="box-progress-percentage">0%</p>
-      </div>
-
-
-      <div style="flex: 0 0 calc(33% - 20px); margin: 10px;" class="box-progress-wrapper">
-        <p class="box-progress-header">Sailor: <font id="sailor"></font></p>
-        <div class="box-progress-bar">
-          <span class="sailor-progress box-progress" style="width: 0%"></span>
-
-        </div>
-        <p id="sailorbp" class="box-progress-percentage">0%</p>
-      </div>
-
-
-
-
-
-
-
-
-
-</div>
-
-
-
-
-
-
-
-
-    <div class="message-box" style="display: flex; flex-wrap: wrap;">
-      <div style="flex: 0 0 calc(33% - 20px); margin: 10px;" class="box-progress-wrapper">
-                 <p class="box-progress-header">Progressive: <font id="progressive"></font></p>
-                 <div class="box-progress-bar">
-                   <span class="progressive-progress box-progress" style="width: 0%; background-color: rgba(42,19,246,1)"></span>
-
-                 </div>
-                 <p id="progressivebp" class="box-progress-percentage">0%</p>
-               </div>
-
-               <div style="flex: 0 0 calc(33% - 20px); margin: 10px;" class="box-progress-wrapper">
-               <p class="box-progress-header">Conservative: <font id="conservative"></font></p>
-               <div class="box-progress-bar">
-    <span class="conservative-progress box-progress" style="width: 0%; background-color: rgba(230,0,0,1)"></span>
-              </div>
-               <p id="conservativebp" class="box-progress-percentage">0%</p>
-             </div>
-
-             <div style="flex: 0 0 calc(33% - 20px); margin: 10px;" class="box-progress-wrapper">
-               <p class="box-progress-header">Socialist: <font id="socialist"></font></p>
-               <div class="box-progress-bar">
-    <span class="socialist-progress box-progress" style="width: 60%; background-color: rgba(236,220,202,1)"></span>
-               </div>
-               <p id="socialistbp" class="box-progress-percentage">0%</p>
-             </div>
-
-             <div style="flex: 0 0 calc(33% - 20px); margin: 10px;" class="box-progress-wrapper">
-                        <p class="box-progress-header">Economist: <font id="economist"></font></p>
-                        <div class="box-progress-bar">
-             <span class="economist-progress box-progress" style="width: 0%; background-color: rgba(212,175,55,1)"></span>
-                        </div>
-                        <p id="economistbp" class="box-progress-percentage">0%</p>
-                      </div>
-
-
-                      <div style="flex: 0 0 calc(33% - 20px); margin: 10px;" class="box-progress-wrapper">
-               <p class="box-progress-header">Idealist: <font id="idealist"></font></p>
-               <div class="box-progress-bar">
-    <span class="idealist-progress box-progress" style="width: 0%; background-color: rgba(0,184,0,1)"></span>
-               </div>
-               <p id="idealistbp" class="box-progress-percentage">0%</p>
-             </div>
-
-
-             <div style="flex: 0 0 calc(33% - 20px); margin: 10px;" class="box-progress-wrapper">
-                        <p class="box-progress-header">Realist: <font id="realist"></font></p>
-                        <div class="box-progress-bar">
-             <span class="realist-progress box-progress" style="width: 60%; background-color: rgba(115,115,115,1)"></span>
-                        </div>
-                        <p id="realistbp" class="box-progress-percentage">40%</p>
-                      </div>
-
-                      <div style="flex: 0 0 calc(33% - 20px); margin: 10px;" class="box-progress-wrapper">
-                                <p class="box-progress-header">Globalist: <font id="globalist"></font></p>
-                                <div class="box-progress-bar">
-                     <span class="globalist-progress box-progress" style="width: 0%; background-color: rgba(137,67,35,1)"></span>
-                                </div>
-                                <p id="globalistbp" class="box-progress-percentage">0%</p>
-                              </div>
-
-
-                              <div style="flex: 0 0 calc(33% - 20px); margin: 10px;" class="box-progress-wrapper">
-              <p class="box-progress-header">Nationalist: <font id="nationalist"></font></p>
-              <div class="box-progress-bar">
-    <span class="nationalist-progress box-progress" style="width: 0%; background-color: rgba(47,204,181,1)"></span>
-              </div>
-              <p id="nationalistbp" class="box-progress-percentage">0%</p>
-            </div>
-
-            <div style="flex: 0 0 calc(33% - 20px); margin: 10px;" class="box-progress-wrapper">
-                       <p class="box-progress-header">Populist: <font id="populist"></font></p>
-                       <div class="box-progress-bar">
-            <span class="populist-progress box-progress" style="width: 0%; background-color: rgba(135,93,92,1)"></span>
-                       </div>
-                       <p id="populistbp" class="box-progress-percentage">0%</p>
-                     </div>
-
+<!--Box03-->
+ <div class="project-box-wrapper">
+    <div class="project-box" style="background-color: #C8EED1;">
+      <div class="project-box-header">
+        <span><h1>#AntiLawn</h1></span>
+        <div class="more-wrapper">
+          <a onclick="settingsActive();"><div class="days-left" style="color: #054950;">
+            allseasonsll
+        </div></a>
     </div>
+  </div>
+  <div class="project-box-content-header">
+    <iframe src="https://www.allseasonsll.com/" width="100%" height="300px" style="border: none;"></iframe>
+
+  </div>
+</div>
+</div>
+<!--Box03-->
+<!--Box04-->
+ <div class="project-box-wrapper">
+    <div class="project-box" style="background-color: #C8EED1;">
+      <div class="project-box-header">
+        <span><h1>#AntiLawn</h1></span>
+        <div class="more-wrapper">
+          <a onclick="settingsActive();"><div class="days-left" style="color: #054950;">
+          benjaminlawn
+        </div></a>
+    </div>
+  </div>
+  <div class="project-box-content-header">
+    <iframe src="https://benjaminlawn.com/" width="100%" height="300px" style="border: none;"></iframe>
+
+  </div>
+</div>
+</div>
+<!--Box04-->
+
+<!--Box05-->
+<div class="project-box-wrapper">
+  <div class="project-box" style="background-color: #C8EED1;">
+    <div class="project-box-header">
+      <span><h1>#AntiLawn</h1></span>
+      <div class="more-wrapper">
+        <a onclick="settingsActive();"><div class="days-left" style="color: #054950;">
+          heartlandturf
+      </div></a>
+  </div>
+</div>
+<div class="project-box-content-header">
+  <iframe src="https://www.heartlandturf.com/" width="100%" height="300px" style="border: none;"></iframe>
 
 </div>
-<div id="editFile" class="message-box" style="display:none;">
-  <!-- Editable Text Container -->
-<div id="textContainer" contenteditable="true" style="margin-top: 10px; border: none; padding: 20px; min-height: 100px; max-height: 80vh; overflow-y: auto;">
-<!-- Uploaded text will appear here -->
 </div>
 </div>
+<!--Box05-->
+
+<!--Box06-->
+<div class="project-box-wrapper">
+  <div class="project-box" style="background-color: #C8EED1;">
+    <div class="project-box-header">
+      <span><h1>#AntiLawn</h1></span>
+      <div class="more-wrapper">
+        <a onclick="settingsActive();"><div class="days-left" style="color: #054950;">
+          beautifuloutdoorsks
+      </div></a>
+  </div>
+</div>
+<div class="project-box-content-header">
+  <iframe src="https://beautifuloutdoorsks.com/" width="100%" height="300px" style="border: none;"></iframe>
+
+</div>
+</div>
+</div>
+<!--Box06-->
 
 
-
-
-<div class="message-box" style="display: flex; flex-wrap: wrap;">
-            <div style="flex: 0 0 calc(20% - 20px); margin: 10px;  font-size: 1.8em;" class="days-left" >
-              <a id="copyDogSymbol">🐕</a>
-            </div>
-            <div style="flex: 0 0 calc(20% - 20px); margin: 10px;  font-size: 1.8em;" class="days-left" >
-              <a id="copyexplorerSymbol">🐬</a>
-            </div>
-            <div style="flex: 0 0 calc(20% - 20px); margin: 10px;  font-size: 1.8em;" class="days-left" >
-              <a id="copyarbiterSymbol">🐈</a>
-            </div>
-            <div style="flex: 0 0 calc(20% - 20px); margin: 10px;  font-size: 1.8em;" class="days-left" >
-              <a id="copymerchantSymbol">🦉</a>
-            </div>
-            <div style="flex: 0 0 calc(20% - 20px); margin: 10px;  font-size: 1.8em;" class="days-left" >
-              <a id="copysmugglerSymbol">🦘</a>
-            </div>
-            <div style="flex: 0 0 calc(20% - 20px); margin: 10px;  font-size: 1.8em;" class="days-left" >
-              <a id="copysailorSymbol">🦜</a>
-            </div>
-            <div style="flex: 0 0 calc(20% - 20px); margin: 10px;  font-size: 1.8em;" class="days-left" >
-              <a id="copyvoyagerSymbol">🐢</a>
-            </div>
-            <div style="flex: 0 0 calc(20% - 20px); margin: 10px;  font-size: 1.8em;" class="days-left" >
-              <a id="copyshipwrightSymbol">🦔</a>
-            </div>
-            <div style="flex: 0 0 calc(20% - 20px); margin: 10px;  font-size: 1.8em;" class="days-left" >
-              <a id="copycaptainSymbol">🐙</a>
-            </div>
-            <div style="flex: 0 0 calc(20% - 20px); margin: 10px;  font-size: 1.8em;" class="days-left" >
-              <a id="copyfishermanSymbol">🐧</a>
-            </div>
 </div>
 
 
@@ -416,34 +237,114 @@
 
 
 
+
+
+<div id="settingsMain" class="project-boxes" style="display: none;">
+
+
+
+<div class="grid-container">
+  <div class="grid-item">
+  <font size="4.5em" weight="800";>
+    <p>The-Profane AI, the news bot, prioritizes safeguarding the interests of companies. With its advanced algorithms, it filters content to ensure favorable narratives, shielding corporations from negative publicity. Its role extends to shaping public opinion, promoting corporate agendas, and maintaining market dominance.</p>
+
+    <br>
+  </div>
+  <div class="grid-item">
+
+  <form action="mailto:info@woodandmortar.com" method="post" enctype="text/plain">
+  <label for="name">Full Name:</label>
+  <input type="text" id="name" name="name" required><br><br>
+
+  <label for="phone">Contact Phone Number:</label>
+  <input type="tel" id="phone" name="phone" required><br><br>
+
+  <label for="contact">Best Way to Contact You:</label>
+  <select id="contact" name="contact" required>
+  <option value="phone">Phone</option>
+  <option value="email">Email</option>
+  </select><br><br>
+
+  <label for="timeframe">Next Available Time Frame for Call:</label>
+  <input type="datetime-local" id="timeframe" name="timeframe" required><br><br>
+
+  <label for="inspection">What type of discussion:</label>
+  <select id="inspection" name="inspection" required>
+  <option value="basic">General Information</option>
+  <option value="basic">Basic Package</option>
+  <option value="complete">Complete AI System</option>
+  </select><br><br>
+
+  <label for="property">Do you own the company:</label>
+  <input type="radio" id="yes" name="property" value="yes" required>
+  <label for="yes">Yes</label>
+  <input type="radio" id="no" name="property" value="no">
+  <label for="no">No</label><br><br>
+
+  <label for="hear">How Did You Hear About Us:</label>
+  <input type="text" id="hear" name="hear" required><br><br>
+
+  <center><button type="submit" value="Submit" class="open-modal">Contact via Email<button><center>
+  </form>
+
+  </div>
+</div><br><br>
+
+</div>
+
+
+<div id="splash" class="project-boxes">
+
+<div style="margin: 20px; font-size: 22px;">
+  <div class="chat-window" id="chatWindow"></div> 
+  <input class="userInput" type="text" id="userInput" placeholder="Type message..." oninput="checkPasscode();" onkeydown="handleKeyPress(event)">
+</div>
+
+
+<iframe src="news.html" width="100%" height="400px" style="border: none;"></iframe>
+
+
+</div>
+
+
+
+
+<div id="energyAudit" style="display: none;">
+
+<iframe src="https://mfglife.github.io/demo/index.html" width="100%" height="700px" style="border: none;"></iframe>
+
+</div>
+
+<script>
+  var socket = io.connect('http://' + document.domain + ':' + location.port + '/test');
+
+  socket.on('script_status', function(data) {
+      document.getElementById('scriptStatus').style.color = data.status;
+  });
+</script>
+
+
+
+
+
+<div id="shopping" class="project-boxes" style="display: none;">
+
+
+
+</div>
+
+
+
+
             </div>
             </div>
             </div>
-            <!-- partial -->
-              <script  src="hardData/home.js"></script>
-              <script  src="hardData/upload.js"></script>
-              <script src="hardData/populations.js"></script>
-  <script  src="hardData/story.js"></script>
-  <script  src="hardData/story2.js"></script>
-  <script  src="hardData/collection.js"></script>
-  <script src='https://unpkg.co/gsap@3/dist/gsap.min.js'></script>
-<script src='https://unpkg.com/gsap@3/dist/EasePack.min.js'></script>
 
-<script  src="controls/boss.js"></script>
-<script  src="controls/boss2.js"></script>
 
-<script  src="./script.js"></script>
-
-<script  src="controls/felix.js"></script>
-<script  src="controls/init.js"></script>
-<script  src="controls/move.js"></script>
-
-<script  src="hardData/personality.js"></script>
-<script  src="hardData/chatbot.js"></script>
-<script  src="controls/anya.js"></script>
-<script  src="controls/micheal.js"></script>
-<script  src="controls/crycella.js"></script>
-
+      <script  src="./navbuttons.js"></script>
+      <script  src="chatbot2.js"></script>
+      <script  src="basedata.js"></script>
+      <script  src="script2.js"></script>
 
             </body>
             </html>
