@@ -1,449 +1,107 @@
-
+<!DOCTYPE html>
 <html lang="en" >
 <head>
   <meta charset="UTF-8">
-  <title>The Profane</title>
-      <meta http-equiv="X-UA-Compatible" content="IE=edge">
-      <meta name="viewport" content="width=device-width, initial-scale=1">
-      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-      <META NAME="KEYWORDS" CONTENT="Data, Data School, DataSchool, DataSchools, Data Schools, School, Education, AI, Artificial Intelligence, Politics, Democrat, Republican, Conservative, Progressive">
-      <META NAME="ROBOTS" CONTENT="ALL,FOLLOW">
-          <meta name="description" content="Helping humans become more artificial">
-          <meta name="viewport" content="width=device-width, initial-scale=1">
-          <link rel="apple-touch-icon" sizes="180x180" href="pics/logo.jpg">
-              <link rel="icon" type="image/png" href="pics/logo.jpg" sizes="32x32">
-              <link rel="icon" type="image/png" href="pics/logo.jpg" sizes="16x16">
-              <link rel="mask-icon" href="pics/logo.jpg" color="#fff">
-              <link rel="shortcut icon" href="pics/logo.jpg">
-              <script src="https://cdn.jsdelivr.net/npm/three@0.115.0/build/three.min.js"></script>
-                <script src="https://cdn.jsdelivr.net/npm/three@0.115.0/examples/js/loaders/GLTFLoader.js"></script>
-                <script src="https://cdn.jsdelivr.net/npm/three@0.115.0/examples/js/controls/OrbitControls.js"></script><link rel="stylesheet" href="./style.css">
+  <title>CodePen - Book Layout</title>
+  <link rel="stylesheet" href="./style.css">
 
-              <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
-            <link rel="stylesheet" href="./home.css">
-            <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<div id="wrapper">
+    <div id="container">
 
-
-            </head>
-            <body>
-
-
-
-              <div class="app-container" style="z-index:999;">
-
-              <div class="app-content">
-                <button class="messages-btn">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-message-circle">
-                    <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z" /></svg>
-                </button>
-
-                <div class="projects-section">
-
-
-
-
-<div id="energyAudit" class="project-boxes" style="display: block; margin: 10px;">
-
-
-  <div style="position:absolute; top: 20px; left: 20px; height:80px; font-size: .8em; color:white; overflow: scroll; background-color: rgba(0, 0, 0, 0.5);">
-    <p id="QuestOne">Quest 1: [Speak] to Micheal<font style="color:green; display: none;" id="QuestOneTask"> - Completed</font></p>
-    <p id="QuestTwo">Quest 2: [Follow] RED Demon<font style="color:green; display: none;" id="QuestTwoTask"> - Completed</font></p>
-    <p id="QuestThree">Quest 3: [Speak] to Crycella<font style="color:green; display: none;" id="QuestThreeTask"> - Completed</font></p>
-    <p id="QuestFour">Quest 4: Find the Tomb and [Light] the Candle<font style="color:green; display: none;" id="QuestFourTask"> - Completed</font></p>
-    <p id="QuestFive">Quest 5: [Speak] to Micheal<font style="color:green; display: none;" id="QuestFiveTask"> - Completed</font></p>
-    </div>
-
-  <div id="dropdown-container">
-      <div id="drag-handle" style="width: 40px; height: 40px; background-color: red; border-radius: 50%;">
-        <span id="hitPoints" style="color:black; font-weight:900; line-height:40px; margin-left:6px;">100</span>
-</div>
-</div>
-
-
-
-<button id="mainJump" class="open-modal" style="position:absolute; bottom: 10px; left: 10px;">Jump</button>
-<button id="shroomButton" onclick="throwPotion()" class="open-modal" style="position:absolute; bottom: 10px; left: 100px; display: none;">Shroom</button>
-<button id="knifeButton" onclick="throwKnife()" class="open-modal" style="position:absolute; bottom: 50px; left: 10px; display: none;">Yeet</button>
-<button id="superJump" onclick="mainJump2()" class="open-modal" style="position:absolute; bottom: 50px; left: 100px; display: none;">Super Jump</button>
-
-
- <iframe id="backpack" style="display:block; position:absolute; bottom: 50px; left: 10px;" src="controls/inventory.html" width="200" height="200"></iframe>
- <iframe id="candle" style="display:block; position:absolute; bottom: 50px; left: 10px;" src="controls/candle.html" width="200" height="200"></iframe>
- <iframe id="knife" style="display:block; position:absolute; bottom: 50px; left: 10px;" src="controls/knife.html" width="200" height="200"></iframe>
-
- <iframe id="potion" style="display:block; position:absolute; bottom: 50px; left: 10px;" src="controls/potion.html" width="200" height="200"></iframe>
-<div id="potionAmount" style="display:none; position:absolute; bottom: 50px; left: 20px;"><font id="potionAmountNum" style="font-weight:900; font-size: 3em; color: lightblue; z-index: 999999999999;"></font></div>
-
-
-
-
-
-  <div id="app"></div>
-
-
-
-
-
-</div>
-</div>
-</div>
-
-
-
-            <div class="messages-section">
-              <button class="messages-close">
-                <svg xmlns="http://www.w3.org/2000/svg" width="38" height="38" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-x-circle">
-                  <circle cx="12" cy="12" r="10" />
-                  <line x1="15" y1="9" x2="9" y2="15" />
-                  <line x1="9" y1="9" x2="15" y2="15" /></svg>
-              </button>
-              <div class="messages">
-<div class="message-box">
-    <div class="search-wrapper">
-      <a class="mode-switch app-sidebar-link" onclick="document.documentElement.classList.toggle('dark');modeSwitch.classList.toggle('active');" title="Switch Theme">
-        <svg class="link-icon" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="24" height="24" viewBox="0 0 24 24">
-          <defs></defs>
-          <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
-        </svg>
-      </a>
-      <input class="search-input" placeholder="Search" type="text" id="passcode" oninput="checkPasscode();">
+        <section class="open-book">
+            <header>
+                <h1>Book Layout</h1>
+                <h6>Erin E. Sullivan</h6>
+            </header>
+            <article>
+                <h2 class="chapter-title">Waiting on projects</h2>
+                <p>
+                    Sublime Text 2 was opened and a new document was created. "I love this time of year," Erin gleefully thought to herself.
+                </p>
+                <p>
+                    The "time of year" that is being referenced relates to Erin's job when the pile of projects temporarily slow down. This doesn't happen to just her. The reduction of work happens to many, but at various times throughout the year, depending on their position. She could submit to boredom and brainlessly surf the Internet, but this particular developer decided to take advantage of the situation.
+                </p>
+                <p>
+                    Erin brainstorms on ideas that are both fun and can strengthen her development skills. After all, however she spends her free time at work should be used in a way that becomes helpful for future projects.
+                </p>
+                <p>
+                    She already made quite the effort into fine-tuning her skills with Flexbox, creating functional and accessible code for an <a href="https://codepen.io/erinesullivan/pen/LLoXoL">organizational chart</a> and a <a href="https://codepen.io/erinesullivan/pen/MvOdOE">process chart</a>. For Erin's next personal project, she wanted something different. Something with multiple (yet possibly useful) features.
+                </p>
+                <p>
+                    To <a href="https://codepen.io/">CodePen.io</a> she went, but not brainlessly! Erin "Oohed" and "Ahhed" at the recently picked pens. She envied the skills of those using compilers she has yet to dabble in. Then she put together a list of what she would like to achieve.
+                </p>
+                <p>
+                    Erin chuckled to herself, "This sounds crazy, but what if I develop a section of text that looks like a book?"
+                </p>
+                <p>
+                    She paused, realizing that what she was about to do was a trend years ago. This severely increased the chance of her project being mocked after launch. What was the specific trend Erin remembered? Skeuomorphism.
+                </p>
+                <dl>
+                    <dt><strong>skeu&bull;o&bull;morph</strong></dt>
+                    <dd>
+                        <em>noun</em><br>
+                        an object or feature that imitates the design of a similar artifact made from another material.
+                    </dd>
+                </dl>
+                <p>
+                    Outside of skeuomorphism, the idea actually was not very silly. Erin always had an appreciation towards print work. The thought of mimicking similar designs onto a web interface has always fascinated her. So, why not start with the classic print design of a novel?
+                </p>
+                <p>
+                    She began to jot down a list of elements that are typically in a novel:
+                </p>
+                <ul>
+                    <li>Serif typefaces</li>
+                    <li>
+                        Header area with the title of the book on the left, and the author of said book on the right. <em>Erin is aware that content within the header of the same page as a chapter title does not appear, but she made an exception</em>.
+                    </li>
+                    <li>An adorned chapter title</li>
+                    <li>A dropcap for the first letter of the first paragraph of the chapter</li>
+                    <li>Indented paragraphs</li>
+                    <li>Page numbers</li>
+                </ul>
+                <p>
+                    She was then picturing herself making marks on a novel like she used to in school. In her true fashion, she got carried away with "What ifs." 
+                </p>
+                <ul>
+                    <li>
+                        "What if highlighting the text actually looked <mark>like a highlighter</mark>?"
+                        <ul>
+                            <li>"What if I wanted it to be <mark class="pink">pink</mark>?"</li>
+                            <li>"<mark class="blue">Blue</mark>?"</li>
+                            <li>"<mark class="green">Green</mark>?"</li>
+                            <li>"<mark class="orange">Orange</mark>?"</li>
+                        </ul>
+                    </li>
+                    <li>"What if I found <s>a typo</s><sup>an error in the content</sup> and wanted to make a correction?"</li>
+                    <li>"What if I was viewing this on mobile&mdash;"</li>
+                </ul>
+                <p>
+                    The true obstacle showed its form. Responsiveness. How on Earth will she make this work?
+                </p>
+                <p>
+                    Erin pulled out her notepad and started sketching. First she began to illustrate the wireframe of the book in its entirety. Then she recorded some notes on how each element would break down as the screen size got smaller. After several minutes, the blueprint was complete. She came to the conclusion that mobile viewing must stay minimal. The pages go away, which makes the page numbers no longer have a function so they must go away, and if those go away then there is no need for a cover since it is used to help hold and protect pages.
+                </p>
+                <p>
+                    She looks back at the blinking cursor of her blank canvas in Sublime Text 2. Doubt begins to linger in the back of her mind with the thought of her new code never being used and her time spent ends up being a waste. Her fingers were typing anyway.
+                </p>
+                <p>
+                    Erin smirked, "Well at least I think it's worth a try."
+                </p>
+            </article>
+            <footer>
+                <ol id="page-numbers">
+                    <li>1</li>
+                    <li>2</li>
+                </ol>
+            </footer>
+        </section>
 
     </div>
 </div>
-<div class="message-box">
-  <div>
-    <a id="descriptAll"></a>
-    <br>
-    <a id="descriptAll2"></a></div>
-</div>
-
-<div class="message-box">
- 
-              <!-- Upload Button -->
-               <input type="file" id="fileInput" accept=".txt" style="display: none;" onchange="loadFile(event)">
-               <button class="open-modal" onclick="document.getElementById('fileInput').click()">Load Save</button>
-               <!-- Export Button -->
-               <button class="open-modal" id="exportButton" onclick="exportToFile()">Save</button>
-               <button class="open-modal" onclick = "nextPhoto()">Achievements</button>
-
-               <div id="dragon-boss-animation-selector-container" style="position:absolute; right:10px; top: 20px;">
-
-                 <select id="animation-selector">
-                     <option value="0">Idle</option>
-                     <option value="1">Kick</option>
-                     <option value="2">Open</option>
-                     <option value="3">Pick Up</option>
-                     <option value="4">Punch</option>
-                     <option value="5">Run</option>
-                     <option value="6">Scared</option>
-                     <option value="7">Slash</option>
-                     <option value="8">Talk</option>
-                     <option value="9">Twerk</option>
-                 </select>
-             </div>
-  </div>
-
-
-<div class="message-box" id="mb1">
-  <section class="closed-book">
-      <header>
-          <h1 id="titleChange2">LuminaFields</h1>
-          <span>Pop.<font id="population">0</font></span>
-          <span>Avg.<font id="average">0</font></span>
-          <span>Hea.<font id="mainHeadingTotal">0</font></span>
-          <span>EmQ.<font id="mainHeadingAverage">0</font></span>
-          <br>
-          <font id="titleChange">Data</font>
-      </header>
-      <div id="reflectionsContainer">
-<div class="chat-window" id="chatWindow">
-            <a id="greeting"></a>'s fable:<a id="storyContainer"></a>
-              </a>
-                   </div>
-      </div>
-      <button class="open-modal" onclick="scrollToBottom()">Scroll to bottom</button>
-    </div>
-
-    <div style="display: flex; justify-content: center; align-items: center;" class="message-box">
-      <div>
-          <textarea oninput="checkPasscode();" id="textarea" style="width:400px;height:80px;" placeholder="Enter your text here..."></textarea>
-          <button class="open-modal" onclick="allSend()">Send</button>
-      </div>
-</div>
-
-
-
-<div class="message-box" style="display: flex; flex-wrap: wrap;">
-  <div style="flex: 0 0 calc(30% - 20px); margin: 10px;  font-size: 1.2em;" class="days-left" >HP: <font id="mainhp"></font> </div>
-  <div style="flex: 0 0 calc(30% - 20px); margin: 10px;  font-size: 1.2em;" class="days-left" >MP: <font id="mainmp"></font> </div>
-  <div style="flex: 0 0 calc(30% - 20px); margin: 10px;  font-size: 1.2em;" class="days-left" >ATK: <font id="mainatk"></font> </div>
-  <div style="flex: 0 0 calc(30% - 20px); margin: 10px;  font-size: 1.2em;" class="days-left" >DEF: <font id="maindef"></font> </div>
-  <div style="flex: 0 0 calc(30% - 20px); margin: 10px;  font-size: 1.2em;" class="days-left" >AIR: <font id="mainair"></font> </div>
-  <div style="flex: 0 0 calc(30% - 20px); margin: 10px;  font-size: 1.2em;" class="days-left" >SPD: <font id="mainspd"></font> </div>
-</div>
-
-
-<div class="message-box" style="display: flex; flex-wrap: wrap;">
-
-
-      <div style="flex: 0 0 calc(33% - 20px); margin: 10px;" class="box-progress-wrapper">
-        <p class="box-progress-header">Explorer: <font id="explorer"></font></p>
-        <div class="box-progress-bar">
-          <span class="explorer-progress box-progress" style="width: 0%"></span>
-
-        </div>
-        <p id="explorerbp" class="box-progress-percentage">0%</p>
-      </div>
-
-      <div style="flex: 0 0 calc(33% - 20px); margin: 10px;" class="box-progress-wrapper">
-        <p class="box-progress-header">Voyager: <font id="voyager"></font></p>
-        <div class="box-progress-bar">
-          <span class="voyager-progress box-progress" style="width: 0%"></span>
-
-        </div>
-        <p id="voyagerbp" class="box-progress-percentage">0%</p>
-      </div>
-
-      <div style="flex: 0 0 calc(33% - 20px); margin: 10px;" class="box-progress-wrapper">
-        <p class="box-progress-header">Captain: <font id="captain"></font></p>
-        <div class="box-progress-bar">
-          <span class="captain-progress box-progress" style="width: 0%"></span>
-
-        </div>
-        <p id="captainbp" class="box-progress-percentage">0%</p>
-      </div>
-
-      <div style="flex: 0 0 calc(33% - 20px); margin: 10px;" class="box-progress-wrapper">
-        <p class="box-progress-header">Merchant: <font id="merchant"></font></p>
-        <div class="box-progress-bar">
-          <span class="merchant-progress box-progress" style="width: 0%"></span>
-
-        </div>
-        <p id="merchantbp" class="box-progress-percentage">0%</p>
-      </div>
-
-      <div style="flex: 0 0 calc(33% - 20px); margin: 10px;" class="box-progress-wrapper">
-        <p class="box-progress-header">Shipwright: <font id="shipwright"></font></p>
-        <div class="box-progress-bar">
-          <span class="shipwright-progress box-progress" style="width: 0%"></span>
-
-        </div>
-        <p id="shipwrightbp" class="box-progress-percentage">0%</p>
-      </div>
-
-
-      <div style="flex: 0 0 calc(33% - 20px); margin: 10px;" class="box-progress-wrapper">
-        <p class="box-progress-header">Fisherman: <font id="fisherman"></font></p>
-        <div class="box-progress-bar">
-          <span class="fisherman-progress box-progress" style="width: 0%"></span>
-
-        </div>
-        <p id="fishermanbp" class="box-progress-percentage">0%</p>
-      </div>
-
-
-      <div style="flex: 0 0 calc(33% - 20px); margin: 10px;" class="box-progress-wrapper">
-        <p class="box-progress-header">Smuggler: <font id="smuggler"></font></p>
-        <div class="box-progress-bar">
-          <span class="smuggler-progress box-progress" style="width: 0%"></span>
-
-        </div>
-        <p id="smugglerbp" class="box-progress-percentage">0%</p>
-      </div>
-
-
-      <div style="flex: 0 0 calc(33% - 20px); margin: 10px;" class="box-progress-wrapper">
-        <p class="box-progress-header">Arbiter: <font id="arbiter"></font></p>
-        <div class="box-progress-bar">
-          <span class="arbiter-progress box-progress" style="width: 0%"></span>
-
-        </div>
-        <p id="arbiterbp" class="box-progress-percentage">0%</p>
-      </div>
-
-
-      <div style="flex: 0 0 calc(33% - 20px); margin: 10px;" class="box-progress-wrapper">
-        <p class="box-progress-header">Sailor: <font id="sailor"></font></p>
-        <div class="box-progress-bar">
-          <span class="sailor-progress box-progress" style="width: 0%"></span>
-
-        </div>
-        <p id="sailorbp" class="box-progress-percentage">0%</p>
-      </div>
-
-
-
-
-
-
-
-
-
-</div>
-
-
-
-
-
-
-
-
-    <div class="message-box" style="display: flex; flex-wrap: wrap;">
-      <div style="flex: 0 0 calc(33% - 20px); margin: 10px;" class="box-progress-wrapper">
-                 <p class="box-progress-header">Progressive: <font id="progressive"></font></p>
-                 <div class="box-progress-bar">
-                   <span class="progressive-progress box-progress" style="width: 0%; background-color: rgba(42,19,246,1)"></span>
-
-                 </div>
-                 <p id="progressivebp" class="box-progress-percentage">0%</p>
-               </div>
-
-               <div style="flex: 0 0 calc(33% - 20px); margin: 10px;" class="box-progress-wrapper">
-               <p class="box-progress-header">Conservative: <font id="conservative"></font></p>
-               <div class="box-progress-bar">
-    <span class="conservative-progress box-progress" style="width: 0%; background-color: rgba(230,0,0,1)"></span>
-              </div>
-               <p id="conservativebp" class="box-progress-percentage">0%</p>
-             </div>
-
-             <div style="flex: 0 0 calc(33% - 20px); margin: 10px;" class="box-progress-wrapper">
-               <p class="box-progress-header">Socialist: <font id="socialist"></font></p>
-               <div class="box-progress-bar">
-    <span class="socialist-progress box-progress" style="width: 60%; background-color: rgba(236,220,202,1)"></span>
-               </div>
-               <p id="socialistbp" class="box-progress-percentage">0%</p>
-             </div>
-
-             <div style="flex: 0 0 calc(33% - 20px); margin: 10px;" class="box-progress-wrapper">
-                        <p class="box-progress-header">Economist: <font id="economist"></font></p>
-                        <div class="box-progress-bar">
-             <span class="economist-progress box-progress" style="width: 0%; background-color: rgba(212,175,55,1)"></span>
-                        </div>
-                        <p id="economistbp" class="box-progress-percentage">0%</p>
-                      </div>
-
-
-                      <div style="flex: 0 0 calc(33% - 20px); margin: 10px;" class="box-progress-wrapper">
-               <p class="box-progress-header">Idealist: <font id="idealist"></font></p>
-               <div class="box-progress-bar">
-    <span class="idealist-progress box-progress" style="width: 0%; background-color: rgba(0,184,0,1)"></span>
-               </div>
-               <p id="idealistbp" class="box-progress-percentage">0%</p>
-             </div>
-
-
-             <div style="flex: 0 0 calc(33% - 20px); margin: 10px;" class="box-progress-wrapper">
-                        <p class="box-progress-header">Realist: <font id="realist"></font></p>
-                        <div class="box-progress-bar">
-             <span class="realist-progress box-progress" style="width: 60%; background-color: rgba(115,115,115,1)"></span>
-                        </div>
-                        <p id="realistbp" class="box-progress-percentage">40%</p>
-                      </div>
-
-                      <div style="flex: 0 0 calc(33% - 20px); margin: 10px;" class="box-progress-wrapper">
-                                <p class="box-progress-header">Globalist: <font id="globalist"></font></p>
-                                <div class="box-progress-bar">
-                     <span class="globalist-progress box-progress" style="width: 0%; background-color: rgba(137,67,35,1)"></span>
-                                </div>
-                                <p id="globalistbp" class="box-progress-percentage">0%</p>
-                              </div>
-
-
-                              <div style="flex: 0 0 calc(33% - 20px); margin: 10px;" class="box-progress-wrapper">
-              <p class="box-progress-header">Nationalist: <font id="nationalist"></font></p>
-              <div class="box-progress-bar">
-    <span class="nationalist-progress box-progress" style="width: 0%; background-color: rgba(47,204,181,1)"></span>
-              </div>
-              <p id="nationalistbp" class="box-progress-percentage">0%</p>
-            </div>
-
-            <div style="flex: 0 0 calc(33% - 20px); margin: 10px;" class="box-progress-wrapper">
-                       <p class="box-progress-header">Populist: <font id="populist"></font></p>
-                       <div class="box-progress-bar">
-            <span class="populist-progress box-progress" style="width: 0%; background-color: rgba(135,93,92,1)"></span>
-                       </div>
-                       <p id="populistbp" class="box-progress-percentage">0%</p>
-                     </div>
-
-    </div>
-
-</div>
-<div id="editFile" class="message-box" style="display:none;">
-  <!-- Editable Text Container -->
-<div id="textContainer" contenteditable="true" style="margin-top: 10px; border: none; padding: 20px; min-height: 100px; max-height: 80vh; overflow-y: auto;">
-<!-- Uploaded text will appear here -->
-</div>
-</div>
-
-
-
-
-<div class="message-box" style="display: flex; flex-wrap: wrap;">
-            <div style="flex: 0 0 calc(20% - 20px); margin: 10px;  font-size: 1.8em;" class="days-left" >
-              <a id="copyDogSymbol">🐕</a>
-            </div>
-            <div style="flex: 0 0 calc(20% - 20px); margin: 10px;  font-size: 1.8em;" class="days-left" >
-              <a id="copyexplorerSymbol">🐬</a>
-            </div>
-            <div style="flex: 0 0 calc(20% - 20px); margin: 10px;  font-size: 1.8em;" class="days-left" >
-              <a id="copyarbiterSymbol">🐈</a>
-            </div>
-            <div style="flex: 0 0 calc(20% - 20px); margin: 10px;  font-size: 1.8em;" class="days-left" >
-              <a id="copymerchantSymbol">🦉</a>
-            </div>
-            <div style="flex: 0 0 calc(20% - 20px); margin: 10px;  font-size: 1.8em;" class="days-left" >
-              <a id="copysmugglerSymbol">🦘</a>
-            </div>
-            <div style="flex: 0 0 calc(20% - 20px); margin: 10px;  font-size: 1.8em;" class="days-left" >
-              <a id="copysailorSymbol">🦜</a>
-            </div>
-            <div style="flex: 0 0 calc(20% - 20px); margin: 10px;  font-size: 1.8em;" class="days-left" >
-              <a id="copyvoyagerSymbol">🐢</a>
-            </div>
-            <div style="flex: 0 0 calc(20% - 20px); margin: 10px;  font-size: 1.8em;" class="days-left" >
-              <a id="copyshipwrightSymbol">🦔</a>
-            </div>
-            <div style="flex: 0 0 calc(20% - 20px); margin: 10px;  font-size: 1.8em;" class="days-left" >
-              <a id="copycaptainSymbol">🐙</a>
-            </div>
-            <div style="flex: 0 0 calc(20% - 20px); margin: 10px;  font-size: 1.8em;" class="days-left" >
-              <a id="copyfishermanSymbol">🐧</a>
-            </div>
-</div>
-
-
-
-
-
-
-            </div>
-            </div>
-            </div>
-            <!-- partial -->
-              <script  src="hardData/home.js"></script>
-              <script  src="hardData/upload.js"></script>
-              <script src="hardData/populations.js"></script>
-  <script  src="hardData/story.js"></script>
-  <script  src="hardData/story2.js"></script>
-  <script  src="hardData/collection.js"></script>
-  <script src='https://unpkg.co/gsap@3/dist/gsap.min.js'></script>
-<script src='https://unpkg.com/gsap@3/dist/EasePack.min.js'></script>
-
-<script  src="controls/boss.js"></script>
-<script  src="controls/boss2.js"></script>
-
-<script  src="./script.js"></script>
-
-<script  src="controls/felix.js"></script>
-<script  src="controls/init.js"></script>
-<script  src="controls/move.js"></script>
-
-<script  src="hardData/personality.js"></script>
-<script  src="hardData/chatbot.js"></script>
-<script  src="controls/anya.js"></script>
-<script  src="controls/micheal.js"></script>
-<script  src="controls/crycella.js"></script>
-
-
-            </body>
-            </html>
+<!-- partial -->
+  
+</body>
+</html>
